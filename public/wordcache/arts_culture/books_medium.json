@@ -1,0 +1,27 @@
+{
+  "topic": "books",
+  "difficulty": "medium",
+  "count": 20,
+  "words": [
+    "READER",
+    "AUTHOR",
+    "NOVELS",
+    "POETRY",
+    "FICTION",
+    "MYSTERY",
+    "FANTASY",
+    "BIOGRAPHY",
+    "EDITION",
+    "PAPERBACK",
+    "HARDCOVER",
+    "CHAPTERS",
+    "CHAPTER",
+    "FOREWORD",
+    "LIBRARY",
+    "PUBLISHER",
+    "PRINTING",
+    "EDITORIAL",
+    "ANNOTATE",
+    "BOOKSTORE"
+  ]
+}

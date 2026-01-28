@@ -1,0 +1,27 @@
+{
+  "topic": "books",
+  "difficulty": "hard",
+  "count": 20,
+  "words": [
+    "BIBLIOGRAPHY",
+    "THESAURUS",
+    "ANNOTATION",
+    "PROLOGUE",
+    "EPILOGUE",
+    "NOVELIST",
+    "NONFICTION",
+    "FICTIONAL",
+    "PAGECOUNTER",
+    "ISBNNUMBERS",
+    "CHAPTERS",
+    "EDITIONS",
+    "LITERARY",
+    "BINDINGS",
+    "PUBLISHER",
+    "HARDBACKS",
+    "SOFTCOVERS",
+    "CLASSICS",
+    "FRAGMENT",
+    "NOTEBOOKS"
+  ]
+}
