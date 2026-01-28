@@ -15,7 +15,7 @@ jobs:
 
       - name: Generate animals word lists (easy / medium / hard)
         run: |
-          curl -sS "${{ secrets.WORDS_FUNCTION__URL }}?topic=animals&count=20&all=1" \
+          curl -sS "${{ secrets.WORDS_FUNCTION_URL }}?topic=animals&count=20&all=1" \
             > /tmp/animals_all.json
 
           node -e '
