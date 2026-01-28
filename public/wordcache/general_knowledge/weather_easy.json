@@ -1,0 +1,27 @@
+{
+  "topic": "weather",
+  "difficulty": "easy",
+  "count": 20,
+  "words": [
+    "RAIN",
+    "SNOW",
+    "WIND",
+    "CLOUD",
+    "CLOUDS",
+    "FOG",
+    "SUN",
+    "SUNNY",
+    "STORM",
+    "HAIL",
+    "MIST",
+    "RAINY",
+    "WARM",
+    "COLD",
+    "DRY",
+    "WET",
+    "HUMID",
+    "CHILLY",
+    "BRISK",
+    "FLOOD"
+  ]
+}
