@@ -1,0 +1,27 @@
+{
+  "topic": "logic",
+  "difficulty": "easy",
+  "count": 20,
+  "words": [
+    "LOGIC",
+    "REASON",
+    "PROOF",
+    "INFER",
+    "DEDUCE",
+    "AXIOM",
+    "TRUE",
+    "FALSE",
+    "AND",
+    "NOT",
+    "XOR",
+    "NAND",
+    "NOR",
+    "GATE",
+    "RULES",
+    "MODEL",
+    "THEORY",
+    "ASSERT",
+    "VALID",
+    "TRUTH"
+  ]
+}

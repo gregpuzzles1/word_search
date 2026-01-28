@@ -1,0 +1,27 @@
+{
+  "topic": "puzzles",
+  "difficulty": "hard",
+  "count": 20,
+  "words": [
+    "CROSSWORD",
+    "CROSSWORDS",
+    "ANAGRAMS",
+    "ACROSTICS",
+    "NONOGRAM",
+    "NONOGRAMS",
+    "JIGSAWPUZZLE",
+    "SUDOKUPUZZLE",
+    "WORDSEARCH",
+    "WORDMAZES",
+    "CRYPTOGRAMS",
+    "BRAINTEASERS",
+    "PUZZLEHUNT",
+    "METAPUZZLE",
+    "KENKENPUZZLE",
+    "CROSSNUMBER",
+    "CROSSNUMBERS",
+    "LOGICPUZZLE",
+    "RUBIKSCUBE",
+    "SLITHERLINK"
+  ]
+}
