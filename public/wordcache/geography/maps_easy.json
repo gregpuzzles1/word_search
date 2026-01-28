@@ -1,0 +1,27 @@
+{
+  "topic": "maps",
+  "difficulty": "easy",
+  "count": 20,
+  "words": [
+    "MAP",
+    "MAPS",
+    "ROAD",
+    "ROADS",
+    "ROUTE",
+    "CITY",
+    "CITIES",
+    "LAKE",
+    "LAKES",
+    "RIVER",
+    "ISLAND",
+    "FOREST",
+    "DESERT",
+    "HILLS",
+    "SCALE",
+    "GRID",
+    "LEGEND",
+    "NORTH",
+    "SOUTH",
+    "EAST"
+  ]
+}
