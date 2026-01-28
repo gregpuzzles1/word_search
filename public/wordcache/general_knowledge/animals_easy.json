@@ -1,0 +1,27 @@
+{
+  "topic": "animals",
+  "difficulty": "easy",
+  "count": 20,
+  "words": [
+    "CAT",
+    "DOG",
+    "HORSE",
+    "BEAR",
+    "LION",
+    "WOLF",
+    "COW",
+    "PIG",
+    "SHEEP",
+    "GOAT",
+    "FROG",
+    "DUCK",
+    "FISH",
+    "TIGER",
+    "MOOSE",
+    "SNAKE",
+    "PANDA",
+    "BIRD",
+    "RABBIT",
+    "MOUSE"
+  ]
+}
