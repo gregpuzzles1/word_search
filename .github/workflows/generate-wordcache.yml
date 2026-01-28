@@ -1,12 +1,17 @@
-name: Generate Word Search Cache
+name: Generate Word Search Cache (by category)
 
 on:
   workflow_dispatch:
-  # Uncomment to run on every push to main
-  # push:
-  #   branches: [ main ]
+    inputs:
+      category:
+        description: "Category folder name under public/wordcache (e.g., general_knowledge, geography)"
+        required: true
+        default: "general_knowledge"
+      count:
+        description: "Words per difficulty"
+        required: false
+        default: "20"
 
-# ✅ REQUIRED so github-actions[bot] can commit & push
 permissions:
   contents: write
 
@@ -18,22 +23,35 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Generate general knowledge word lists (easy / medium / hard)
+      - name: Generate word lists (easy / medium / hard) for selected category
         shell: bash
         run: |
           set -euo pipefail
 
-          TOPICS_FILE="public/wordcache/general_knowledge/topics.json"
-          COUNT=20
+          CATEGORY="${{ inputs.category }}"
+          COUNT="${{ inputs.count }}"
+
+          # Basic validation
+          if ! [[ "$CATEGORY" =~ ^[a-z0-9_]+$ ]]; then
+            echo "❌ Invalid category: $CATEGORY"
+            echo "Use lowercase letters, numbers, and underscores only."
+            exit 1
+          fi
+          if ! [[ "$COUNT" =~ ^[0-9]+$ ]] || [ "$COUNT" -le 0 ]; then
+            echo "❌ Invalid count: $COUNT"
+            exit 1
+          fi
+
+          TOPICS_FILE="public/wordcache/${CATEGORY}/topics.json"
 
           if [ ! -f "$TOPICS_FILE" ]; then
             echo "❌ Missing topics file: $TOPICS_FILE"
             echo "Create it, e.g.:"
-            echo '{ "category": "general_knowledge", "topics": ["animals","plants","insects","weather","water","space","earth_science"] }'
+            echo "{ \"category\": \"${CATEGORY}\", \"topics\": [\"topic1\",\"topic2\"] }"
             exit 1
           fi
 
-          # Extract topics array into a simple newline-delimited list
+          # Extract topics array into a newline-delimited list
           node -e '
             const fs = require("fs");
             const data = JSON.parse(fs.readFileSync(process.env.TOPICS_FILE, "utf8"));
@@ -44,9 +62,14 @@ jobs:
             for (const t of data.topics) console.log(String(t).trim());
           ' > /tmp/topics.txt
 
+          echo "Category: $CATEGORY"
+          echo "Count: $COUNT"
           echo "Topics to generate:"
           cat /tmp/topics.txt
           echo ""
+
+          # Ensure output directory exists (in case it's new)
+          mkdir -p "public/wordcache/${CATEGORY}"
 
           while IFS= read -r topic; do
             if [ -z "$topic" ]; then
@@ -85,36 +108,38 @@ jobs:
             ' -- \
               env FILE="/tmp/${topic}_all.json" || true
 
-            # Split into three cache files inside your existing repo directory
+            # Split into three cache files
             node -e "
               const fs = require('fs');
               const d = JSON.parse(fs.readFileSync('/tmp/${topic}_all.json','utf8'));
 
               fs.writeFileSync(
-                'public/wordcache/general_knowledge/${topic}_easy.json',
+                'public/wordcache/${CATEGORY}/${topic}_easy.json',
                 JSON.stringify({ topic: d.topic, difficulty: 'easy', count: d.count, words: d.easy }, null, 2)
               );
               fs.writeFileSync(
-                'public/wordcache/general_knowledge/${topic}_medium.json',
+                'public/wordcache/${CATEGORY}/${topic}_medium.json',
                 JSON.stringify({ topic: d.topic, difficulty: 'medium', count: d.count, words: d.medium }, null, 2)
               );
               fs.writeFileSync(
-                'public/wordcache/general_knowledge/${topic}_hard.json',
+                'public/wordcache/${CATEGORY}/${topic}_hard.json',
                 JSON.stringify({ topic: d.topic, difficulty: 'hard', count: d.count, words: d.hard }, null, 2)
               );
             "
           done < /tmp/topics.txt
         env:
-          TOPICS_FILE: public/wordcache/general_knowledge/topics.json
+          TOPICS_FILE: public/wordcache/${{ inputs.category }}/topics.json
 
       - name: Commit generated files
         shell: bash
         run: |
           set -euo pipefail
 
+          CATEGORY="${{ inputs.category }}"
+
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add public/wordcache/general_knowledge/*.json
-          git commit -m "Update general knowledge word cache" || echo "No changes to commit"
+          git add "public/wordcache/${CATEGORY}/*.json"
+          git commit -m "Update ${CATEGORY} word cache" || echo "No changes to commit"
           git push
