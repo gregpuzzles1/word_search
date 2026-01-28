@@ -18,59 +18,94 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Generate animals word lists (easy / medium / hard)
+      - name: Generate general knowledge word lists (easy / medium / hard)
         shell: bash
         run: |
           set -euo pipefail
 
-          URL="${{ secrets.WORDS_FUNCTION_URL }}?topic=animals&count=20&all=1"
-          echo "Calling: $URL"
+          TOPICS_FILE="public/wordcache/general_knowledge/topics.json"
+          COUNT=20
 
-          # Save response body and capture HTTP status code
-          STATUS=$(curl -sS -o /tmp/animals_all.json -w "%{http_code}" "$URL" || true)
-
-          echo "HTTP status: $STATUS"
-          echo "First 300 chars of response:"
-          head -c 300 /tmp/animals_all.json || true
-          echo ""
-
-          # If not HTTP 200, fail and print full response
-          if [ "$STATUS" != "200" ]; then
-            echo "❌ Lambda failed. Full response:"
-            cat /tmp/animals_all.json || true
+          if [ ! -f "$TOPICS_FILE" ]; then
+            echo "❌ Missing topics file: $TOPICS_FILE"
+            echo "Create it, e.g.:"
+            echo '{ "category": "general_knowledge", "topics": ["animals","plants","insects","weather","water","space","earth_science"] }'
             exit 1
           fi
 
-          # Validate JSON before parsing
+          # Extract topics array into a simple newline-delimited list
           node -e '
             const fs = require("fs");
-            const txt = fs.readFileSync("/tmp/animals_all.json","utf8").trim();
-            try { JSON.parse(txt); }
-            catch(e) {
-              console.error("❌ Not valid JSON. First 500 chars:\n" + txt.slice(0,500));
+            const data = JSON.parse(fs.readFileSync(process.env.TOPICS_FILE, "utf8"));
+            if (!data.topics || !Array.isArray(data.topics) || data.topics.length === 0) {
+              console.error("❌ topics.json must contain a non-empty topics array");
               process.exit(1);
             }
-            console.log("✅ JSON looks valid");
-          '
+            for (const t of data.topics) console.log(String(t).trim());
+          ' > /tmp/topics.txt
 
-          # Split into three cache files inside your existing repo directory
-          node -e '
-            const fs = require("fs");
-            const d = JSON.parse(fs.readFileSync("/tmp/animals_all.json","utf8"));
+          echo "Topics to generate:"
+          cat /tmp/topics.txt
+          echo ""
 
-            fs.writeFileSync(
-              "public/wordcache/general_knowledge/animals_easy.json",
-              JSON.stringify({ topic: d.topic, difficulty: "easy", count: d.count, words: d.easy }, null, 2)
-            );
-            fs.writeFileSync(
-              "public/wordcache/general_knowledge/animals_medium.json",
-              JSON.stringify({ topic: d.topic, difficulty: "medium", count: d.count, words: d.medium }, null, 2)
-            );
-            fs.writeFileSync(
-              "public/wordcache/general_knowledge/animals_hard.json",
-              JSON.stringify({ topic: d.topic, difficulty: "hard", count: d.count, words: d.hard }, null, 2)
-            );
-          '
+          while IFS= read -r topic; do
+            if [ -z "$topic" ]; then
+              continue
+            fi
+
+            echo "=== Topic: $topic ==="
+
+            URL="${{ secrets.WORDS_FUNCTION_URL }}?topic=$topic&count=$COUNT&all=1"
+            echo "Calling: $URL"
+
+            STATUS=$(curl -sS -o "/tmp/${topic}_all.json" -w "%{http_code}" "$URL" || true)
+
+            echo "HTTP status: $STATUS"
+            echo "First 300 chars of response:"
+            head -c 300 "/tmp/${topic}_all.json" || true
+            echo ""
+
+            if [ "$STATUS" != "200" ]; then
+              echo "❌ Lambda failed for topic=$topic. Full response:"
+              cat "/tmp/${topic}_all.json" || true
+              exit 1
+            fi
+
+            # Validate JSON before parsing
+            node -e '
+              const fs = require("fs");
+              const file = process.env.FILE;
+              const txt = fs.readFileSync(file, "utf8").trim();
+              try { JSON.parse(txt); }
+              catch(e) {
+                console.error("❌ Not valid JSON. First 500 chars:\n" + txt.slice(0,500));
+                process.exit(1);
+              }
+              console.log("✅ JSON looks valid");
+            ' -- \
+              env FILE="/tmp/${topic}_all.json" || true
+
+            # Split into three cache files inside your existing repo directory
+            node -e "
+              const fs = require('fs');
+              const d = JSON.parse(fs.readFileSync('/tmp/${topic}_all.json','utf8'));
+
+              fs.writeFileSync(
+                'public/wordcache/general_knowledge/${topic}_easy.json',
+                JSON.stringify({ topic: d.topic, difficulty: 'easy', count: d.count, words: d.easy }, null, 2)
+              );
+              fs.writeFileSync(
+                'public/wordcache/general_knowledge/${topic}_medium.json',
+                JSON.stringify({ topic: d.topic, difficulty: 'medium', count: d.count, words: d.medium }, null, 2)
+              );
+              fs.writeFileSync(
+                'public/wordcache/general_knowledge/${topic}_hard.json',
+                JSON.stringify({ topic: d.topic, difficulty: 'hard', count: d.count, words: d.hard }, null, 2)
+              );
+            "
+          done < /tmp/topics.txt
+        env:
+          TOPICS_FILE: public/wordcache/general_knowledge/topics.json
 
       - name: Commit generated files
         shell: bash
@@ -81,5 +116,5 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
           git add public/wordcache/general_knowledge/*.json
-          git commit -m "Update animals word cache" || echo "No changes to commit"
+          git commit -m "Update general knowledge word cache" || echo "No changes to commit"
           git push
