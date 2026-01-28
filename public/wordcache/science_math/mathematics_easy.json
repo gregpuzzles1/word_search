@@ -1,0 +1,27 @@
+{
+  "topic": "mathematics",
+  "difficulty": "easy",
+  "count": 20,
+  "words": [
+    "PLUS",
+    "MINUS",
+    "TIMES",
+    "DIVIDE",
+    "EQUAL",
+    "SINE",
+    "COSINE",
+    "TAN",
+    "LOG",
+    "ROOT",
+    "MATRIX",
+    "VECTOR",
+    "ANGLE",
+    "LINE",
+    "PLANE",
+    "CIRCLE",
+    "SPHERE",
+    "PRIME",
+    "AXIS",
+    "NUMBER"
+  ]
+}

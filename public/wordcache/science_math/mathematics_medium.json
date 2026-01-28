@@ -1,0 +1,27 @@
+{
+  "topic": "mathematics",
+  "difficulty": "medium",
+  "count": 20,
+  "words": [
+    "ALGEBRA",
+    "GEOMETRY",
+    "CALCULUS",
+    "INTEGERS",
+    "RATIONAL",
+    "FUNCTION",
+    "VECTOR",
+    "MATRIX",
+    "TRIANGLE",
+    "PARABOLA",
+    "POLYGONS",
+    "POLYGON",
+    "LOGARITHM",
+    "GAUSSIAN",
+    "SEQUENCES",
+    "SYMMETRY",
+    "LIMITS",
+    "METRIC",
+    "DIAGONAL",
+    "QUADRATIC"
+  ]
+}
