@@ -1,0 +1,49 @@
+name: Generate Word Search Cache
+
+on:
+  workflow_dispatch:        # manual run button in GitHub UI
+  # push:
+  #   branches: [ main ]     # uncomment if you want it to run on every push
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Generate animals word lists (easy / medium / hard)
+        run: |
+          curl -sS "${{ secrets.LAMBDA_URL }}?topic=animals&count=20&all=1" \
+            > /tmp/animals_all.json
+
+          node -e '
+            const fs = require("fs");
+            const d = JSON.parse(fs.readFileSync("/tmp/animals_all.json","utf8"));
+
+            fs.writeFileSync(
+              "public/wordcache/general_knowledge/animals_easy.json",
+              JSON.stringify({ topic: d.topic, difficulty: "easy", count: d.count, words: d.easy }, null, 2)
+            );
+
+            fs.writeFileSync(
+              "public/wordcache/general_knowledge/animals_medium.json",
+              JSON.stringify({ topic: d.topic, difficulty: "medium", count: d.count, words: d.medium }, null, 2)
+            );
+
+            fs.writeFileSync(
+              "public/wordcache/general_knowledge/animals_hard.json",
+              JSON.stringify({ topic: d.topic, difficulty: "hard", count: d.count, words: d.hard }, null, 2)
+            );
+          '
+
+      - name: Commit generated files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add public/wordcache/general_knowledge/*.json
+          git commit -m "Update animals word cache" || echo "No changes to commit"
+          git push
+
