@@ -1,0 +1,27 @@
+{
+  "topic": "soccer",
+  "difficulty": "medium",
+  "count": 20,
+  "words": [
+    "FORWARD",
+    "MIDFIELD",
+    "DEFENDER",
+    "STRIKER",
+    "WINGER",
+    "GOALIE",
+    "KICKOFF",
+    "CORNER",
+    "FREEKICK",
+    "PENALTY",
+    "OFFSIDE",
+    "HEADER",
+    "CROSSING",
+    "PASSING",
+    "DRIBBLE",
+    "SHOOTER",
+    "SETPIECE",
+    "TACKLES",
+    "GOALPOST",
+    "CAPTAIN"
+  ]
+}

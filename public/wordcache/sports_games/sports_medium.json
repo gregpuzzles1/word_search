@@ -1,0 +1,27 @@
+{
+  "topic": "sports",
+  "difficulty": "medium",
+  "count": 20,
+  "words": [
+    "BASEBALL",
+    "BOWLING",
+    "CRICKET",
+    "HOCKEY",
+    "SOCCER",
+    "TENNIS",
+    "FOOTBALL",
+    "SWIMMING",
+    "LACROSSE",
+    "ARCHERY",
+    "FENCING",
+    "CYCLING",
+    "SAILING",
+    "KARATE",
+    "SURFING",
+    "EQUESTRY",
+    "SKIING",
+    "SNOWBOARD",
+    "ROWING",
+    "BOXING"
+  ]
+}

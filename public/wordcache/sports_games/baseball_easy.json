@@ -1,0 +1,27 @@
+{
+  "topic": "baseball",
+  "difficulty": "easy",
+  "count": 20,
+  "words": [
+    "BAT",
+    "BALL",
+    "HIT",
+    "PITCH",
+    "CATCH",
+    "GLOVE",
+    "MOUND",
+    "SWING",
+    "STRIKE",
+    "SAFE",
+    "OUT",
+    "RUN",
+    "RBI",
+    "BASE",
+    "BASES",
+    "FOUL",
+    "DUGOUT",
+    "CLEAT",
+    "PLATE",
+    "FIELD"
+  ]
+}

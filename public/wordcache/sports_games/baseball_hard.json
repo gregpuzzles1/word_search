@@ -1,0 +1,27 @@
+{
+  "topic": "baseball",
+  "difficulty": "hard",
+  "count": 20,
+  "words": [
+    "CENTERFIELD",
+    "SHORTSTOP",
+    "OUTFIELDER",
+    "RIGHTFIELD",
+    "LEFTFIELD",
+    "FIRSTBASE",
+    "SECONDBASE",
+    "THIRDBASE",
+    "STOLENBASE",
+    "DOUBLEPLAY",
+    "TRIPLEPLAY",
+    "GRANDSLAM",
+    "CATCHERS",
+    "PITCHING",
+    "PITCHERS",
+    "BASERUNNER",
+    "SLUGGING",
+    "CURVEBALL",
+    "HITSTREAK",
+    "BASEPATHS"
+  ]
+}

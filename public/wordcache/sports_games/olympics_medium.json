@@ -1,0 +1,27 @@
+{
+  "topic": "olympics",
+  "difficulty": "medium",
+  "count": 20,
+  "words": [
+    "SWIMMING",
+    "CYCLING",
+    "RUNNING",
+    "SAILING",
+    "SHOOTING",
+    "FENCING",
+    "ARCHERY",
+    "KARATE",
+    "TAEKWONDO",
+    "WRESTLING",
+    "ROWING",
+    "HOCKEY",
+    "SOCCER",
+    "BASEBALL",
+    "SOFTBALL",
+    "DIVING",
+    "SKIING",
+    "GYMNAST",
+    "EQUESTRY",
+    "JUDOKA"
+  ]
+}
