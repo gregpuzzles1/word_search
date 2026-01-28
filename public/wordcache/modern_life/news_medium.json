@@ -1,0 +1,27 @@
+{
+  "topic": "news",
+  "difficulty": "medium",
+  "count": 20,
+  "words": [
+    "HEADLINE",
+    "REPORTER",
+    "EDITORIAL",
+    "BULLETIN",
+    "BREAKING",
+    "ANALYST",
+    "ECONOMY",
+    "GLOBAL",
+    "NATION",
+    "WEATHER",
+    "SPORTS",
+    "COVERAGE",
+    "COLUMNIST",
+    "REPORTAGE",
+    "JOURNAL",
+    "POLITICS",
+    "BRIEFS",
+    "HEADLINES",
+    "REPORTING",
+    "NEWSROOM"
+  ]
+}
