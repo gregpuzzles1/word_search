@@ -1,0 +1,58 @@
+{
+    "generated_at": "2026-02-02T18:58:09.716Z",
+    "base_path": "public/wordcache",
+    "count": 10,
+    "categories": [
+        {
+            "slug": "arts_culture",
+            "label": "Arts & Culture",
+            "path": "public/wordcache/arts_culture"
+        },
+        {
+            "slug": "bible",
+            "label": "Bible",
+            "path": "public/wordcache/bible"
+        },
+        {
+            "slug": "everyday_life",
+            "label": "Everyday Life",
+            "path": "public/wordcache/everyday_life"
+        },
+        {
+            "slug": "general_knowledge",
+            "label": "General Knowledge",
+            "path": "public/wordcache/general_knowledge"
+        },
+        {
+            "slug": "geography",
+            "label": "Geography",
+            "path": "public/wordcache/geography"
+        },
+        {
+            "slug": "history_civics",
+            "label": "History & Civics",
+            "path": "public/wordcache/history_civics"
+        },
+        {
+            "slug": "modern_life",
+            "label": "Modern Life",
+            "path": "public/wordcache/modern_life"
+        },
+        {
+            "slug": "science_math",
+            "label": "Science & Math",
+            "path": "public/wordcache/science_math"
+        },
+        {
+            "slug": "sports_games",
+            "label": "Sports & Games",
+            "path": "public/wordcache/sports_games"
+        },
+        {
+            "slug": "thinking_language",
+            "label": "Thinking & Language",
+            "path": "public/wordcache/thinking_language"
+        }
+    ],
+    "sources_hint": "deterministic normalization rules"
+}
