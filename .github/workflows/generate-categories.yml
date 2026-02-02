@@ -53,13 +53,30 @@ jobs:
           # Build JSON payload via python (no heredoc; avoids editor lint issues)
           REQUEST_JSON="$(SLUGS_TEXT="$SLUGS_TEXT" python3 -c 'import json,os; slugs=[s.strip() for s in os.environ.get("SLUGS_TEXT","").splitlines() if s.strip()]; print(json.dumps({"slugs": slugs, "base_path": "public/wordcache"}))')"
 
+          # Sanitize URL (strip CRLF and surrounding whitespace)
+          CATEGORIES_FUNCTION_URL="${CATEGORIES_FUNCTION_URL//$'\r'/}"
+          CATEGORIES_FUNCTION_URL="$(printf "%s" "$CATEGORIES_FUNCTION_URL" | awk '{$1=$1};1')"
+
           echo "➡️ Calling Lambda..."
-          curl --fail-with-body -sS -X POST \
+          HTTP_CODE="$(curl -sS -X POST \
             -H "content-type: application/json" \
             -d "$REQUEST_JSON" \
-            "$CATEGORIES_FUNCTION_URL" \
-            | python3 -m json.tool \
-            > "$OUT_FILE"
+            -o /tmp/categories_resp.txt \
+            -w "%{http_code}" \
+            "$CATEGORIES_FUNCTION_URL" || true)"
+
+          echo "HTTP $HTTP_CODE"
+          echo "----- response (first 200 lines) -----"
+          sed -n '1,200p' /tmp/categories_resp.txt || true
+          echo "-------------------------------------"
+
+          if [ "$HTTP_CODE" -ge 400 ]; then
+            echo "❌ Lambda call failed"
+            exit 1
+          fi
+
+          # Validate and format JSON output
+          python3 -m json.tool < /tmp/categories_resp.txt > "$OUT_FILE"
 
           echo "✅ Wrote $OUT_FILE"
           head -n 40 "$OUT_FILE" || true
