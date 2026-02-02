@@ -1,12 +1,17 @@
 {
-    "generated_at": "2026-02-02T18:58:09.716Z",
+    "generated_at": "2026-02-02T19:09:41.157Z",
     "base_path": "public/wordcache",
-    "count": 10,
+    "count": 11,
     "categories": [
         {
             "slug": "arts_culture",
             "label": "Arts & Culture",
             "path": "public/wordcache/arts_culture"
+        },
+        {
+            "slug": "astronomy",
+            "label": "Astronomy",
+            "path": "public/wordcache/astronomy"
         },
         {
             "slug": "bible",
