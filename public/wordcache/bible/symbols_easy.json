@@ -1,0 +1,27 @@
+{
+  "topic": "symbols",
+  "difficulty": "easy",
+  "count": 20,
+  "words": [
+    "STAR",
+    "HEART",
+    "CIRCLE",
+    "PLUS",
+    "MINUS",
+    "ARROW",
+    "DOT",
+    "HASH",
+    "SQUARE",
+    "GLYPH",
+    "ICON",
+    "SIGIL",
+    "CROSS",
+    "DOLLAR",
+    "EURO",
+    "YEN",
+    "TILDE",
+    "COLON",
+    "COMMA",
+    "PERIOD"
+  ]
+}
