@@ -47,25 +47,14 @@ jobs:
           echo "✅ Found ${#SLUGS[@]} category folders:"
           printf ' - %s\n' "${SLUGS[@]}"
 
-          # Make SLUGS_TEXT available to python via environment
-          export SLUGS_TEXT
+          # Build SLUGS_TEXT as newline-separated list
           SLUGS_TEXT="$(printf "%s\n" "${SLUGS[@]}")"
 
-          # Build JSON payload via python (proper escaping)
-          REQUEST_JSON="$(python3 - <<'PY'
-import json, os
-slugs_text = os.environ.get("SLUGS_TEXT", "")
-slugs = [line.strip() for line in slugs_text.splitlines() if line.strip()]
-payload = {
-  "slugs": slugs,
-  "base_path": "public/wordcache"
-}
-print(json.dumps(payload))
-PY
-          )"
+          # Build JSON payload via python (no heredoc; avoids editor lint issues)
+          REQUEST_JSON="$(SLUGS_TEXT="$SLUGS_TEXT" python3 -c 'import json,os; slugs=[s.strip() for s in os.environ.get("SLUGS_TEXT","").splitlines() if s.strip()]; print(json.dumps({"slugs": slugs, "base_path": "public/wordcache"}))')"
 
           echo "➡️ Calling Lambda..."
-          curl -sS -X POST \
+          curl --fail-with-body -sS -X POST \
             -H "content-type: application/json" \
             -d "$REQUEST_JSON" \
             "$CATEGORIES_FUNCTION_URL" \
@@ -80,7 +69,9 @@ PY
         run: |
           set -euo pipefail
 
-          if git diff --quiet; then
+          FILE="public/wordcache/categories.json"
+
+          if git diff --quiet -- "$FILE"; then
             echo "ℹ️ No changes to commit."
             exit 0
           fi
@@ -88,7 +79,7 @@ PY
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add public/wordcache/categories.json
+          git add "$FILE"
           git commit -m "Update category labels index"
           git push
 
