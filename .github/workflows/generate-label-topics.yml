@@ -1,0 +1,193 @@
+name: Generate Label Topics (Chip Cloud)
+
+on:
+  workflow_dispatch:
+  # Uncomment if you want it to run on every push
+  # push:
+  #   branches: [ main ]
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Generate label_topics.json in each category folder
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          BASE_DIR="public/wordcache"
+
+          if [ ! -d "$BASE_DIR" ]; then
+            echo "❌ Missing base folder: $BASE_DIR"
+            exit 1
+          fi
+
+          # Write a tiny Node script on the fly (no repo file needed)
+          cat > /tmp/generate-label-topics.mjs <<'EOF'
+          import fs from "node:fs/promises";
+          import path from "node:path";
+
+          const BASE_DIR = process.env.BASE_DIR || "public/wordcache";
+
+          // Deterministic acronym behavior for nicer chips
+          const ACRONYMS = new Set([
+            "us","usa","uk","eu","nasa","nba","nfl","mlb","nhl","fbi","cia","dna","ai"
+          ]);
+
+          const LOWERCASE_TINY = new Set([
+            "and","or","of","the","a","an","to","in","on","for","with"
+          ]);
+
+          // ✅ Explicit, deterministic overrides (slug -> label)
+          // Use this for punctuation, roman numerals, number formats, branding, etc.
+          // Keys MUST be normalized slugs (lowercase + underscores).
+          const TOPIC_LABEL_OVERRIDES = {
+            // geography/history examples
+            "us_history": "U.S. History",
+            "world_war_i": "World War I",
+            "world_war_ii": "World War II",
+
+            // science/tech examples
+            "ai": "AI",
+            "3d_printing": "3D Printing",
+            "2d_shapes": "2D Shapes",
+
+            // games examples
+            "rpgs": "RPGs",
+            "fps_games": "FPS Games",
+
+            // misc examples you might want later
+            "q_and_a": "Q&A"
+          };
+
+          function nowIso() {
+            return new Date().toISOString();
+          }
+
+          function normalizeSlug(input) {
+            return String(input ?? "")
+              .trim()
+              .toLowerCase()
+              .replace(/[\s-]+/g, "_")
+              .replace(/_+/g, "_")
+              .replace(/[^a-z0-9_]/g, "");
+          }
+
+          function topicLabelFromSlug(slug) {
+            // 1) Overrides win
+            if (TOPIC_LABEL_OVERRIDES[slug]) return TOPIC_LABEL_OVERRIDES[slug];
+
+            // 2) Otherwise deterministic slug -> Title Case label
+            const words = slug.split("_").filter(Boolean);
+
+            return words
+              .map((w, i) => {
+                const lower = w.toLowerCase();
+                if (ACRONYMS.has(lower)) return lower.toUpperCase();
+                if (i > 0 && LOWERCASE_TINY.has(lower)) return lower;
+                return lower.charAt(0).toUpperCase() + lower.slice(1);
+              })
+              .join(" ");
+          }
+
+          async function exists(p) {
+            try { await fs.access(p); return true; }
+            catch { return false; }
+          }
+
+          async function readJson(p) {
+            return JSON.parse(await fs.readFile(p, "utf8"));
+          }
+
+          async function writeJson(p, obj) {
+            await fs.writeFile(p, JSON.stringify(obj, null, 2) + "\n", "utf8");
+          }
+
+          async function listDirs(dir) {
+            const entries = await fs.readdir(dir, { withFileTypes: true });
+            return entries
+              .filter(e => e.isDirectory())
+              .map(e => e.name)
+              .sort(); // deterministic
+          }
+
+          async function main() {
+            const generatedAt = nowIso();
+            const categoryDirs = await listDirs(BASE_DIR);
+
+            let processed = 0;
+
+            for (const categorySlugRaw of categoryDirs) {
+              const categoryPath = path.join(BASE_DIR, categorySlugRaw);
+              const topicsPath = path.join(categoryPath, "topics.json");
+
+              if (!(await exists(topicsPath))) continue;
+
+              const topicsJson = await readJson(topicsPath);
+
+              const categorySlug = normalizeSlug(topicsJson.category ?? categorySlugRaw);
+              const topics = Array.isArray(topicsJson.topics) ? topicsJson.topics : [];
+
+              // normalize -> sort -> unique
+              const normalized = topics
+                .map(t => normalizeSlug(t))
+                .filter(Boolean)
+                .sort();
+
+              const unique = [...new Set(normalized)];
+
+              const out = {
+                generated_at: generatedAt,
+                category: categorySlug,
+                count: unique.length,
+                topics: unique.map(s => ({
+                  slug: s,
+                  label: topicLabelFromSlug(s)
+                })),
+                sources_hint: "deterministic slug->label normalization + overrides map"
+              };
+
+              const outPath = path.join(categoryPath, "label_topics.json");
+              await writeJson(outPath, out);
+              processed++;
+            }
+
+            console.log(`✅ Wrote label_topics.json for ${processed} category folders.`);
+          }
+
+          main().catch(err => {
+            console.error("❌ generator failed:", err);
+            process.exit(1);
+          });
+          EOF
+
+          node /tmp/generate-label-topics.mjs
+
+      - name: Commit and push changes
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add public/wordcache/**/label_topics.json
+
+          if git diff --cached --quiet; then
+            echo "✅ No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Update label_topics.json for chip labels"
+          git push
