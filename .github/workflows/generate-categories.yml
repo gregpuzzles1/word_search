@@ -47,7 +47,8 @@ jobs:
           echo "✅ Found ${#SLUGS[@]} category folders:"
           printf ' - %s\n' "${SLUGS[@]}"
 
-          # Join with newlines into one env var (safe + simple)
+          # Make SLUGS_TEXT available to python via environment
+          export SLUGS_TEXT
           SLUGS_TEXT="$(printf "%s\n" "${SLUGS[@]}")"
 
           # Build JSON payload via python (proper escaping)
@@ -73,9 +74,6 @@ PY
 
           echo "✅ Wrote $OUT_FILE"
           head -n 40 "$OUT_FILE" || true
-        env:
-          CATEGORIES_FUNCTION_URL: ${{ secrets.CATEGORIES_FUNCTION_URL }}
-          SLUGS_TEXT: ""
 
       - name: Commit and push if changed
         shell: bash
@@ -93,3 +91,4 @@ PY
           git add public/wordcache/categories.json
           git commit -m "Update category labels index"
           git push
+
