@@ -36,7 +36,7 @@ jobs:
             exit 1
           fi
 
-          # Collect top-level folders
+          # Collect top-level folders (slugs)
           mapfile -t SLUGS < <(find "$BASE_DIR" -mindepth 1 -maxdepth 1 -type d -printf '%f\n' | sort)
 
           if [ "${#SLUGS[@]}" -eq 0 ]; then
@@ -47,21 +47,23 @@ jobs:
           echo "✅ Found ${#SLUGS[@]} category folders:"
           printf ' - %s\n' "${SLUGS[@]}"
 
-          # Build request payload via python for correct JSON escaping
+          # Join with newlines into one env var (safe + simple)
+          SLUGS_TEXT="$(printf "%s\n" "${SLUGS[@]}")"
+
+          # Build JSON payload via python (proper escaping)
           REQUEST_JSON="$(python3 - <<'PY'
-import json, sys
-slugs = sys.stdin.read().splitlines()
+import json, os
+slugs_text = os.environ.get("SLUGS_TEXT", "")
+slugs = [line.strip() for line in slugs_text.splitlines() if line.strip()]
 payload = {
   "slugs": slugs,
   "base_path": "public/wordcache"
 }
 print(json.dumps(payload))
 PY
-          <<< "$(printf "%s\n" "${SLUGS[@]}")"
           )"
 
           echo "➡️ Calling Lambda..."
-          # Call Lambda, write response
           curl -sS -X POST \
             -H "content-type: application/json" \
             -d "$REQUEST_JSON" \
@@ -71,6 +73,9 @@ PY
 
           echo "✅ Wrote $OUT_FILE"
           head -n 40 "$OUT_FILE" || true
+        env:
+          CATEGORIES_FUNCTION_URL: ${{ secrets.CATEGORIES_FUNCTION_URL }}
+          SLUGS_TEXT: ""
 
       - name: Commit and push if changed
         shell: bash
