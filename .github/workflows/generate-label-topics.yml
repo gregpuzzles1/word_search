@@ -6,6 +6,11 @@ on:
   # push:
   #   branches: [ main ]
 
+# Prevent multiple queued runs of this workflow
+concurrency:
+  group: generate-label-topics
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
@@ -34,41 +39,42 @@ jobs:
             exit 1
           fi
 
-          # Write a tiny Node script on the fly (no repo file needed)
+          # Generate the Node script dynamically
           cat > /tmp/generate-label-topics.mjs <<'EOF'
           import fs from "node:fs/promises";
           import path from "node:path";
 
           const BASE_DIR = process.env.BASE_DIR || "public/wordcache";
 
-          // Deterministic acronym behavior for nicer chips
+          // Acronyms that should stay uppercase in labels
           const ACRONYMS = new Set([
-            "us","usa","uk","eu","nasa","nba","nfl","mlb","nhl","fbi","cia","dna","ai"
+            "us","usa","uk","eu","nasa","nba","nfl","mlb","nhl",
+            "fbi","cia","dna","ai"
           ]);
 
+          // Small connector words to keep lowercase (except at start)
           const LOWERCASE_TINY = new Set([
             "and","or","of","the","a","an","to","in","on","for","with"
           ]);
 
-          // ✅ Explicit, deterministic overrides (slug -> label)
-          // Use this for punctuation, roman numerals, number formats, branding, etc.
-          // Keys MUST be normalized slugs (lowercase + underscores).
+          // Explicit overrides for perfect chip labels
+          // Keys MUST be normalized slugs
           const TOPIC_LABEL_OVERRIDES = {
-            // geography/history examples
+            // History / Civics
             "us_history": "U.S. History",
             "world_war_i": "World War I",
             "world_war_ii": "World War II",
 
-            // science/tech examples
+            // Science / Tech
             "ai": "AI",
             "3d_printing": "3D Printing",
             "2d_shapes": "2D Shapes",
 
-            // games examples
+            // Games
             "rpgs": "RPGs",
             "fps_games": "FPS Games",
 
-            // misc examples you might want later
+            // Misc
             "q_and_a": "Q&A"
           };
 
@@ -86,10 +92,10 @@ jobs:
           }
 
           function topicLabelFromSlug(slug) {
-            // 1) Overrides win
-            if (TOPIC_LABEL_OVERRIDES[slug]) return TOPIC_LABEL_OVERRIDES[slug];
+            if (TOPIC_LABEL_OVERRIDES[slug]) {
+              return TOPIC_LABEL_OVERRIDES[slug];
+            }
 
-            // 2) Otherwise deterministic slug -> Title Case label
             const words = slug.split("_").filter(Boolean);
 
             return words
@@ -129,18 +135,21 @@ jobs:
 
             let processed = 0;
 
-            for (const categorySlugRaw of categoryDirs) {
-              const categoryPath = path.join(BASE_DIR, categorySlugRaw);
+            for (const categoryFolder of categoryDirs) {
+              const categoryPath = path.join(BASE_DIR, categoryFolder);
               const topicsPath = path.join(categoryPath, "topics.json");
 
               if (!(await exists(topicsPath))) continue;
 
               const topicsJson = await readJson(topicsPath);
 
-              const categorySlug = normalizeSlug(topicsJson.category ?? categorySlugRaw);
-              const topics = Array.isArray(topicsJson.topics) ? topicsJson.topics : [];
+              // Category slug is always derived from the folder name
+              const categorySlug = normalizeSlug(categoryFolder);
+              const topics = Array.isArray(topicsJson.topics)
+                ? topicsJson.topics
+                : [];
 
-              // normalize -> sort -> unique
+              // Normalize -> sort -> unique
               const normalized = topics
                 .map(t => normalizeSlug(t))
                 .filter(Boolean)
@@ -161,10 +170,12 @@ jobs:
 
               const outPath = path.join(categoryPath, "label_topics.json");
               await writeJson(outPath, out);
+
               processed++;
+              console.log(`✅ ${categoryFolder}: wrote ${unique.length} topic labels`);
             }
 
-            console.log(`✅ Wrote label_topics.json for ${processed} category folders.`);
+            console.log(`✅ Finished. Updated ${processed} category folders.`);
           }
 
           main().catch(err => {
@@ -189,5 +200,6 @@ jobs:
             exit 0
           fi
 
-          git commit -m "Update label_topics.json for chip labels"
+          git commit -m "Update label_topics.json for chip cloud labels"
           git push
+
