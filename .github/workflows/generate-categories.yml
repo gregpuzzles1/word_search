@@ -88,7 +88,13 @@ jobs:
 
           FILE="public/wordcache/categories.json"
 
-          if git diff --quiet -- "$FILE"; then
+          if [ ! -f "$FILE" ]; then
+            echo "❌ Expected output file missing: $FILE"
+            exit 1
+          fi
+
+          # Detect changes INCLUDING new (untracked) files
+          if [ -z "$(git status --porcelain -- "$FILE")" ]; then
             echo "ℹ️ No changes to commit."
             exit 0
           fi
