@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-02-04T19:04:16.400Z",
+  "category": "astronomy",
+  "count": 7,
+  "topics": [
+    {
+      "slug": "constellations",
+      "label": "Constellations"
+    },
+    {
+      "slug": "galaxies",
+      "label": "Galaxies"
+    },
+    {
+      "slug": "moons",
+      "label": "Moons"
+    },
+    {
+      "slug": "planets",
+      "label": "Planets"
+    },
+    {
+      "slug": "solar_system",
+      "label": "Solar System"
+    },
+    {
+      "slug": "space_exploration",
+      "label": "Space Exploration"
+    },
+    {
+      "slug": "stars",
+      "label": "Stars"
+    }
+  ],
+  "sources_hint": "deterministic slug->label normalization + overrides map"
+}

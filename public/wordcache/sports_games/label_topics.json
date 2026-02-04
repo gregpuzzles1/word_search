@@ -1,0 +1,40 @@
+{
+  "generated_at": "2026-02-04T19:04:16.400Z",
+  "category": "sports_games",
+  "count": 8,
+  "topics": [
+    {
+      "slug": "baseball",
+      "label": "Baseball"
+    },
+    {
+      "slug": "basketball",
+      "label": "Basketball"
+    },
+    {
+      "slug": "board_games",
+      "label": "Board Games"
+    },
+    {
+      "slug": "football",
+      "label": "Football"
+    },
+    {
+      "slug": "olympics",
+      "label": "Olympics"
+    },
+    {
+      "slug": "soccer",
+      "label": "Soccer"
+    },
+    {
+      "slug": "sports",
+      "label": "Sports"
+    },
+    {
+      "slug": "video_games",
+      "label": "Video Games"
+    }
+  ],
+  "sources_hint": "deterministic slug->label normalization + overrides map"
+}

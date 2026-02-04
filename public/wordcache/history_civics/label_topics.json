@@ -1,0 +1,28 @@
+{
+  "generated_at": "2026-02-04T19:04:16.400Z",
+  "category": "history_civics",
+  "count": 5,
+  "topics": [
+    {
+      "slug": "ancient_civilizations",
+      "label": "Ancient Civilizations"
+    },
+    {
+      "slug": "civics",
+      "label": "Civics"
+    },
+    {
+      "slug": "government",
+      "label": "Government"
+    },
+    {
+      "slug": "us_history",
+      "label": "U.S. History"
+    },
+    {
+      "slug": "world_history",
+      "label": "World History"
+    }
+  ],
+  "sources_hint": "deterministic slug->label normalization + overrides map"
+}

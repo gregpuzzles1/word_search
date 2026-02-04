@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-02-04T19:04:16.400Z",
+  "category": "general_knowledge",
+  "count": 7,
+  "topics": [
+    {
+      "slug": "animals",
+      "label": "Animals"
+    },
+    {
+      "slug": "earth_science",
+      "label": "Earth Science"
+    },
+    {
+      "slug": "insects",
+      "label": "Insects"
+    },
+    {
+      "slug": "plants",
+      "label": "Plants"
+    },
+    {
+      "slug": "space",
+      "label": "Space"
+    },
+    {
+      "slug": "water",
+      "label": "Water"
+    },
+    {
+      "slug": "weather",
+      "label": "Weather"
+    }
+  ],
+  "sources_hint": "deterministic slug->label normalization + overrides map"
+}

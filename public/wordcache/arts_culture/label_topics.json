@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-02-04T19:04:16.400Z",
+  "category": "arts_culture",
+  "count": 7,
+  "topics": [
+    {
+      "slug": "art",
+      "label": "Art"
+    },
+    {
+      "slug": "books",
+      "label": "Books"
+    },
+    {
+      "slug": "movies",
+      "label": "Movies"
+    },
+    {
+      "slug": "music",
+      "label": "Music"
+    },
+    {
+      "slug": "photography",
+      "label": "Photography"
+    },
+    {
+      "slug": "television",
+      "label": "Television"
+    },
+    {
+      "slug": "theater",
+      "label": "Theater"
+    }
+  ],
+  "sources_hint": "deterministic slug->label normalization + overrides map"
+}
