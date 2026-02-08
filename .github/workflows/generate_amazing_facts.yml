@@ -1,0 +1,160 @@
+name: Generate Amazing Facts (One Category)
+
+on:
+  workflow_dispatch:
+    inputs:
+      category:
+        description: "Category folder slug under public/wordcache (e.g. music, science_math)"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  generate-amazing-facts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Generate facts JSON files for one category
+        shell: bash
+        env:
+          FUNCTION_URL: "https://gahlbpuxl3sxb26ygqm366nxey0oxigj.lambda-url.us-west-2.on.aws/"
+          CATEGORY: ${{ inputs.category }}
+        run: |
+          set -euo pipefail
+
+          BASE_DIR="public/wordcache"
+          CAT_DIR="${BASE_DIR}/${CATEGORY}"
+          LABEL_TOPICS="${CAT_DIR}/label_topics.json"
+
+          if [ ! -d "$CAT_DIR" ]; then
+            echo "❌ Category folder not found: $CAT_DIR"
+            exit 1
+          fi
+
+          if [ ! -f "$LABEL_TOPICS" ]; then
+            echo "❌ Missing label_topics.json: $LABEL_TOPICS"
+            exit 1
+          fi
+
+          echo "✅ Category: $CATEGORY"
+          echo "✅ Reading: $LABEL_TOPICS"
+
+          node <<'NODE'
+          import fs from "fs";
+          import path from "path";
+
+          const FUNCTION_URL = process.env.FUNCTION_URL;
+          const INPUT_CATEGORY = process.env.CATEGORY;
+
+          const BASE_DIR = "public/wordcache";
+          const CAT_DIR = path.join(BASE_DIR, INPUT_CATEGORY);
+          const LABEL_TOPICS_PATH = path.join(CAT_DIR, "label_topics.json");
+
+          const raw = fs.readFileSync(LABEL_TOPICS_PATH, "utf-8");
+          const json = JSON.parse(raw);
+
+          // Validate schema you showed
+          if (!json || typeof json.category !== "string" || !Array.isArray(json.topics)) {
+            throw new Error(`Unexpected label_topics.json schema in ${LABEL_TOPICS_PATH}`);
+          }
+
+          // Prefer category from file (but make sure it matches input folder)
+          const categoryFromFile = json.category.trim();
+          if (categoryFromFile !== INPUT_CATEGORY) {
+            console.warn(
+              `⚠️ category mismatch: folder="${INPUT_CATEGORY}" file.category="${categoryFromFile}". Using folder value.`
+            );
+          }
+
+          const topics = json.topics
+            .filter(t => t && typeof t.slug === "string" && typeof t.label === "string")
+            .map(t => ({ slug: t.slug.trim(), label: t.label.trim() }))
+            .filter(t => t.slug.length > 0 && t.label.length > 0);
+
+          if (topics.length === 0) {
+            throw new Error(`No valid topics found in ${LABEL_TOPICS_PATH}`);
+          }
+
+          console.log(`✅ Found ${topics.length} topics`);
+
+          // You asked to send key name "category" and "label" from label_topics.json.
+          // Lambda expects { category, topics:[...] }. We'll send labels as the topics array.
+          const payload = {
+            category: INPUT_CATEGORY,
+            topics: topics.map(t => t.label),
+          };
+
+          console.log(`➡️ POST ${FUNCTION_URL}`);
+          const res = await fetch(FUNCTION_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+
+          const text = await res.text();
+
+          if (!res.ok) {
+            throw new Error(`Lambda error HTTP ${res.status}: ${text.slice(0, 2000)}`);
+          }
+
+          let data;
+          try {
+            data = JSON.parse(text);
+          } catch {
+            throw new Error(`Lambda returned non-JSON: ${text.slice(0, 2000)}`);
+          }
+
+          if (!data || !Array.isArray(data.results)) {
+            throw new Error(`Unexpected Lambda response shape: ${text.slice(0, 2000)}`);
+          }
+
+          console.log(`✅ Lambda returned ${data.results.length} results`);
+
+          // Map label -> slug so we can name files by slug
+          const labelToSlug = new Map(topics.map(t => [t.label, t.slug]));
+
+          // Write: public/wordcache/<category>/<slug>_facts.json
+          // Lambda returns items like: { category, topic, count, facts, ... }
+          for (const item of data.results) {
+            const label = (item.topic ?? "").trim();
+            const slug = labelToSlug.get(label);
+
+            if (!slug) {
+              console.warn(`⚠️ No matching slug for returned topic label: "${label}". Skipping.`);
+              continue;
+            }
+
+            const outPath = path.join(CAT_DIR, `${slug}_facts.json`);
+            fs.writeFileSync(outPath, JSON.stringify(item, null, 2) + "\n", "utf-8");
+            console.log(`📝 Wrote ${outPath}`);
+          }
+
+          console.log("✅ Done.");
+          NODE
+
+      - name: Commit and push changes (if any)
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "✅ No changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add public/wordcache/${{ inputs.category }}/
+          git commit -m "Generate amazing facts for ${{ inputs.category }}"
+          git push
