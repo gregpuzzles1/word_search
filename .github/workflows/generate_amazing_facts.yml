@@ -10,6 +10,7 @@ on:
 
 permissions:
   contents: write
+  id-token: write   # REQUIRED for GitHub OIDC → AWS role
 
 jobs:
   generate-amazing-facts:
@@ -19,16 +20,24 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
+      # ✅ Configure AWS creds using GitHub OIDC (recommended)
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: us-west-2
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: "20"
 
-      - name: Generate facts JSON files for one category
+      - name: Generate facts JSON files for one category (AWS_IAM signed)
         shell: bash
         env:
           FUNCTION_URL: "https://gahlbpuxl3sxb26ygqm366nxey0oxigj.lambda-url.us-west-2.on.aws/"
           CATEGORY: ${{ inputs.category }}
+          AWS_REGION: "us-west-2"
         run: |
           set -euo pipefail
 
@@ -49,12 +58,24 @@ jobs:
           echo "✅ Category: $CATEGORY"
           echo "✅ Reading: $LABEL_TOPICS"
 
+          # Install tiny AWS SDK v3 signing deps (only on the runner, not in your repo)
+          mkdir -p /tmp/signer && cd /tmp/signer
+          npm init -y >/dev/null 2>&1
+          npm install @aws-sdk/signature-v4 @aws-sdk/protocol-http @aws-sdk/hash-node @aws-sdk/credential-provider-node >/dev/null
+
           node <<'NODE'
           import fs from "fs";
           import path from "path";
+          import { URL } from "url";
+
+          import { SignatureV4 } from "@aws-sdk/signature-v4";
+          import { HttpRequest } from "@aws-sdk/protocol-http";
+          import { Hash } from "@aws-sdk/hash-node";
+          import { defaultProvider } from "@aws-sdk/credential-provider-node";
 
           const FUNCTION_URL = process.env.FUNCTION_URL;
           const INPUT_CATEGORY = process.env.CATEGORY;
+          const REGION = process.env.AWS_REGION || "us-west-2";
 
           const BASE_DIR = "public/wordcache";
           const CAT_DIR = path.join(BASE_DIR, INPUT_CATEGORY);
@@ -63,17 +84,10 @@ jobs:
           const raw = fs.readFileSync(LABEL_TOPICS_PATH, "utf-8");
           const json = JSON.parse(raw);
 
-          // Validate schema you showed
+          // Schema you showed:
+          // { category: "music", topics: [{slug,label}, ...], ... }
           if (!json || typeof json.category !== "string" || !Array.isArray(json.topics)) {
             throw new Error(`Unexpected label_topics.json schema in ${LABEL_TOPICS_PATH}`);
-          }
-
-          // Prefer category from file (but make sure it matches input folder)
-          const categoryFromFile = json.category.trim();
-          if (categoryFromFile !== INPUT_CATEGORY) {
-            console.warn(
-              `⚠️ category mismatch: folder="${INPUT_CATEGORY}" file.category="${categoryFromFile}". Using folder value.`
-            );
           }
 
           const topics = json.topics
@@ -87,22 +101,48 @@ jobs:
 
           console.log(`✅ Found ${topics.length} topics`);
 
-          // You asked to send key name "category" and "label" from label_topics.json.
-          // Lambda expects { category, topics:[...] }. We'll send labels as the topics array.
+          // You wanted to send "category" and "label" info.
+          // Lambda expects: { category, topics: [<labels...>] }
           const payload = {
             category: INPUT_CATEGORY,
             topics: topics.map(t => t.label),
           };
 
-          console.log(`➡️ POST ${FUNCTION_URL}`);
-          const res = await fetch(FUNCTION_URL, {
+          // Map label -> slug for output file naming
+          const labelToSlug = new Map(topics.map(t => [t.label, t.slug]));
+
+          // ---- SigV4 sign and POST to the Lambda Function URL ----
+          const url = new URL(FUNCTION_URL);
+          const body = JSON.stringify(payload);
+
+          const signer = new SignatureV4({
+            credentials: defaultProvider(), // uses creds from aws-actions/configure-aws-credentials
+            region: REGION,
+            service: "lambda",
+            sha256: Hash,
+          });
+
+          const unsignedReq = new HttpRequest({
+            protocol: url.protocol,
+            hostname: url.hostname,
             method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload),
+            path: url.pathname + (url.search || ""),
+            headers: {
+              "content-type": "application/json",
+              host: url.hostname,
+            },
+            body,
+          });
+
+          const signedReq = await signer.sign(unsignedReq);
+
+          const res = await fetch(FUNCTION_URL, {
+            method: signedReq.method,
+            headers: signedReq.headers,
+            body,
           });
 
           const text = await res.text();
-
           if (!res.ok) {
             throw new Error(`Lambda error HTTP ${res.status}: ${text.slice(0, 2000)}`);
           }
@@ -120,11 +160,7 @@ jobs:
 
           console.log(`✅ Lambda returned ${data.results.length} results`);
 
-          // Map label -> slug so we can name files by slug
-          const labelToSlug = new Map(topics.map(t => [t.label, t.slug]));
-
           // Write: public/wordcache/<category>/<slug>_facts.json
-          // Lambda returns items like: { category, topic, count, facts, ... }
           for (const item of data.results) {
             const label = (item.topic ?? "").trim();
             const slug = labelToSlug.get(label);
@@ -158,3 +194,4 @@ jobs:
           git add public/wordcache/${{ inputs.category }}/
           git commit -m "Generate amazing facts for ${{ inputs.category }}"
           git push
+
