@@ -1,0 +1,27 @@
+{
+  "topic": "genres",
+  "difficulty": "easy",
+  "count": 20,
+  "words": [
+    "ACTION",
+    "DRAMA",
+    "HORROR",
+    "COMEDY",
+    "SCIFI",
+    "ROMCOM",
+    "CRIME",
+    "EPIC",
+    "POETRY",
+    "SATIRE",
+    "FABLE",
+    "JAZZ",
+    "BLUES",
+    "ROCK",
+    "POP",
+    "RAP",
+    "PUNK",
+    "SOUL",
+    "DISCO",
+    "METAL"
+  ]
+}

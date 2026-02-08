@@ -1,0 +1,27 @@
+{
+  "topic": "genres",
+  "difficulty": "hard",
+  "count": 20,
+  "words": [
+    "ADVENTURE",
+    "THRILLER",
+    "MYSTERIES",
+    "SUSPENSE",
+    "CYBERPUNK",
+    "STEAMPUNK",
+    "CRIMEFICTION",
+    "DETECTIVE",
+    "PARANORMAL",
+    "EPICFANTASY",
+    "SPACEOPERA",
+    "URBANFANTASY",
+    "DARKFANTASY",
+    "HISTORICAL",
+    "BIOGRAPHY",
+    "PSYCHOLOGICAL",
+    "LITERARY",
+    "NOIRFICTION",
+    "DOCUMENTARY",
+    "BIOGRAPHICAL"
+  ]
+}

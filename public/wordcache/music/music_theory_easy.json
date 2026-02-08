@@ -1,0 +1,27 @@
+{
+  "topic": "music_theory",
+  "difficulty": "easy",
+  "count": 20,
+  "words": [
+    "NOTE",
+    "SCALE",
+    "CHORD",
+    "STAFF",
+    "TREBLE",
+    "BASS",
+    "PITCH",
+    "KEY",
+    "MAJOR",
+    "MINOR",
+    "TEMPO",
+    "RHYTHM",
+    "BEAT",
+    "REST",
+    "CLEF",
+    "OCTAVE",
+    "MODE",
+    "SCORE",
+    "KEYSIG",
+    "ALTO"
+  ]
+}
