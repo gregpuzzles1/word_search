@@ -1,0 +1,16 @@
+{
+  "category": "sports_games",
+  "topic": "Soccer",
+  "count": 7,
+  "facts": [
+    "Soccer is played by two teams of 11 players each, including one goalkeeper per team.",
+    "A standard soccer match lasts 90 minutes, split into two 45-minute halves, plus added time decided by the referee.",
+    "Most players cannot use their hands or arms, but goalkeepers can handle the ball inside their own penalty area.",
+    "The offside rule stops attackers from waiting near the goal by requiring them to have at least two defenders (usually one is the goalkeeper) between them and the goal when the ball is played to them.",
+    "The modern rules of soccer were organized in England in 1863 when the Football Association was formed.",
+    "The FIFA World Cup is held every four years and is one of the biggest sporting events in the world.",
+    "A yellow card is a warning for bad behavior, and a red card means a player must leave the game immediately."
+  ],
+  "sources_hint": "general knowledge; verify if needed",
+  "generated_at": "2026-02-09T17:35:40.380Z"
+}

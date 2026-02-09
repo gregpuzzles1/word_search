@@ -1,0 +1,16 @@
+{
+  "category": "sports_games",
+  "topic": "Basketball",
+  "count": 7,
+  "facts": [
+    "Basketball was invented in 1891 by James Naismith, a gym teacher in Springfield, Massachusetts.",
+    "The first basketball games used a soccer ball and two peach baskets, and someone had to retrieve the ball after each score.",
+    "A standard basketball team has five players on the court at one time.",
+    "In most leagues, a shot made from behind the three-point line is worth three points instead of two.",
+    "The orange basketball became common in the 1950s because it was easier for players and fans to see.",
+    "Dribbling became an important skill after rules began allowing players to bounce the ball while moving instead of only passing.",
+    "The NBA uses a 24-second shot clock to keep the game moving by requiring a team to attempt a shot in that time."
+  ],
+  "sources_hint": "general knowledge; verify if needed",
+  "generated_at": "2026-02-09T17:35:19.719Z"
+}

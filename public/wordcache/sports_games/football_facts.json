@@ -1,0 +1,16 @@
+{
+  "category": "sports_games",
+  "topic": "Football",
+  "count": 7,
+  "facts": [
+    "Football (soccer) is played by two teams of 11 players, including one goalkeeper on each team.",
+    "A standard soccer match has two 45-minute halves, and extra time can be added to make up for stoppages.",
+    "Players are not allowed to use their hands or arms to control the ball, except goalkeepers inside their own penalty area.",
+    "The offside rule helps prevent players from staying near the opponent’s goal waiting for an easy pass.",
+    "A penalty kick is taken from 11 meters (12 yards) away after certain fouls happen inside the penalty area.",
+    "The FIFA World Cup is the biggest international soccer tournament and is held every four years.",
+    "A yellow card is a warning for breaking rules, and a red card means the player must leave the game immediately."
+  ],
+  "sources_hint": "general knowledge; verify if needed",
+  "generated_at": "2026-02-09T17:35:30.672Z"
+}
