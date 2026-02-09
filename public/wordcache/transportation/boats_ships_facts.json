@@ -1,0 +1,16 @@
+{
+  "category": "transportation",
+  "topic": "Boats Ships",
+  "count": 7,
+  "facts": [
+    "A boat is usually smaller than a ship, and ships are big enough to carry many people or heavy cargo across oceans.",
+    "The oldest known boats were dugout canoes made by carving out a single large log thousands of years ago.",
+    "Ship hulls are shaped to push water aside smoothly, which reduces drag and helps the ship move faster and use less fuel.",
+    "A ship floats because it displaces a volume of water that weighs as much as the ship, following a rule called Archimedes’ principle.",
+    "Many large ships use ballast water or heavy weights to stay stable and avoid tipping in rough waves.",
+    "Modern container ships carry thousands of metal boxes called containers, which makes loading and unloading cargo much quicker.",
+    "Submarines are ships that can dive underwater by filling special tanks with water to become heavier, then pumping the water out to rise again."
+  ],
+  "sources_hint": "Look up: Archimedes’ principle (buoyancy), ship hull drag, ballast water stability, dugout canoe history, container shipping basics, submarine ballast tanks.",
+  "generated_at": "2026-02-09T20:37:56.812Z"
+}

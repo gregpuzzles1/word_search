@@ -1,0 +1,16 @@
+{
+  "category": "transportation",
+  "topic": "Public Transit",
+  "count": 7,
+  "facts": [
+    "Public transit includes buses, trains, subways, trams, and ferries that many people can share instead of driving alone.",
+    "A full bus can take dozens of cars off the road, which helps reduce traffic jams in busy areas.",
+    "Many transit systems use electricity, and electric trains can be more energy-efficient per passenger than cars.",
+    "Riders often use a single ticket or pass to transfer between different routes, making it easier to travel across a city.",
+    "Some cities give buses their own lanes or traffic-signal priority so they can move faster and stay on schedule.",
+    "Transit maps are designed to be simple and easy to read, even if the routes are not drawn exactly to scale.",
+    "Public transit helps people who cannot drive, including younger students, older adults, and people with disabilities, reach school, jobs, and services."
+  ],
+  "sources_hint": "You can verify these facts using transportation department sites, public transit agency rider guides, and basic energy and traffic information from educational resources.",
+  "generated_at": "2026-02-09T20:38:22.262Z"
+}

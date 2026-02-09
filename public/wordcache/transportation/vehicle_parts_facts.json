@@ -1,0 +1,16 @@
+{
+  "category": "transportation",
+  "topic": "Vehicle Parts",
+  "count": 7,
+  "facts": [
+    "The crankshaft in an engine turns the up-and-down motion of pistons into spinning motion that can move the vehicle.",
+    "A transmission changes gear ratios so the engine can work efficiently at different speeds, from starting out to cruising.",
+    "Disc brakes slow a vehicle when brake pads squeeze a spinning metal rotor, turning motion into heat.",
+    "Shock absorbers help keep tires on the road by reducing bouncing when the vehicle hits bumps.",
+    "A differential lets the left and right wheels spin at different speeds in a turn so the vehicle can corner smoothly.",
+    "The radiator helps prevent overheating by moving heat from hot engine coolant into the air.",
+    "The catalytic converter reduces harmful exhaust gases by using chemicals on its surface to change them into less harmful substances."
+  ],
+  "sources_hint": "For more details, check a basic automotive engineering text or reputable sites like SAE International, Britannica, or a car manufacturer’s educational pages.",
+  "generated_at": "2026-02-09T20:38:50.868Z"
+}

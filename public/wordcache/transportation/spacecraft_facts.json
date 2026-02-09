@@ -1,0 +1,16 @@
+{
+  "category": "transportation",
+  "topic": "Spacecraft",
+  "count": 7,
+  "facts": [
+    "A spacecraft is a vehicle designed to travel and work in space, where there is almost no air.",
+    "In space, spacecraft use rockets for thrust because rockets carry both fuel and oxygen and do not need air to burn.",
+    "Most spacecraft use small thrusters to turn and stay pointed correctly, a job called attitude control.",
+    "Satellites are a type of spacecraft that orbit planets to help with communication, weather forecasts, and GPS navigation.",
+    "To survive reentry to Earth, a spacecraft needs a heat shield that protects it from extreme temperatures caused by fast-moving air.",
+    "Some spacecraft use solar panels to make electricity from sunlight, which powers computers, heaters, and scientific tools.",
+    "Space probes are unmanned spacecraft sent to explore faraway places like Mars or Jupiter and send data back to Earth by radio signals."
+  ],
+  "sources_hint": "For reliable information, check NASA, ESA, and Smithsonian Air and Space resources on spacecraft, rockets, satellites, heat shields, and space probes.",
+  "generated_at": "2026-02-09T20:38:35.169Z"
+}
