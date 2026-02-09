@@ -1,0 +1,16 @@
+{
+  "category": "general_knowledge",
+  "topic": "Animals",
+  "count": 7,
+  "facts": [
+    "Octopuses have three hearts and blue blood.",
+    "A group of flamingos is called a flamboyance.",
+    "Honeybees communicate directions to food by doing a waggle dance.",
+    "Cheetahs are the fastest land animals, reaching about 60 to 70 miles per hour in short bursts.",
+    "Dolphins use echolocation, sending out clicks to find objects by listening for echoes.",
+    "Giraffes have the same number of neck vertebrae as humans, but each one is much longer.",
+    "Sea otters often hold hands while resting so they do not drift apart."
+  ],
+  "sources_hint": "general knowledge; verify if needed",
+  "generated_at": "2026-02-09T17:51:29.685Z"
+}
