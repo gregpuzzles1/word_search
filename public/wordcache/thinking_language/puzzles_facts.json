@@ -1,0 +1,16 @@
+{
+  "category": "thinking_language",
+  "topic": "Puzzles",
+  "count": 7,
+  "facts": [
+    "The word \"puzzle\" comes from a 1500s English verb meaning to confuse or bewilder someone.",
+    "Word-search puzzles train your brain to spot patterns by scanning letters in many directions.",
+    "Crossword puzzles became widely popular after a puzzle was printed in a New York newspaper in 1913.",
+    "A palindrome is a word or phrase that reads the same forward and backward, like \"racecar.\"",
+    "A pangram is a sentence that uses every letter of the alphabet at least once, like \"The quick brown fox jumps over the lazy dog.\"",
+    "Sudoku is a logic puzzle that uses numbers, but you do not need math to solve it because it is all about placement rules.",
+    "Jigsaw puzzles are often said to have been invented in the 1760s when a map was pasted on wood and cut into pieces for learning."
+  ],
+  "sources_hint": "general knowledge; verify if needed",
+  "generated_at": "2026-02-09T17:45:49.071Z"
+}

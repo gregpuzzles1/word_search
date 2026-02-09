@@ -1,0 +1,16 @@
+{
+  "category": "thinking_language",
+  "topic": "Logic",
+  "count": 7,
+  "facts": [
+    "Logic is a way of thinking that helps you decide whether an argument makes sense based on reasons and evidence.",
+    "In a logical argument, the reasons are called premises and the final statement you reach is called the conclusion.",
+    "A syllogism is a classic logic pattern like: All mammals breathe air, dolphins are mammals, so dolphins breathe air.",
+    "A statement can be logically valid even if it is not true, because validity is about the structure of the reasoning, not the facts.",
+    "A contradiction happens when two statements cannot both be true at the same time, like saying a light is both on and not on.",
+    "An if-then statement is called a conditional, and it links a condition to a result, such as: If it rains, then the ground gets wet.",
+    "Common logic mistakes are called fallacies, like attacking a person instead of their idea, which is known as an ad hominem fallacy."
+  ],
+  "sources_hint": "general knowledge; verify if needed",
+  "generated_at": "2026-02-09T17:45:42.714Z"
+}
