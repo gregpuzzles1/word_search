@@ -1,0 +1,16 @@
+{
+  "category": "music",
+  "topic": "Genres",
+  "count": 7,
+  "facts": [
+    "Jazz began in the early 1900s in New Orleans and is known for improvisation, where musicians create parts of the music on the spot.",
+    "Hip-hop started in the 1970s in New York City and includes rapping, DJing, breakdancing, and graffiti culture.",
+    "Classical music often uses large groups of instruments called orchestras and includes long forms like symphonies and concertos.",
+    "Reggae developed in Jamaica in the late 1960s and is famous for its offbeat rhythm that makes the music feel like it bounces.",
+    "Rock music grew from blues and country in the 1950s and usually features electric guitars, bass, drums, and strong rhythms.",
+    "Electronic dance music (EDM) is made mainly with synthesizers, drum machines, and computers, and it is designed for dancing at clubs and festivals.",
+    "Country music became popular in the United States in the 1920s and often tells stories about everyday life using instruments like guitars, fiddles, and banjos."
+  ],
+  "sources_hint": "general knowledge; verify if needed",
+  "generated_at": "2026-02-09T17:39:24.453Z"
+}
