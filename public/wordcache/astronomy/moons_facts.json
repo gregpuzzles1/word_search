@@ -1,0 +1,16 @@
+{
+  "category": "astronomy",
+  "topic": "Moons",
+  "count": 7,
+  "facts": [
+    "A moon is a natural object that orbits a planet or a dwarf planet, held in place mainly by gravity.",
+    "Earth has one moon, but some planets have many, like Jupiter and Saturn, which each have dozens of known moons.",
+    "Our Moon always shows the same side to Earth because it rotates at the same rate that it orbits, a pattern called tidal locking.",
+    "Moons can be very different sizes, from tiny rocky bodies to Ganymede, Jupiter’s largest moon, which is bigger than the planet Mercury.",
+    "Some moons are geologically active, like Jupiter’s moon Io with its many volcanoes, and Saturn’s moon Enceladus with icy geysers.",
+    "Scientists think tides on Earth happen mostly because of the Moon’s gravity pulling on our oceans as the Moon moves around our planet.",
+    "A few moons may hide liquid water under ice, such as Europa and Enceladus, which makes them exciting places to search for signs of life."
+  ],
+  "sources_hint": "Good references include NASA Solar System Exploration pages on moons (e.g., Earth’s Moon, Europa, Enceladus, Io, Ganymede) and ESA educational resources about tides and tidal locking.",
+  "generated_at": "2026-02-09T18:16:34.401Z"
+}

@@ -1,0 +1,16 @@
+{
+  "category": "astronomy",
+  "topic": "Galaxies",
+  "count": 7,
+  "facts": [
+    "A galaxy is a huge collection of stars, gas, dust, and dark matter held together by gravity.",
+    "Our Solar System is inside the Milky Way galaxy, which contains hundreds of billions of stars.",
+    "Galaxies come in different shapes, including spiral, elliptical, and irregular forms.",
+    "The Andromeda Galaxy is the nearest large galaxy to the Milky Way and is on a slow collision course with it.",
+    "Many galaxies have a supermassive black hole at their center that can be millions or billions of times the Sun’s mass.",
+    "Because light takes time to travel, looking at distant galaxies lets us see what the universe was like long ago.",
+    "Galaxies often gather into groups and clusters, and the space between them is not completely empty but filled with hot gas and faint matter."
+  ],
+  "sources_hint": "For more reading, check NASA, ESA, and reputable astronomy textbooks or museum websites about galaxies.",
+  "generated_at": "2026-02-09T18:16:27.129Z"
+}

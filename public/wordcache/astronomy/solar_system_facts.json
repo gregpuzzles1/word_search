@@ -1,0 +1,16 @@
+{
+  "category": "astronomy",
+  "topic": "Solar System",
+  "count": 7,
+  "facts": [
+    "The Sun contains more than 99% of all the mass in the Solar System, so its gravity holds everything together.",
+    "Mercury has almost no atmosphere to trap heat, which is why its days can be extremely hot and its nights can be freezing cold.",
+    "Venus spins so slowly that one Venus day is longer than one Venus year, meaning it takes longer to rotate once than to orbit the Sun.",
+    "Earth is the only known planet with liquid water on its surface, which is one key reason it can support life.",
+    "Mars has the largest volcano in the Solar System, Olympus Mons, which is about three times taller than Mount Everest.",
+    "Jupiter is so large that more than 1,300 Earths could fit inside it, and it has dozens of moons.",
+    "The Kuiper Belt is a region beyond Neptune filled with icy objects, including dwarf planets like Pluto."
+  ],
+  "sources_hint": "For verification, check NASA Solar System Exploration pages and ESA educational resources on planets and small bodies.",
+  "generated_at": "2026-02-09T18:16:47.688Z"
+}
