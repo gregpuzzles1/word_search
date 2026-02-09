@@ -1,0 +1,27 @@
+{
+  "topic": "vehicle_parts",
+  "difficulty": "hard",
+  "count": 20,
+  "words": [
+    "ENGINEBLOCK",
+    "TRANSMISSION",
+    "RADIATOR",
+    "ALTERNATOR",
+    "CAMSHAFT",
+    "CRANKSHAFT",
+    "FUELINJECTOR",
+    "TIMINGBELT",
+    "BRAKEPADS",
+    "CLUTCHDISC",
+    "STARTERMOTOR",
+    "SERPENTINE",
+    "SPARKPLUG",
+    "HEADLIGHTS",
+    "TAILLIGHTS",
+    "RADIATORFAN",
+    "FUELPUMP",
+    "FUELFILTER",
+    "CYLINDERHEAD",
+    "DIFFERENTIAL"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "topic": "cars_trucks",
+  "difficulty": "easy",
+  "count": 20,
+  "words": [
+    "CAR",
+    "AUTO",
+    "TRUCK",
+    "SEDAN",
+    "COUPE",
+    "VAN",
+    "WHEEL",
+    "TIRE",
+    "BRAKE",
+    "ENGINE",
+    "OIL",
+    "FUEL",
+    "HOOD",
+    "DOOR",
+    "AXLE",
+    "CLUTCH",
+    "GEARS",
+    "SEAT",
+    "RIM",
+    "SHOCK"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "topic": "emergency_vehicles",
+  "difficulty": "hard",
+  "count": 20,
+  "words": [
+    "AMBULANCE",
+    "FIREENGINE",
+    "FIRETRUCK",
+    "POLICECAR",
+    "POLICEVAN",
+    "HELICOPTER",
+    "AIRAMBULANCE",
+    "LADDERTRUCK",
+    "PUMPERTRUCK",
+    "TOWTRUCK",
+    "RESCUEBOAT",
+    "PATROLCAR",
+    "SWATVEHICLE",
+    "PATROLBOAT",
+    "AMBULANCES",
+    "RESCUEVAN",
+    "EMERGENCYCAR",
+    "DISPATCHVAN",
+    "PARAMEDICCAR",
+    "SPEEDBOAT"
+  ]
+}
