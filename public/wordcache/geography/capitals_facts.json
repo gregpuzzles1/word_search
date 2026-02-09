@@ -1,0 +1,16 @@
+{
+  "category": "geography",
+  "topic": "Capitals",
+  "count": 7,
+  "facts": [
+    "Canberra is the capital of Australia, chosen as a compromise between Sydney and Melbourne.",
+    "Brasilia became Brazil's capital in 1960 and was planned and built as a modern city.",
+    "Washington, D.C. is the capital of the United States and is not part of any state.",
+    "Tokyo is the capital of Japan and is one of the most populated urban areas in the world.",
+    "Ottawa is the capital of Canada and sits on the Ottawa River between Ontario and Quebec.",
+    "Pretoria is one of South Africa's three capital cities and is the center of its executive government.",
+    "Vatican City is the smallest independent country in the world, and its capital is Vatican City itself."
+  ],
+  "sources_hint": "general knowledge; verify if needed",
+  "generated_at": "2026-02-09T17:49:24.316Z"
+}
