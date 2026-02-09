@@ -1,0 +1,56 @@
+{
+  "generated_at": "2026-02-09T20:35:50.652Z",
+  "category": "transportation",
+  "count": 12,
+  "topics": [
+    {
+      "slug": "airplanes",
+      "label": "Airplanes"
+    },
+    {
+      "slug": "bicycles",
+      "label": "Bicycles"
+    },
+    {
+      "slug": "boats_ships",
+      "label": "Boats Ships"
+    },
+    {
+      "slug": "cars_trucks",
+      "label": "Cars Trucks"
+    },
+    {
+      "slug": "construction_vehicles",
+      "label": "Construction Vehicles"
+    },
+    {
+      "slug": "emergency_vehicles",
+      "label": "Emergency Vehicles"
+    },
+    {
+      "slug": "public_transit",
+      "label": "Public Transit"
+    },
+    {
+      "slug": "roads_highways",
+      "label": "Roads Highways"
+    },
+    {
+      "slug": "spacecraft",
+      "label": "Spacecraft"
+    },
+    {
+      "slug": "trains_railways",
+      "label": "Trains Railways"
+    },
+    {
+      "slug": "travel_terms",
+      "label": "Travel Terms"
+    },
+    {
+      "slug": "vehicle_parts",
+      "label": "Vehicle Parts"
+    }
+  ],
+  "sources_hint": "deterministic slug->label normalization + overrides map"
+}
