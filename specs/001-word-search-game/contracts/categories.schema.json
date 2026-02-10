@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/categories.schema.json",
+  "title": "Categories Index",
+  "type": "object",
+  "required": ["count", "categories"],
+  "properties": {
+    "generated_at": { "type": "string" },
+    "base_path": { "type": "string" },
+    "count": { "type": "integer", "minimum": 0 },
+    "categories": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/category" }
+    },
+    "sources_hint": { "type": "string" }
+  },
+  "$defs": {
+    "category": {
+      "type": "object",
+      "required": ["slug", "label", "path"],
+      "properties": {
+        "slug": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+        "label": { "type": "string", "minLength": 1 },
+        "path": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

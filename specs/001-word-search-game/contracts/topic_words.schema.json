@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/topic_words.schema.json",
+  "title": "Topic Words by Difficulty",
+  "type": "object",
+  "required": ["topic", "difficulty", "count", "words"],
+  "properties": {
+    "topic": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+    "difficulty": { "type": "string", "enum": ["easy", "medium", "hard"] },
+    "count": { "type": "integer", "minimum": 0 },
+    "words": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Z0-9][A-Z0-9\-\s]*$"
+      }
+    }
+  },
+  "additionalProperties": true
+}

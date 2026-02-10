@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/topic_facts.schema.json",
+  "title": "Topic Facts",
+  "type": "object",
+  "required": ["count", "facts"],
+  "properties": {
+    "generated_at": { "type": "string" },
+    "category": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+    "topic": { "type": "string", "minLength": 1 },
+    "count": { "type": "integer", "minimum": 0 },
+    "facts": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "sources_hint": { "type": "string" }
+  },
+  "additionalProperties": true
+}

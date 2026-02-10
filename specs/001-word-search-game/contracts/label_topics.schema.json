@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/label_topics.schema.json",
+  "title": "Topic Labels (per category)",
+  "type": "object",
+  "required": ["category", "count", "topics"],
+  "properties": {
+    "generated_at": { "type": "string" },
+    "category": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+    "count": { "type": "integer", "minimum": 0 },
+    "topics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["slug", "label"],
+        "properties": {
+          "slug": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+          "label": { "type": "string", "minLength": 1 }
+        },
+        "additionalProperties": true
+      }
+    },
+    "sources_hint": { "type": "string" }
+  },
+  "additionalProperties": true
+}

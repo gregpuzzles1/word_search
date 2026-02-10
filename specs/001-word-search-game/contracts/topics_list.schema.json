@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/schemas/topics_list.schema.json",
+  "title": "Topic Slug List (per category)",
+  "type": "object",
+  "required": ["category", "topics"],
+  "properties": {
+    "category": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+    "topics": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z0-9_]+$" }
+    }
+  },
+  "additionalProperties": true
+}
