@@ -17,10 +17,10 @@
 
 **Purpose**: Create the React + TypeScript + Vite static app skeleton and Pages deployment wiring.
 
-- [ ] T001 Create Vite + React + TypeScript scaffold at repo root in package.json, index.html, vite.config.ts, tsconfig.json, src/main.tsx, src/app/App.tsx
-- [ ] T002 [P] Add base styling and theme CSS-variable scaffold in src/styles/theme.css and src/styles/app.css
-- [ ] T003 [P] Configure GitHub Pages project base path in vite.config.ts (set base to /word_search/)
-- [ ] T004 Setup GitHub Actions Pages deployment (main only) in .github/workflows/pages.yml
+- [x] T001 Create Vite + React + TypeScript scaffold at repo root in package.json, index.html, vite.config.ts, tsconfig.json, src/main.tsx, src/app/App.tsx
+- [x] T002 [P] Add base styling and theme CSS-variable scaffold in src/styles/theme.css and src/styles/app.css
+- [x] T003 [P] Configure GitHub Pages project base path in vite.config.ts (set base to /word_search/)
+- [x] T004 Setup GitHub Actions Pages deployment (main only) in .github/workflows/pages.yml
 
 **Checkpoint**: `npm run dev` starts; `npm run build` produces static output; Pages workflow exists.
 
@@ -32,18 +32,18 @@
 
 **⚠️ CRITICAL**: No user story work should start until this phase is complete.
 
-- [ ] T005 Define core data types for wordcache files in src/data/types.ts
-- [ ] T006 [P] Implement JSON fetch helper with runtime validation errors in src/data/fetchJson.ts
-- [ ] T007 [P] Implement wordcache loaders (categories/topics/labels/words/facts) in src/data/wordcache.ts
-- [ ] T008 Implement viewport class → grid size + word-mix derivation in src/game/viewport.ts
-- [ ] T009 [P] Implement random utilities (seedless sampling, shuffle, unique pick) in src/game/random.ts
-- [ ] T010 Implement device-specific word selection (6 easy + 4 medium; +2 hard on desktop; de-dupe) in src/game/selectWords.ts
-- [ ] T011 Implement 8-direction utilities for placement/selection in src/game/directions.ts
-- [ ] T012 Implement puzzle generator with retry/backtracking budget in src/game/generator.ts
-- [ ] T013 [P] Implement filler-letter generation meeting FR-015 (>=30% from {E,A,R,S,T} across filler cells) in src/game/filler.ts
-- [ ] T014 Implement puzzle build orchestration (load JSON → select words → generate grid → choose 3 facts) in src/game/buildPuzzle.ts
-- [ ] T015 Implement game state + reducer/actions for loading/playing/error in src/game/state.ts
-- [ ] T016 [P] Create shared loading + error UI components in src/components/LoadingState.tsx and src/components/ErrorState.tsx
+- [x] T005 Define core data types for wordcache files in src/data/types.ts
+- [x] T006 [P] Implement JSON fetch helper with runtime validation errors in src/data/fetchJson.ts
+- [x] T007 [P] Implement wordcache loaders (categories/topics/labels/words/facts) in src/data/wordcache.ts
+- [x] T008 Implement viewport class → grid size + word-mix derivation in src/game/viewport.ts
+- [x] T009 [P] Implement random utilities (seedless sampling, shuffle, unique pick) in src/game/random.ts
+- [x] T010 Implement device-specific word selection (6 easy + 4 medium; +2 hard on desktop; de-dupe) in src/game/selectWords.ts
+- [x] T011 Implement 8-direction utilities for placement/selection in src/game/directions.ts
+- [x] T012 Implement puzzle generator with retry/backtracking budget in src/game/generator.ts
+- [x] T013 [P] Implement filler-letter generation meeting FR-015 (>=30% from {E,A,R,S,T} across filler cells) in src/game/filler.ts
+- [x] T014 Implement puzzle build orchestration (load JSON → select words → generate grid → choose 3 facts) in src/game/buildPuzzle.ts
+- [x] T015 Implement game state + reducer/actions for loading/playing/error in src/game/state.ts
+- [x] T016 [P] Create shared loading + error UI components in src/components/LoadingState.tsx and src/components/ErrorState.tsx
 
 **Checkpoint**: A `Puzzle` can be built purely from `public/wordcache/**` without UI.
 
@@ -57,16 +57,16 @@
 
 ### Implementation for User Story 1
 
-- [ ] T017 [US1] Implement theme toggle UI + default Light behavior in src/components/ThemeToggle.tsx
-- [ ] T018 [P] [US1] Implement CategoryChipCloud (7 unique chips + Shuffle Categories control) in src/components/CategoryChipCloud.tsx
-- [ ] T019 [P] [US1] Implement TopicHeader (topic label + Shuffle Topic control) in src/components/TopicHeader.tsx
-- [ ] T020 [P] [US1] Implement WordChipCloud display layout (2–3 rows) in src/components/WordChipCloud.tsx
-- [ ] T021 [P] [US1] Implement FactsSection showing exactly 3 random non-duplicated facts (or fewer if missing) in src/components/FactsSection.tsx
-- [ ] T022 [P] [US1] Implement Footer (year range starting 2026, MIT License text/link, repo link, new issue link, >=80px bottom whitespace) in src/components/Footer.tsx
-- [ ] T023 [US1] Implement read-only Grid renderer using monospaced font in src/components/Grid.tsx and src/styles/game.css
-- [ ] T024 [US1] Implement game hook to load categories and build puzzles (category select, shuffle categories, shuffle topic) in src/game/useWordSearchGame.ts
-- [ ] T025 [US1] Compose the page layout and wire actions/state in src/app/App.tsx
-- [ ] T026 [US1] Ensure topic label display comes from label_topics.json mapping in src/data/wordcache.ts
+- [x] T017 [US1] Implement theme toggle UI + default Light behavior in src/components/ThemeToggle.tsx
+- [x] T018 [P] [US1] Implement CategoryChipCloud (7 unique chips + Shuffle Categories control) in src/components/CategoryChipCloud.tsx
+- [x] T019 [P] [US1] Implement TopicHeader (topic label + Shuffle Topic control) in src/components/TopicHeader.tsx
+- [x] T020 [P] [US1] Implement WordChipCloud display layout (2–3 rows) in src/components/WordChipCloud.tsx
+- [x] T021 [P] [US1] Implement FactsSection showing exactly 3 random non-duplicated facts (or fewer if missing) in src/components/FactsSection.tsx
+- [x] T022 [P] [US1] Implement Footer (year range starting 2026, MIT License text/link, repo link, new issue link, >=80px bottom whitespace) in src/components/Footer.tsx
+- [x] T023 [US1] Implement read-only Grid renderer using monospaced font in src/components/Grid.tsx and src/styles/game.css
+- [x] T024 [US1] Implement game hook to load categories and build puzzles (category select, shuffle categories, shuffle topic) in src/game/useWordSearchGame.ts
+- [x] T025 [US1] Compose the page layout and wire actions/state in src/app/App.tsx
+- [x] T026 [US1] Ensure topic label display comes from label_topics.json mapping in src/data/wordcache.ts
 
 **Checkpoint**: User Story 1 is functional and demoable as an MVP.
 
@@ -80,15 +80,15 @@
 
 ### Implementation for User Story 2
 
-- [ ] T027 [P] [US2] Implement straight-line selection path derivation (anchor + current → cells) in src/game/path.ts
-- [ ] T028 [P] [US2] Implement selection validation vs remaining words (including reverse direction) in src/game/validateSelection.ts
-- [ ] T029 [US2] Extend game state to include selection preview + found word placements/colors in src/game/state.ts
-- [ ] T030 [US2] Add pointer interactions (drag preview + tap start/end) to the grid in src/components/Grid.tsx
-- [ ] T031 [US2] Add keyboard interactions (arrows, Space start/commit, Esc cancel) to the grid in src/components/Grid.tsx
-- [ ] T032 [US2] Render selection preview + persistent 5–6 highlight colors for found words in src/components/Grid.tsx and src/styles/game.css
-- [ ] T033 [US2] Implement invalid selection feedback (shake briefly then clear) in src/components/Grid.tsx and src/styles/game.css
-- [ ] T034 [US2] Cross off found words in the word chip cloud in src/components/WordChipCloud.tsx
-- [ ] T035 [P] [US2] Add live-region announcements (“Found WORD”, “Not a word”) in src/components/AriaStatus.tsx and wire it in src/app/App.tsx
+- [x] T027 [P] [US2] Implement straight-line selection path derivation (anchor + current → cells) in src/game/path.ts
+- [x] T028 [P] [US2] Implement selection validation vs remaining words (including reverse direction) in src/game/validateSelection.ts
+- [x] T029 [US2] Extend game state to include selection preview + found word placements/colors in src/game/state.ts
+- [x] T030 [US2] Add pointer interactions (drag preview + tap start/end) to the grid in src/components/Grid.tsx
+- [x] T031 [US2] Add keyboard interactions (arrows, Space start/commit, Esc cancel) to the grid in src/components/Grid.tsx
+- [x] T032 [US2] Render selection preview + persistent 5–6 highlight colors for found words in src/components/Grid.tsx and src/styles/game.css
+- [x] T033 [US2] Implement invalid selection feedback (shake briefly then clear) in src/components/Grid.tsx and src/styles/game.css
+- [x] T034 [US2] Cross off found words in the word chip cloud in src/components/WordChipCloud.tsx
+- [x] T035 [P] [US2] Add live-region announcements (“Found WORD”, “Not a word”) in src/components/AriaStatus.tsx and wire it in src/app/App.tsx
 
 **Checkpoint**: User Story 2 works across mouse/touch/keyboard.
 
@@ -102,12 +102,12 @@
 
 ### Implementation for User Story 3
 
-- [ ] T036 [P] [US3] Implement completion detection helper (all words found) in src/game/isComplete.ts
-- [ ] T037 [P] [US3] Implement top-of-page confetti burst (~0.5s) with reduced-motion fallback in src/components/ConfettiBurst.tsx
-- [ ] T038 [P] [US3] Implement completion modal (two choices + focus management) in src/components/CompletionModal.tsx
-- [ ] T039 [US3] Wire completion state, confetti trigger, and modal open/close flow in src/game/useWordSearchGame.ts
-- [ ] T040 [US3] Implement “another topic” regeneration behavior (choose topic, rebuild puzzle, refresh facts) in src/game/buildPuzzle.ts
-- [ ] T041 [US3] Implement “another category” behavior and return focus to category chip cloud in src/app/App.tsx
+- [x] T036 [P] [US3] Implement completion detection helper (all words found) in src/game/isComplete.ts
+- [x] T037 [P] [US3] Implement top-of-page confetti burst (~0.5s) with reduced-motion fallback in src/components/ConfettiBurst.tsx
+- [x] T038 [P] [US3] Implement completion modal (two choices + focus management) in src/components/CompletionModal.tsx
+- [x] T039 [US3] Wire completion state, confetti trigger, and modal open/close flow in src/game/useWordSearchGame.ts
+- [x] T040 [US3] Implement “another topic” regeneration behavior (choose topic, rebuild puzzle, refresh facts) in src/game/buildPuzzle.ts
+- [x] T041 [US3] Implement “another category” behavior and return focus to category chip cloud in src/app/App.tsx
 
 **Checkpoint**: User Story 3 completes the replay loop.
 
@@ -117,11 +117,11 @@
 
 **Purpose**: Improve resilience, performance, and spec/quickstart alignment across stories.
 
-- [ ] T042 [P] Add reduced-motion handling utilities and wire to animations in src/game/motion.ts and src/styles/game.css
-- [ ] T043 [P] Improve missing/invalid data messaging and recovery controls in src/components/ErrorState.tsx and src/game/useWordSearchGame.ts
-- [ ] T044 [P] Tune generator performance (constants, retry budget, early exits) in src/game/generator.ts
-- [ ] T045 Update quickstart to match the implemented scripts and Pages config in specs/001-word-search-game/quickstart.md
-- [ ] T046 Validate spec clarity and record any requirement gaps found during implementation in specs/001-word-search-game/checklists/ux.md
+- [x] T042 [P] Add reduced-motion handling utilities and wire to animations in src/game/motion.ts and src/styles/game.css
+- [x] T043 [P] Improve missing/invalid data messaging and recovery controls in src/components/ErrorState.tsx and src/game/useWordSearchGame.ts
+- [x] T044 [P] Tune generator performance (constants, retry budget, early exits) in src/game/generator.ts
+- [x] T045 Update quickstart to match the implemented scripts and Pages config in specs/001-word-search-game/quickstart.md
+- [x] T046 Validate spec clarity and record any requirement gaps found during implementation in specs/001-word-search-game/checklists/ux.md
 
 ---
 

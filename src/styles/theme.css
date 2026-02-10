@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Newsreader:wght@400;600&family=Space+Grotesk:wght@400;600;700&display=swap");
+
+:root {
+  color-scheme: light;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+
+  --bg: #f6f3ef;
+  --bg-accent: #efe6dc;
+  --bg-deep: #e4d6c4;
+  --ink: #1c1917;
+  --ink-muted: #5b534d;
+  --brand: #f97316;
+  --brand-ink: #ffedd5;
+  --chip: #ffffff;
+  --chip-border: #d6c7b5;
+  --panel: #ffffff;
+  --panel-border: #e4d6c4;
+  --shadow: rgba(28, 25, 23, 0.08);
+  --highlight-0: #f97316;
+  --highlight-1: #0ea5e9;
+  --highlight-2: #22c55e;
+  --highlight-3: #e11d48;
+  --highlight-4: #a855f7;
+  --highlight-5: #14b8a6;
+}
+
+.theme-dark {
+  color-scheme: dark;
+  --bg: #151312;
+  --bg-accent: #1f1b18;
+  --bg-deep: #2c2622;
+  --ink: #fef3c7;
+  --ink-muted: #cbb9a6;
+  --brand: #fb923c;
+  --brand-ink: #1c1917;
+  --chip: #221d1a;
+  --chip-border: #3c322b;
+  --panel: #1f1b18;
+  --panel-border: #3c322b;
+  --shadow: rgba(0, 0, 0, 0.35);
+  --highlight-0: #fb923c;
+  --highlight-1: #38bdf8;
+  --highlight-2: #4ade80;
+  --highlight-3: #fb7185;
+  --highlight-4: #c084fc;
+  --highlight-5: #2dd4bf;
+}

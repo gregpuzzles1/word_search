@@ -21,7 +21,7 @@
 
 - [ ] CHK009 Is “sleek” / “modern” UI defined in measurable terms (spacing, typography, component sizing) rather than subjective language? [Ambiguity, Spec §Input]
 - [ ] CHK010 Is the “rounded chip cloud panel” described with concrete measurable constraints (radius token, padding, chip size, line wrap rules)? [Ambiguity, Spec §User Story 1, Spec §FR-002]
-- [ ] CHK011 Is “small chips arranged to fit within 2–3 rows” defined with a deterministic rule when words overflow (e.g., wrap, scroll, truncate, reduce font size)? [Ambiguity, Spec §FR-008]
+- [x] CHK011 Is “small chips arranged to fit within 2–3 rows” defined with a deterministic rule when words overflow (e.g., wrap, scroll, truncate, reduce font size)? [Ambiguity, Spec §FR-008]
 - [ ] CHK012 Is the “shake briefly” rejection feedback specified with measurable parameters (duration, amplitude, easing) and an alternative for reduced-motion users? [Ambiguity, Gap, Spec §FR-020]
 - [ ] CHK013 Is the confetti burst specified with measurable parameters beyond duration (positioning, density/amount, and reduced-motion fallback)? [Ambiguity, Gap, Spec §FR-021]
 - [ ] CHK014 Are “5–6 distinct highlight colors” requirements defined without relying on new hard-coded colors (i.e., tied to existing theme tokens) and with contrast expectations? [Ambiguity, Gap, Spec §FR-018]
@@ -35,7 +35,7 @@
 
 ## Acceptance Criteria Quality
 
-- [ ] CHK019 Are there acceptance criteria for the theme toggle beyond default state (persistence rules, per-session behavior, OS preference interaction, and storage constraints)? [Gap, Acceptance Criteria, Spec §FR-001]
+- [x] CHK019 Are there acceptance criteria for the theme toggle beyond default state (persistence rules, per-session behavior, OS preference interaction, and storage constraints)? [Gap, Acceptance Criteria, Spec §FR-001]
 - [ ] CHK020 Can “no horizontal scrolling” be objectively verified without ambiguity (what counts as horizontal scroll; exceptions for chip wrapping)? [Measurability, Spec §SC-003]
 - [ ] CHK021 Are the selection acceptance criteria fully measurable for each input mode (touch/mouse/keyboard) without depending on vague terms like “same behavior”? [Measurability, Spec §User Story 2, Spec §FR-017, Spec §FR-018–FR-020]
 - [ ] CHK022 Are completion criteria measurable for modal behavior (copy/text, focus management, dismissal rules) rather than only its existence? [Gap, Acceptance Criteria, Spec §FR-022–FR-024, Spec §SC-005]
@@ -56,16 +56,16 @@
 
 ## Non-Functional Requirements (UX)
 
-- [ ] CHK031 Are motion-related UX requirements compatible with accessibility expectations (reduced motion for shake/confetti/highlight transitions), and is this explicitly stated? [Gap, NFR, Spec §FR-020–FR-021]
+- [x] CHK031 Are motion-related UX requirements compatible with accessibility expectations (reduced motion for shake/confetti/highlight transitions), and is this explicitly stated? [Gap, NFR, Spec §FR-020–FR-021]
 - [ ] CHK032 Are performance expectations defined for puzzle generation on mobile vs desktop in a measurable way (thresholds, max retries, and UI feedback while generating)? [Gap, NFR, Spec §Edge Cases, Spec §SC-001]
 
 ## Dependencies & Assumptions
 
 - [ ] CHK033 Are assumptions about word formatting (uppercase vs lowercase) and monospaced font availability explicitly stated to prevent inconsistent UX across devices? [Gap, Assumption, Spec §FR-016]
-- [ ] CHK034 Are dependencies between selection rules and grid generation rules explicitly documented (e.g., “straight-line only” selection must match “8 directions” placement)? [Clarity, Dependency, Spec §FR-014, Spec §User Story 2]
+- [x] CHK034 Are dependencies between selection rules and grid generation rules explicitly documented (e.g., “straight-line only” selection must match “8 directions” placement)? [Clarity, Dependency, Spec §FR-014, Spec §User Story 2]
 
 ## Ambiguities & Conflicts
 
-- [ ] CHK035 Is the word-matching rule unambiguous (case sensitivity, forward vs backward, whether selecting a found word again is ignored/allowed)? [Ambiguity, Gap, Spec §FR-019]
+- [x] CHK035 Is the word-matching rule unambiguous (case sensitivity, forward vs backward, whether selecting a found word again is ignored/allowed)? [Ambiguity, Gap, Spec §FR-019]
 - [ ] CHK036 Are footer requirements fully unambiguous (exact text for “MIT License”, link targets, and whether year range updates automatically when year changes)? [Ambiguity, Spec §FR-027]
 - [ ] CHK037 Is the “80px whitespace below footer” requirement defined precisely (padding vs margin, measured at what viewport sizes)? [Ambiguity, Spec §FR-028]
