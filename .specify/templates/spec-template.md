@@ -96,6 +96,12 @@
 - **FR-006**: System MUST authenticate users via [NEEDS CLARIFICATION: auth method not specified - email/password, SSO, OAuth?]
 - **FR-007**: System MUST retain user data for [NEEDS CLARIFICATION: retention period not specified]
 
+### Deployment Constraints *(mandatory)*
+
+- Deployment MUST target GitHub Pages.
+- Deployments MUST run via GitHub Actions and only from `main`.
+- Output MUST be static assets (HTML/CSS/JS/images).
+
 ### Key Entities *(include if feature involves data)*
 
 - **[Entity 1]**: [What it represents, key attributes without implementation]

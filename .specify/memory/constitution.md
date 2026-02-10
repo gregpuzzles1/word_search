@@ -1,70 +1,51 @@
 <!--
 Sync Impact Report
 - Version change: 0.0.0-placeholder -> 1.0.0
-- Modified principles: Initialized five principles for static web app + GitHub Pages
-- Added sections: Technology Constraints; Development Workflow
-- Removed sections: None
+- Modified principles: Initialized minimal static + Pages deployment constraints
+- Added sections: Hosting & Deployment; Development Workflow
+- Removed sections: none
 - Templates requiring updates:
 	- .specify/templates/plan-template.md: ✅ updated
 	- .specify/templates/spec-template.md: ✅ updated
 	- .specify/templates/tasks-template.md: ✅ updated
-	- .specify/templates/commands/*.md: ✅ no files found
-- Follow-up TODOs:
-	- TODO(RATIFICATION_DATE): original adoption date not found
+- Follow-up TODOs: none
 -->
 # Word Search Constitution
 
 ## Core Principles
 
-### I. Static-Only App
-The app MUST be fully static and run in the browser with no server-side
-runtime, databases, or server builds in this repository. External services
-are allowed only when they do not require server code in this repo.
-Rationale: GitHub Pages hosts static content only.
+### I. Static-Only Web App
+The app MUST ship as static HTML, CSS, JavaScript, and assets. No server-side
+code, databases, or runtime backends are allowed in this repo. External APIs are
+allowed only if they are public and do not require secret keys.
 
-### II. Main-Only Actions Deploy
-Deployments to GitHub Pages MUST be performed by GitHub Actions and MUST run
-only on the `main` branch. Manual uploads or deployments from other branches
-are not allowed.
-Rationale: Ensures reproducible and traceable releases.
+### II. GitHub Pages Deployments
+Production hosting MUST be GitHub Pages. Deployments MUST run via GitHub Actions
+and only from the `main` branch; no manual uploads or alternate branches.
 
-### III. Minimal Dependency Surface
-Dependencies MUST be added only when native browser capabilities are
-insufficient. Each new dependency MUST include a brief justification in the
-change description.
-Rationale: Keeps bundle size and maintenance cost low.
+### III. No Server-Side Secrets
+No secrets or private keys may be required at runtime. Any build-time variables
+MUST be non-sensitive and scoped to static asset generation.
 
-### IV. Baseline Accessibility and Performance
-The UI MUST use semantic HTML, support keyboard access for interactive
-controls, and avoid large unoptimized assets. The primary page MUST load
-without blocking on non-critical resources.
-Rationale: Basic quality and usability for a public static site.
+## Hosting & Deployment
 
-### V. Build Output Is Ephemeral
-Build outputs for GitHub Pages MUST be generated in GitHub Actions and MUST
-NOT be committed to the repository unless the hosting setup explicitly
-requires it.
-Rationale: Prevents source control drift and keeps the repo clean.
-
-## Technology Constraints
-
-- The site MUST be a static web app using HTML, CSS, and JavaScript.
-- The deployment target is GitHub Pages via a GitHub Actions workflow.
-- Any build step MUST produce static assets suitable for Pages hosting.
+- GitHub Pages is the only production hosting target.
+- A GitHub Actions workflow publishes the static build to Pages.
+- The workflow triggers on `main` and publishes only from `main`.
+- Build output is static assets; the output directory is defined in the workflow.
 
 ## Development Workflow
 
-- All changes MUST be merged into `main` before deployment.
-- Feature work MUST include a Constitution Check in the implementation plan.
-- Exceptions to any principle MUST be documented with rationale in the plan.
+- Changes to deployment or hosting MUST update the workflow and this document.
+- Any feature requiring a server-side component is out of scope and MUST be
+	rejected or redesigned as static.
 
 ## Governance
 
-- This constitution supersedes other project guidance.
-- Amendments require a documented change, review, and update to version and
-	dates.
-- Versioning follows semantic versioning: MAJOR for breaking governance
-	changes, MINOR for new principles or sections, PATCH for clarifications.
-- Compliance is reviewed during planning and before merge to `main`.
+- The constitution is the source of truth for project constraints.
+- Amendments require a PR that updates this file, explains rationale, and bumps
+	the version per semantic versioning.
+- Compliance is reviewed in plans and PRs; any violation requires an explicit
+	exception recorded in the plan.
 
-**Version**: 1.0.0 | **Ratified**: TODO(RATIFICATION_DATE): original adoption date not found | **Last Amended**: 2026-02-10
+**Version**: 1.0.0 | **Ratified**: 2026-02-10 | **Last Amended**: 2026-02-10

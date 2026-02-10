@@ -31,11 +31,10 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-- App remains fully static with no server runtime or database.
-- GitHub Pages deploys via GitHub Actions, triggered only from `main`.
-- Dependency additions are justified; assets remain optimized for baseline
-  accessibility and performance.
-- Build outputs are generated in Actions and not committed to the repo.
+- Static-only delivery (HTML/CSS/JS/assets); no server-side components.
+- GitHub Pages is the sole hosting target.
+- Deployment runs via GitHub Actions and only from `main`.
+- No runtime secrets or private keys required.
 
 ## Project Structure
 
