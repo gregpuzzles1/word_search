@@ -105,6 +105,7 @@ export const useWordSearchGame = () => {
 
   const startAnotherTopic = useCallback(() => {
     if (!selectedCategory) return;
+    dispatch({ type: "SET_STATUS", payload: "loading" });
     loadPuzzle(selectedCategory);
   }, [loadPuzzle, selectedCategory]);
 

@@ -17,10 +17,12 @@ export type SelectionPreview = {
 };
 
 export type Puzzle = {
+  puzzleId: string;
   category: Category;
   topicSlug: string;
   topicLabel: string;
-  gridSize: number;
+  gridRows: number;
+  gridCols: number;
   words: string[];
   grid: string[][];
   placements: Placement[];

@@ -63,6 +63,7 @@ a {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  position: relative;
 }
 
 .section-title {
@@ -149,6 +150,8 @@ a {
   display: grid;
   place-items: center;
   min-height: 240px;
+  width: 100%;
+  overflow: hidden;
 }
 
 .grid-placeholder {

@@ -8,7 +8,7 @@ import type {
   TopicWords
 } from "./types";
 
-const WORDCACHE_BASE = "/wordcache";
+const WORDCACHE_BASE = `${import.meta.env.BASE_URL}wordcache`;
 
 const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === "object" && value !== null;

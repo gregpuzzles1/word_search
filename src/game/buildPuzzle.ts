@@ -45,11 +45,17 @@ export const buildPuzzle = async (params: {
   const facts = factsFile?.facts ?? [];
   const factsShown = facts.sort(() => Math.random() - 0.5).slice(0, 3);
 
+  const puzzleId = `${params.category.slug}-${chosenTopic}-${Date.now()}-${Math.random()
+    .toString(36)
+    .slice(2, 8)}`;
+
   return {
+    puzzleId,
     category: params.category,
     topicSlug: chosenTopic,
     topicLabel,
-    gridSize,
+    gridRows: gridSize.rows,
+    gridCols: gridSize.cols,
     words: selectedWords,
     grid: generated.grid,
     placements: generated.placements,

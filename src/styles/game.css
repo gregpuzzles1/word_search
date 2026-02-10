@@ -1,8 +1,11 @@
 .grid {
   display: grid;
-  gap: 6px;
-  grid-template-columns: repeat(var(--grid-size), minmax(0, 1fr));
-  width: min(90vw, 720px);
+  gap: 14px;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  touch-action: none;
 }
 
 .grid-row {
@@ -13,12 +16,12 @@
   display: grid;
   place-items: center;
   font-family: "JetBrains Mono", monospace;
-  font-size: clamp(0.7rem, 1.4vw, 0.95rem);
-  background: var(--bg-deep);
+  font-size: clamp(1.25rem, 2.6vw, 1.6rem);
+  background: transparent;
   color: var(--ink);
-  border-radius: 10px;
+  border-radius: 0;
   aspect-ratio: 1 / 1;
-  border: 1px solid var(--chip-border);
+  border: none;
 }
 
 .grid-cell.is-preview {
@@ -80,20 +83,25 @@
 }
 
 .confetti {
-  position: relative;
-  height: 48px;
+  position: fixed;
+  top: 120px;
+  left: 0;
+  right: 0;
+  height: 120px;
   overflow: hidden;
+  pointer-events: none;
+  z-index: 30;
 }
 
 .confetti-piece {
   position: absolute;
   top: 0;
   left: 0;
-  width: 10px;
-  height: 16px;
+  width: 12px;
+  height: 20px;
   border-radius: 4px;
   background: var(--highlight-0);
-  animation: confetti-fall 0.5s ease-out forwards;
+  animation: confetti-fall 2s ease-out forwards;
 }
 
 .confetti-piece:nth-child(2) { left: 8%; background: var(--highlight-1); }
@@ -116,7 +124,7 @@
     opacity: 1;
   }
   100% {
-    transform: translateY(60px) rotate(35deg);
+    transform: translateY(120px) rotate(50deg);
     opacity: 0;
   }
 }

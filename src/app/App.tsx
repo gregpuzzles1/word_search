@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import AriaStatus from "../components/AriaStatus";
 import CategoryChipCloud from "../components/CategoryChipCloud";
 import ConfettiBurst from "../components/ConfettiBurst";
@@ -45,6 +45,7 @@ export default function App() {
   } = useWordSearchGame();
   const [showConfetti, setShowConfetti] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const lastCompletedIdRef = useRef<string | null>(null);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -68,25 +69,30 @@ export default function App() {
 
   useEffect(() => {
     if (status !== "completed") {
+      setShowConfetti(false);
       setShowModal(false);
       return;
     }
+    if (!puzzle || puzzle.puzzleId === lastCompletedIdRef.current) return;
 
+    lastCompletedIdRef.current = puzzle.puzzleId;
     setShowConfetti(true);
-    const confettiTimer = window.setTimeout(() => setShowConfetti(false), 520);
-    const modalTimer = window.setTimeout(() => setShowModal(true), 520);
+    const confettiTimer = window.setTimeout(() => setShowConfetti(false), 2000);
+    const modalTimer = window.setTimeout(() => setShowModal(true), 2200);
     return () => {
       window.clearTimeout(confettiTimer);
       window.clearTimeout(modalTimer);
     };
-  }, [status]);
+  }, [puzzle, status]);
 
   const handleAnotherTopic = () => {
+    setShowConfetti(false);
     setShowModal(false);
     startAnotherTopic();
   };
 
   const handleAnotherCategory = () => {
+    setShowConfetti(false);
     setShowModal(false);
     startAnotherCategory();
     window.setTimeout(() => {
@@ -110,7 +116,7 @@ export default function App() {
       </header>
 
       <main className="app-main">
-        <ConfettiBurst active={showConfetti} />
+        {status === "completed" ? <ConfettiBurst active={showConfetti} /> : null}
         <CategoryChipCloud
           categories={categories}
           selectedSlug={selectedCategory?.slug ?? null}

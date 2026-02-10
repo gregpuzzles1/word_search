@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { prefersReducedMotion } from "../game/motion";
 
 type ConfettiBurstProps = {
   active: boolean;
@@ -13,11 +12,11 @@ export default function ConfettiBurst({ active }: ConfettiBurstProps) {
   useEffect(() => {
     if (!active) return;
     setRender(true);
-    const timer = window.setTimeout(() => setRender(false), 520);
+    const timer = window.setTimeout(() => setRender(false), 2000);
     return () => window.clearTimeout(timer);
   }, [active]);
 
-  if (!render || prefersReducedMotion()) return null;
+  if (!render) return null;
 
   return (
     <div className="confetti" aria-hidden="true">

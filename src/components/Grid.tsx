@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import type { CSSProperties, KeyboardEvent } from "react";
 import type { FoundWord, SelectionPreview } from "../game/state";
 
@@ -23,10 +23,12 @@ export default function Grid({
   onCommitSelection,
   onCancelSelection
 }: GridProps) {
-  const size = grid.length;
-  const style = { "--grid-size": size } as CSSProperties;
+  const rows = grid.length;
+  const cols = grid[0]?.length ?? 0;
+  const style = { "--grid-columns": cols } as CSSProperties;
   const [isPointerDown, setIsPointerDown] = useState(false);
   const [activeCell, setActiveCell] = useState({ row: 0, col: 0 });
+  const gridRef = useRef<HTMLDivElement | null>(null);
 
   const foundMap = useMemo(() => {
     const map = new Map<string, number>();
@@ -46,20 +48,33 @@ export default function Grid({
     return set;
   }, [selection]);
 
-  const handlePointerDown = (row: number, col: number) => {
+  const handlePointerDown = (
+    event: React.PointerEvent,
+    row: number,
+    col: number
+  ) => {
+    event.preventDefault();
     setIsPointerDown(true);
     onStartSelection({ row, col });
+    gridRef.current?.setPointerCapture(event.pointerId);
   };
 
-  const handlePointerEnter = (row: number, col: number) => {
+  const handlePointerMove = (event: React.PointerEvent) => {
     if (!isPointerDown) return;
+    const target = document.elementFromPoint(event.clientX, event.clientY);
+    const cell = target instanceof HTMLElement ? target.closest(".grid-cell") : null;
+    if (!cell) return;
+    const row = Number(cell.getAttribute("data-row"));
+    const col = Number(cell.getAttribute("data-col"));
+    if (Number.isNaN(row) || Number.isNaN(col)) return;
     onUpdateSelection({ row, col });
   };
 
-  const handlePointerUp = () => {
+  const handlePointerUp = (event: React.PointerEvent) => {
     if (!isPointerDown) return;
     setIsPointerDown(false);
     onCommitSelection();
+    gridRef.current?.releasePointerCapture(event.pointerId);
   };
 
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
@@ -69,9 +84,9 @@ export default function Grid({
       setActiveCell((prev) => {
         const next = { ...prev };
         if (key === "ArrowUp") next.row = Math.max(0, prev.row - 1);
-        if (key === "ArrowDown") next.row = Math.min(size - 1, prev.row + 1);
+        if (key === "ArrowDown") next.row = Math.min(rows - 1, prev.row + 1);
         if (key === "ArrowLeft") next.col = Math.max(0, prev.col - 1);
-        if (key === "ArrowRight") next.col = Math.min(size - 1, prev.col + 1);
+        if (key === "ArrowRight") next.col = Math.min(cols - 1, prev.col + 1);
         if (selection?.anchor) {
           onUpdateSelection(next);
         }
@@ -104,7 +119,9 @@ export default function Grid({
         tabIndex={0}
         onKeyDown={handleKeyDown}
         onPointerUp={handlePointerUp}
+        onPointerMove={handlePointerMove}
         onPointerCancel={() => setIsPointerDown(false)}
+        ref={gridRef}
       >
         {grid.map((row, rowIndex) => (
           <div className="grid-row" role="row" key={`row-${rowIndex}`}>
@@ -125,8 +142,11 @@ export default function Grid({
                   }`}
                   style={cellStyle}
                   role="gridcell"
-                  onPointerDown={() => handlePointerDown(rowIndex, colIndex)}
-                  onPointerEnter={() => handlePointerEnter(rowIndex, colIndex)}
+                  data-row={rowIndex}
+                  data-col={colIndex}
+                  onPointerDown={(event) =>
+                    handlePointerDown(event, rowIndex, colIndex)
+                  }
                   onClick={() => {
                     if (!selection?.anchor) {
                       onStartSelection({ row: rowIndex, col: colIndex });

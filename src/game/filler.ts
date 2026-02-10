@@ -10,11 +10,12 @@ const WEIGHTED = [
 ];
 
 export const fillEmptyCells = (grid: (string | null)[][]): string[][] => {
-  const size = grid.length;
+  const rows = grid.length;
+  const cols = grid[0]?.length ?? 0;
   const emptyCells: { row: number; col: number }[] = [];
 
-  for (let row = 0; row < size; row += 1) {
-    for (let col = 0; col < size; col += 1) {
+  for (let row = 0; row < rows; row += 1) {
+    for (let col = 0; col < cols; col += 1) {
       if (!grid[row][col]) {
         emptyCells.push({ row, col });
       }

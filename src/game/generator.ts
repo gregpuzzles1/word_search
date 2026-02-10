@@ -16,10 +16,10 @@ export type GeneratedPuzzle = {
   placements: Placement[];
 };
 
-const createEmptyGrid = (size: number) =>
-  Array.from({ length: size }, () => Array.from({ length: size }, () => null as
-    | string
-    | null));
+const createEmptyGrid = (rows: number, cols: number) =>
+  Array.from({ length: rows }, () =>
+    Array.from({ length: cols }, () => null as string | null)
+  );
 
 const computeCells = (
   word: string,
@@ -41,10 +41,11 @@ const canPlaceWord = (
   col: number,
   dir: Direction
 ) => {
-  const size = grid.length;
+  const rows = grid.length;
+  const cols = grid[0]?.length ?? 0;
   const endRow = row + dir.dr * (word.length - 1);
   const endCol = col + dir.dc * (word.length - 1);
-  if (endRow < 0 || endRow >= size || endCol < 0 || endCol >= size) {
+  if (endRow < 0 || endRow >= rows || endCol < 0 || endCol >= cols) {
     return null;
   }
 
@@ -90,20 +91,21 @@ const undoPlacement = (
 
 export const generateGrid = (
   words: string[],
-  size: number,
+  size: { rows: number; cols: number },
   options?: { maxAttempts?: number; maxCandidates?: number }
 ): GeneratedPuzzle => {
+  const maxDimension = Math.max(size.rows, size.cols);
   const maxAttempts =
     options?.maxAttempts ?? Math.max(80, Math.min(300, words.length * 25));
   const maxCandidates = options?.maxCandidates ?? 12;
   const sortedWords = [...words].sort((a, b) => b.length - a.length);
 
-  if (sortedWords.some((word) => word.length > size)) {
+  if (sortedWords.some((word) => word.length > maxDimension)) {
     throw new Error("One or more words are longer than the grid size.");
   }
 
   for (let attempt = 0; attempt < maxAttempts; attempt += 1) {
-    const grid = createEmptyGrid(size);
+    const grid = createEmptyGrid(size.rows, size.cols);
     const placements: Placement[] = [];
 
     const tryPlace = (index: number): boolean => {
@@ -117,8 +119,8 @@ export const generateGrid = (
         cells: { row: number; col: number }[];
       }[] = [];
 
-      for (let row = 0; row < size; row += 1) {
-        for (let col = 0; col < size; col += 1) {
+      for (let row = 0; row < size.rows; row += 1) {
+        for (let col = 0; col < size.cols; col += 1) {
           for (const dir of DIRECTIONS) {
             const result = canPlaceWord(grid, word, row, col, dir);
             if (result) {

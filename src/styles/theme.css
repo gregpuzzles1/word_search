@@ -16,12 +16,12 @@
   --panel: #ffffff;
   --panel-border: #e4d6c4;
   --shadow: rgba(28, 25, 23, 0.08);
-  --highlight-0: #f97316;
-  --highlight-1: #0ea5e9;
-  --highlight-2: #22c55e;
-  --highlight-3: #e11d48;
-  --highlight-4: #a855f7;
-  --highlight-5: #14b8a6;
+  --highlight-0: #fb7185;
+  --highlight-1: #38bdf8;
+  --highlight-2: #34d399;
+  --highlight-3: #facc15;
+  --highlight-4: #a78bfa;
+  --highlight-5: #fb923c;
 }
 
 .theme-dark {
@@ -38,10 +38,10 @@
   --panel: #1f1b18;
   --panel-border: #3c322b;
   --shadow: rgba(0, 0, 0, 0.35);
-  --highlight-0: #fb923c;
+  --highlight-0: #fb7185;
   --highlight-1: #38bdf8;
-  --highlight-2: #4ade80;
-  --highlight-3: #fb7185;
-  --highlight-4: #c084fc;
-  --highlight-5: #2dd4bf;
+  --highlight-2: #34d399;
+  --highlight-3: #fde047;
+  --highlight-4: #c4b5fd;
+  --highlight-5: #fb923c;
 }

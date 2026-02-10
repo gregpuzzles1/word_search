@@ -1,19 +1,24 @@
 export type ViewportClass = "mobile" | "tablet" | "desktop";
 
+export type GridSize = {
+  rows: number;
+  cols: number;
+};
+
 export const getViewportClass = (width: number): ViewportClass => {
   if (width < 768) return "mobile";
   if (width < 1024) return "tablet";
   return "desktop";
 };
 
-export const gridSizeForViewport = (viewport: ViewportClass): number => {
+export const gridSizeForViewport = (viewport: ViewportClass): GridSize => {
   switch (viewport) {
     case "mobile":
-      return 10;
+      return { rows: 9, cols: 8 };
     case "tablet":
-      return 12;
+      return { rows: 12, cols: 12 };
     case "desktop":
-      return 15;
+      return { rows: 15, cols: 15 };
   }
 };
 

@@ -125,6 +125,21 @@
 
 ---
 
+## Phase 7: Post-Implementation Iterations
+
+**Purpose**: Capture changes made after initial implementation based on live testing feedback.
+
+- [x] T047 Fix wordcache asset base path to respect Vite base URL in src/data/wordcache.ts
+- [x] T048 Improve mobile drag selection with pointer capture + hit-testing in src/components/Grid.tsx and src/styles/game.css
+- [x] T049 Add highlight color tokens to the theme for confetti/found-word visibility in src/styles/theme.css
+- [x] T050 Increase confetti duration and adjust overlay positioning/timing in src/components/ConfettiBurst.tsx, src/styles/game.css, src/app/App.tsx
+- [x] T051 Gate confetti to fire once per puzzle instance in src/app/App.tsx and src/game/buildPuzzle.ts
+- [x] T052 Support rectangular grids for mobile (8x9) in src/game/viewport.ts, src/game/generator.ts, src/game/filler.ts, src/game/buildPuzzle.ts, src/game/state.ts, src/components/Grid.tsx
+- [x] T053 Constrain grid width to panel to prevent overflow on mobile in src/styles/game.css and src/styles/app.css
+- [x] T054 Remove grid letter tiles and increase letter sizing/spacing in src/styles/game.css
+
+---
+
 ## Dependencies & Execution Order
 
 ### Phase Dependencies
