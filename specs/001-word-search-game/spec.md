@@ -11,6 +11,7 @@
 
 - Q: Where is `label_topics.json` located? → A: It is per category at `public/wordcache/<categorySlug>/label_topics.json`.
 - Q: What key contains the facts list in `<topic>_facts.json`? → A: The facts are in the `facts` array.
+- Q: What breakpoints define Mobile/Tablet/Desktop? → A: Mobile <768px; Tablet 768–1023px; Desktop >=1024px.
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -120,6 +121,7 @@ As a player, when I find all words I want a brief celebration and a clear choice
 - **FR-011**: For desktop puzzles, the system MUST randomly select 6 unique Easy words, 4 unique Medium words, and 2 unique Hard words.
 - **FR-012**: The system MUST ensure there are no duplicate words within a single puzzle word list, even if source files contain duplicates.
 - **FR-013**: The grid MUST be sized by display class: 10×10 (mobile), 12×12 (tablet), 15×15 (desktop).
+- **FR-013a**: Display classes MUST be determined by viewport width: Mobile <768px; Tablet 768–1023px; Desktop >=1024px.
 - **FR-014**: The grid MUST place words using all 8 directions.
 - **FR-015**: In the non-word (filler) grid cells, letters from the set {E, A, R, S, T} MUST make up at least 30% of filler letters.
 - **FR-016**: The grid MUST use a monospaced font.
@@ -146,6 +148,7 @@ As a player, when I find all words I want a brief celebration and a clear choice
 
 - The repository contains `public/wordcache/categories.json` and per-category `public/wordcache/<categorySlug>/label_topics.json` and they are consistent with the category/topic folders and files under `public/wordcache/`.
 - Each topic has difficulty word lists available as Easy/Medium/Hard JSON files with a `words` list; on mobile/tablet the game will ignore Hard even if present.
+- “Mobile/Tablet/Desktop” are determined by viewport width as defined in FR-013a.
 - Each topic may have an optional facts file with 7 facts; the site will display up to 3 when available.
 
 ### Key Entities *(include if feature involves data)*
