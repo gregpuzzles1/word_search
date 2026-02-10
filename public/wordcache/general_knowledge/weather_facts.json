@@ -1,0 +1,16 @@
+{
+  "category": "general_knowledge",
+  "topic": "Weather",
+  "count": 7,
+  "facts": [
+    "A lightning bolt can heat the air around it to about 30,000°C, which is hotter than the surface of the Sun.",
+    "Thunder is the sound made when lightning rapidly heats the air and causes it to expand like a shock wave.",
+    "A hurricane gets its energy from warm ocean water, and it weakens when it moves over cooler water or land.",
+    "A rainbow forms when sunlight is bent and reflected inside raindrops, splitting white light into many colors.",
+    "Hailstones grow in strong thunderstorm clouds when updrafts lift them over and over through freezing layers.",
+    "The highest clouds, called cirrus clouds, are made of tiny ice crystals and often signal a change in weather.",
+    "Tornadoes can spin at very high speeds, but they are usually much smaller and shorter-lived than hurricanes."
+  ],
+  "sources_hint": "general knowledge; verify if needed",
+  "generated_at": "2026-02-09T17:52:00.346Z"
+}

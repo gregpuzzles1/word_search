@@ -1,0 +1,16 @@
+{
+  "category": "transportation",
+  "topic": "Airplanes",
+  "count": 7,
+  "facts": [
+    "Airplanes fly because their wings are shaped to create lift, a force that pushes up against gravity as air moves over and under the wing.",
+    "Most passenger jets cruise at about 35,000 feet, where the air is thinner and the plane can fly more efficiently.",
+    "A jet engine works by sucking in air, squeezing it, mixing it with fuel, and burning it to push hot gases backward and thrust the plane forward.",
+    "Airplanes are steered on the ground with a nose wheel and brakes, but in the air pilots use movable parts like ailerons, elevators, and a rudder to turn and climb.",
+    "Commercial airplanes are built with backup systems, so if one important part fails, another can often keep the plane operating safely.",
+    "The black boxes on airplanes are actually bright orange flight recorders that help investigators understand what happened after an accident.",
+    "Air traffic controllers use radar and radio to guide planes and keep safe distances between them, especially near busy airports."
+  ],
+  "sources_hint": "Common aviation principles covered in introductory aerospace resources such as NASA Glenn educational pages and FAA public materials.",
+  "generated_at": "2026-02-09T20:37:44.382Z"
+}

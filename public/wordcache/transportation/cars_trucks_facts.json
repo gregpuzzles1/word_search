@@ -1,0 +1,16 @@
+{
+  "category": "transportation",
+  "topic": "Cars Trucks",
+  "count": 7,
+  "facts": [
+    "The first practical gasoline-powered cars were built in the late 1800s, and they quickly changed how people traveled long distances.",
+    "A car’s engine turns fuel into motion by making controlled explosions that push pistons up and down inside metal cylinders.",
+    "Most modern cars use a radiator and coolant to carry away extra heat so the engine does not overheat.",
+    "Trucks can carry heavier loads than cars because they often have stronger frames, stiffer suspension, and more powerful brakes.",
+    "Some large trucks use diesel fuel because diesel engines can produce strong pulling power and often get better fuel efficiency for heavy work.",
+    "Seat belts and airbags work together, with seat belts holding you in place while airbags cushion your head and chest during a crash.",
+    "Electric cars use batteries and electric motors instead of gasoline, and they can recharge by plugging into a charging station or home outlet."
+  ],
+  "sources_hint": "For more details, check kid-friendly transportation articles from museums and science sites, plus official road-safety resources like NHTSA and IIHS.",
+  "generated_at": "2026-02-09T20:38:03.276Z"
+}

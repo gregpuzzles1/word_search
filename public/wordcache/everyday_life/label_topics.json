@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-02-09T20:35:50.652Z",
+  "category": "everyday_life",
+  "count": 7,
+  "topics": [
+    {
+      "slug": "clothing",
+      "label": "Clothing"
+    },
+    {
+      "slug": "cooking",
+      "label": "Cooking"
+    },
+    {
+      "slug": "fitness",
+      "label": "Fitness"
+    },
+    {
+      "slug": "food",
+      "label": "Food"
+    },
+    {
+      "slug": "health",
+      "label": "Health"
+    },
+    {
+      "slug": "home",
+      "label": "Home"
+    },
+    {
+      "slug": "transportation",
+      "label": "Transportation"
+    }
+  ],
+  "sources_hint": "deterministic slug->label normalization + overrides map"
+}

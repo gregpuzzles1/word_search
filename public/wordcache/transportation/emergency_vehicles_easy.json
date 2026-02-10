@@ -1,0 +1,27 @@
+{
+  "topic": "emergency_vehicles",
+  "difficulty": "easy",
+  "count": 20,
+  "words": [
+    "POLICE",
+    "PATROL",
+    "SQUAD",
+    "SIREN",
+    "RESCUE",
+    "ENGINE",
+    "TRUCK",
+    "AERIAL",
+    "EMS",
+    "EMT",
+    "VAN",
+    "HELI",
+    "BOATS",
+    "LIGHTS",
+    "SEDAN",
+    "SUV",
+    "JEEPS",
+    "WAGON",
+    "CRANE",
+    "PICKUP"
+  ]
+}

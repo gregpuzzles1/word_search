@@ -1,0 +1,16 @@
+{
+  "category": "music",
+  "topic": "Music Terms",
+  "count": 7,
+  "facts": [
+    "A tempo mark like Allegro or Largo tells performers the general speed of the music.",
+    "A crescendo means the music gradually gets louder, while a decrescendo or diminuendo means it gradually gets softer.",
+    "A key signature uses sharps or flats at the start of a staff to show what notes are usually altered in a piece.",
+    "A time signature, such as 4/4 or 3/4, tells how many beats are in each measure and what kind of note gets one beat.",
+    "A rest is a musical symbol that shows a silence for a specific length of time, just like notes show sound.",
+    "Staccato means notes are played short and detached, while legato means they are played smoothly connected.",
+    "A chord is two or more notes played together, and three-note chords called triads are some of the most common in Western music."
+  ],
+  "sources_hint": "general knowledge; verify if needed",
+  "generated_at": "2026-02-09T17:39:40.979Z"
+}

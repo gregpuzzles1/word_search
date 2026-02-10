@@ -1,0 +1,73 @@
+{
+  "generated_at": "2026-02-09T18:43:25.423Z",
+  "base_path": "public/wordcache",
+  "count": 13,
+  "categories": [
+    {
+      "slug": "arts_culture",
+      "label": "Arts & Culture",
+      "path": "public/wordcache/arts_culture"
+    },
+    {
+      "slug": "astronomy",
+      "label": "Astronomy",
+      "path": "public/wordcache/astronomy"
+    },
+    {
+      "slug": "bible",
+      "label": "Bible",
+      "path": "public/wordcache/bible"
+    },
+    {
+      "slug": "everyday_life",
+      "label": "Everyday Life",
+      "path": "public/wordcache/everyday_life"
+    },
+    {
+      "slug": "general_knowledge",
+      "label": "General Knowledge",
+      "path": "public/wordcache/general_knowledge"
+    },
+    {
+      "slug": "geography",
+      "label": "Geography",
+      "path": "public/wordcache/geography"
+    },
+    {
+      "slug": "history_civics",
+      "label": "History & Civics",
+      "path": "public/wordcache/history_civics"
+    },
+    {
+      "slug": "modern_life",
+      "label": "Modern Life",
+      "path": "public/wordcache/modern_life"
+    },
+    {
+      "slug": "music",
+      "label": "Music",
+      "path": "public/wordcache/music"
+    },
+    {
+      "slug": "science_math",
+      "label": "Science & Math",
+      "path": "public/wordcache/science_math"
+    },
+    {
+      "slug": "sports_games",
+      "label": "Sports & Games",
+      "path": "public/wordcache/sports_games"
+    },
+    {
+      "slug": "thinking_language",
+      "label": "Thinking & Language",
+      "path": "public/wordcache/thinking_language"
+    },
+    {
+      "slug": "transportation",
+      "label": "Transportation",
+      "path": "public/wordcache/transportation"
+    }
+  ],
+  "sources_hint": "local deterministic normalization rules"
+}

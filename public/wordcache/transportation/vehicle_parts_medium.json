@@ -1,0 +1,27 @@
+{
+  "topic": "vehicle_parts",
+  "difficulty": "medium",
+  "count": 20,
+  "words": [
+    "ENGINE",
+    "BRAKES",
+    "STEERING",
+    "GEARBOX",
+    "RADIATOR",
+    "CLUTCH",
+    "FENDER",
+    "HUBCAP",
+    "PISTON",
+    "CYLINDER",
+    "CAMSHAFT",
+    "EXHAUST",
+    "MUFFLER",
+    "SPARKPLUG",
+    "AIRFILTER",
+    "WATERPUMP",
+    "FLYWHEEL",
+    "SEATBELT",
+    "STARTER",
+    "BEARING"
+  ]
+}

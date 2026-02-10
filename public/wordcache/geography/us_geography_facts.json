@@ -1,0 +1,16 @@
+{
+  "category": "geography",
+  "topic": "US Geography",
+  "count": 7,
+  "facts": [
+    "Alaska is the largest U.S. state by land area and is bigger than the next three largest states (Texas, California, and Montana) combined.",
+    "Hawaii is the only U.S. state made entirely of islands and it is located in the middle of the Pacific Ocean.",
+    "The Mississippi River system is one of the longest river systems in the world and drains water from a huge part of the United States.",
+    "Denali in Alaska is the highest mountain in North America, rising 20,310 feet (6,190 meters) above sea level.",
+    "Death Valley in California contains the lowest point in North America, Badwater Basin, which is about 282 feet (86 meters) below sea level.",
+    "The Four Corners is the only place in the United States where four states meet at one point: Arizona, New Mexico, Colorado, and Utah.",
+    "Lake Superior is the largest of the Great Lakes by surface area and holds more water than the other four Great Lakes combined."
+  ],
+  "sources_hint": "general knowledge; verify if needed",
+  "generated_at": "2026-02-09T17:49:46.537Z"
+}

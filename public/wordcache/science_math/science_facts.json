@@ -1,0 +1,16 @@
+{
+  "category": "science_math",
+  "topic": "Science",
+  "count": 7,
+  "facts": [
+    "Atoms are so small that a single grain of sand contains billions of them.",
+    "Sound is a vibration that travels through materials like air or water, which is why you cannot hear in outer space where there is almost no air.",
+    "Gravity pulls everything with mass toward everything else, and it is what keeps planets in orbit around the Sun.",
+    "Most of Earth’s oxygen is made by tiny ocean plants called phytoplankton, not just by forests.",
+    "A molecule of water is made of two hydrogen atoms and one oxygen atom, which is why its formula is H2O.",
+    "Electricity is the movement of tiny charged particles called electrons through a material.",
+    "The speed of light in space is about 300,000 kilometers per second, making it the fastest thing we know in the universe."
+  ],
+  "sources_hint": "Look up these topics in kid-friendly references like NASA, National Geographic Education, Britannica School, and science textbooks covering atoms, gravity, waves, ecosystems, chemistry, electricity, and light.",
+  "generated_at": "2026-02-09T18:21:50.416Z"
+}

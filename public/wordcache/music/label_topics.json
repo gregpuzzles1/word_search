@@ -1,0 +1,56 @@
+{
+  "generated_at": "2026-02-09T20:35:50.652Z",
+  "category": "music",
+  "count": 12,
+  "topics": [
+    {
+      "slug": "bands_artists",
+      "label": "Bands Artists"
+    },
+    {
+      "slug": "classical_music",
+      "label": "Classical Music"
+    },
+    {
+      "slug": "composers",
+      "label": "Composers"
+    },
+    {
+      "slug": "concerts_performance",
+      "label": "Concerts Performance"
+    },
+    {
+      "slug": "genres",
+      "label": "Genres"
+    },
+    {
+      "slug": "instruments",
+      "label": "Instruments"
+    },
+    {
+      "slug": "jazz_blues",
+      "label": "Jazz Blues"
+    },
+    {
+      "slug": "music_terms",
+      "label": "Music Terms"
+    },
+    {
+      "slug": "music_theory",
+      "label": "Music Theory"
+    },
+    {
+      "slug": "recording_studio",
+      "label": "Recording Studio"
+    },
+    {
+      "slug": "rock_pop",
+      "label": "Rock Pop"
+    },
+    {
+      "slug": "songs_titles",
+      "label": "Songs Titles"
+    }
+  ],
+  "sources_hint": "deterministic slug->label normalization + overrides map"
+}

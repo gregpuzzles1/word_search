@@ -1,0 +1,16 @@
+{
+  "category": "geography",
+  "topic": "Landmarks",
+  "count": 7,
+  "facts": [
+    "The Great Wall of China is made of many connected walls and fortifications built over centuries to help defend against invasions.",
+    "The Eiffel Tower in Paris was built for the 1889 World's Fair and was once criticized by some people who thought it looked strange.",
+    "The Taj Mahal in India is a white marble mausoleum built by Emperor Shah Jahan in memory of his wife Mumtaz Mahal.",
+    "Machu Picchu in Peru is an Inca city high in the Andes Mountains that was largely unknown to the outside world until the early 1900s.",
+    "The Colosseum in Rome could hold tens of thousands of spectators who came to watch public events like gladiator fights in ancient times.",
+    "The Statue of Liberty was a gift from France to the United States and was dedicated in 1886 in New York Harbor.",
+    "The Pyramids of Giza in Egypt are more than 4,500 years old and are among the largest stone structures ever built."
+  ],
+  "sources_hint": "general knowledge; verify if needed",
+  "generated_at": "2026-02-09T17:49:35.252Z"
+}

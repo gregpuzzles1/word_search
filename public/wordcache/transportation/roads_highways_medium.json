@@ -1,0 +1,27 @@
+{
+  "topic": "roads_highways",
+  "difficulty": "medium",
+  "count": 20,
+  "words": [
+    "HIGHWAY",
+    "ROADWAY",
+    "FREEWAY",
+    "MOTORWAY",
+    "AVENUE",
+    "AVENUES",
+    "PARKWAY",
+    "TURNPIKE",
+    "TOLLROAD",
+    "BYPASS",
+    "OVERPASS",
+    "UNDERPASS",
+    "INTERSECT",
+    "STREET",
+    "LANEWAY",
+    "BRIDGEWAY",
+    "CULDESAC",
+    "HIGHWAYS",
+    "INTERCITY",
+    "BOULEVARD"
+  ]
+}

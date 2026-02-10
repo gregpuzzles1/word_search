@@ -1,0 +1,16 @@
+{
+  "category": "science_math",
+  "topic": "Mathematics",
+  "count": 7,
+  "facts": [
+    "Zero is a number that means “none,” and it helps us write large numbers and do place value like 10, 100, and 1,000.",
+    "A prime number has exactly two factors, 1 and itself, and primes are important for keeping digital messages secure.",
+    "The number pi (about 3.14) shows up whenever you measure circles, like finding a circle’s circumference or area.",
+    "Negative numbers let us describe values below zero, like temperatures in winter or money owed as debt.",
+    "An equation is like a balance scale, and solving it means finding the value that keeps both sides equal.",
+    "The Pythagorean Theorem says that in a right triangle, a² + b² = c², which helps find missing side lengths.",
+    "Percent means “out of 100,” so 25% is the same as 25/100 or 0.25, which is useful for discounts and probabilities."
+  ],
+  "sources_hint": "To verify these facts, check a middle-school math textbook or reputable references such as Khan Academy, Encyclopaedia Britannica, or NIST (for pi).",
+  "generated_at": "2026-02-09T18:21:39.725Z"
+}

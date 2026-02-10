@@ -1,0 +1,27 @@
+{
+  "topic": "weather",
+  "difficulty": "medium",
+  "count": 20,
+  "words": [
+    "THUNDER",
+    "LIGHTNING",
+    "HAILSTORM",
+    "RAINFALL",
+    "OVERCAST",
+    "SUNSHINE",
+    "CLOUDS",
+    "DEWPOINT",
+    "BAROMETER",
+    "FORECAST",
+    "DRIZZLE",
+    "HEATWAVE",
+    "SNOWFALL",
+    "TORNADO",
+    "MONSOON",
+    "CYCLONE",
+    "COOLING",
+    "SLEETING",
+    "WINDCHILL",
+    "DUSTSTORM"
+  ]
+}

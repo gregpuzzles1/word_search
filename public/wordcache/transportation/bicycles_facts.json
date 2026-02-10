@@ -1,0 +1,16 @@
+{
+  "category": "transportation",
+  "topic": "Bicycles",
+  "count": 7,
+  "facts": [
+    "The first bicycles, built in the early 1800s, had no pedals and were pushed along the ground with your feet.",
+    "A bicycle stays upright while moving because the wheels spinning help it balance and the rider makes small steering corrections.",
+    "Bicycle gears change how hard you have to pedal, making it easier to climb hills or go faster on flat roads.",
+    "Using hand signals can help cyclists communicate turns and stops to drivers and other riders, improving safety.",
+    "A well-inflated tire reduces rolling resistance, which means you can travel farther using the same amount of effort.",
+    "Helmets are designed to absorb impact energy, helping protect the brain during a fall or crash.",
+    "Riding a bicycle produces no exhaust fumes, so it helps reduce air pollution compared with many motor vehicles."
+  ],
+  "sources_hint": "Consider confirming dates and physics details with reputable references like museum cycling histories, road safety guides, and basic physics textbooks.",
+  "generated_at": "2026-02-09T20:37:50.257Z"
+}

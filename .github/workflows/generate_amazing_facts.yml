@@ -1,0 +1,135 @@
+name: Generate Amazing Facts (One Category)
+
+on:
+  workflow_dispatch:
+    inputs:
+      category:
+        description: "Category folder slug under public/wordcache (e.g. music, science_math)"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  generate-amazing-facts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Generate facts JSON files for one category (shared-secret auth)
+        shell: bash
+        env:
+          FUNCTION_URL: "https://gahlbpuxl3sxb26ygqm366nxey0oxigj.lambda-url.us-west-2.on.aws/"
+          CATEGORY: ${{ inputs.category }}
+          WEBHOOK_SECRET: ${{ secrets.FACTS_WEBHOOK_SECRET }}
+        run: |
+          set -euo pipefail
+
+          BASE_DIR="public/wordcache"
+          CAT_DIR="${BASE_DIR}/${CATEGORY}"
+          LABEL_TOPICS="${CAT_DIR}/label_topics.json"
+
+          if [ -z "${WEBHOOK_SECRET:-}" ]; then
+            echo "❌ Missing GitHub secret: FACTS_WEBHOOK_SECRET"
+            exit 1
+          fi
+
+          if [ ! -d "$CAT_DIR" ]; then
+            echo "❌ Category folder not found: $CAT_DIR"
+            exit 1
+          fi
+
+          if [ ! -f "$LABEL_TOPICS" ]; then
+            echo "❌ Missing label_topics.json: $LABEL_TOPICS"
+            exit 1
+          fi
+
+          node <<'NODE'
+          import fs from "fs";
+          import path from "path";
+
+          const FUNCTION_URL = process.env.FUNCTION_URL;
+          const INPUT_CATEGORY = process.env.CATEGORY;
+          const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;
+
+          const REPO_ROOT = process.env.GITHUB_WORKSPACE || process.cwd();
+          const CAT_DIR = path.join(REPO_ROOT, "public/wordcache", INPUT_CATEGORY);
+          const LABEL_TOPICS_PATH = path.join(CAT_DIR, "label_topics.json");
+
+          const raw = fs.readFileSync(LABEL_TOPICS_PATH, "utf-8");
+          const json = JSON.parse(raw);
+
+          if (!json || typeof json.category !== "string" || !Array.isArray(json.topics)) {
+            throw new Error(`Unexpected label_topics.json schema in ${LABEL_TOPICS_PATH}`);
+          }
+
+          const topics = json.topics
+            .filter(t => t && typeof t.slug === "string" && typeof t.label === "string")
+            .map(t => ({ slug: t.slug.trim(), label: t.label.trim() }))
+            .filter(t => t.slug.length > 0 && t.label.length > 0);
+
+          if (topics.length === 0) {
+            throw new Error(`No valid topics found in ${LABEL_TOPICS_PATH}`);
+          }
+
+          const payload = {
+            category: INPUT_CATEGORY,
+            topics: topics.map(t => t.label),
+          };
+
+          const labelToSlug = new Map(topics.map(t => [t.label, t.slug]));
+
+          const res = await fetch(FUNCTION_URL, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "x-webhook-secret": WEBHOOK_SECRET,
+            },
+            body: JSON.stringify(payload),
+          });
+
+          const text = await res.text();
+          if (!res.ok) throw new Error(`Lambda error HTTP ${res.status}: ${text.slice(0, 2000)}`);
+
+          const data = JSON.parse(text);
+          if (!data || !Array.isArray(data.results)) {
+            throw new Error(`Unexpected Lambda response shape: ${text.slice(0, 2000)}`);
+          }
+
+          for (const item of data.results) {
+            const label = (item.topic ?? "").trim();
+            const slug = labelToSlug.get(label);
+            if (!slug) continue;
+
+            const outPath = path.join(CAT_DIR, `${slug}_facts.json`);
+            fs.writeFileSync(outPath, JSON.stringify(item, null, 2) + "\n", "utf-8");
+          }
+
+          console.log("✅ Wrote facts files.");
+          NODE
+
+      - name: Commit and push changes (if any)
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "✅ No changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add public/wordcache/${{ inputs.category }}/
+          git commit -m "Generate amazing facts for ${{ inputs.category }}"
+          git push
+

@@ -1,0 +1,27 @@
+{
+  "topic": "maps",
+  "difficulty": "hard",
+  "count": 20,
+  "words": [
+    "CARTOGRAPHY",
+    "GEOGRAPHIC",
+    "TOPOGRAPHY",
+    "CHOROPLETH",
+    "ISOLINES",
+    "GRIDLINES",
+    "MERCATOR",
+    "PARALLEL",
+    "MERIDIAN",
+    "ORTHOPHOTO",
+    "CONTOURS",
+    "LATITUDE",
+    "LONGITUDE",
+    "GEODETIC",
+    "AZIMUTHAL",
+    "ISOBARIES",
+    "PROJECTION",
+    "COASTLINE",
+    "TERRAINMAP",
+    "CARTOGRAMS"
+  ]
+}

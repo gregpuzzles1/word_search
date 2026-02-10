@@ -1,0 +1,16 @@
+{
+  "category": "sports_games",
+  "topic": "Video Games",
+  "count": 7,
+  "facts": [
+    "The first widely known home video game console, the Magnavox Odyssey, was released in 1972 and used simple screen overlays instead of detailed graphics.",
+    "A game controller’s directional pad (D-pad) became popular after Nintendo used it on the Game & Watch handhelds and later on the NES controller.",
+    "Many modern video games use a “game engine,” which is software that handles graphics, physics, sound, and other tools so developers can build games faster.",
+    "Video games often use “frame rate” to measure smoothness, and higher frame rates can make motion look more fluid during fast action.",
+    "Online multiplayer games rely on computer servers to connect players, and the time it takes data to travel is called “latency” or “ping.”",
+    "The ESRB rating system in the United States helps families choose games by labeling age recommendations and content like violence or language.",
+    "Speedrunning is a hobby where players try to finish games as fast as possible, sometimes using clever strategies and glitches to save time."
+  ],
+  "sources_hint": "general knowledge; verify if needed",
+  "generated_at": "2026-02-09T17:35:53.346Z"
+}

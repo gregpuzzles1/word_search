@@ -1,0 +1,16 @@
+{
+  "category": "science_math",
+  "topic": "Physics",
+  "count": 7,
+  "facts": [
+    "Light travels about 300,000 kilometers per second, so sunlight takes roughly 8 minutes to reach Earth.",
+    "Gravity pulls objects toward each other, and the Moon’s gravity is a major reason Earth has ocean tides.",
+    "Sound needs a material like air, water, or metal to travel, which is why space is silent.",
+    "A magnet has two poles, and if you cut a magnet in half you get two smaller magnets with both a north and a south pole.",
+    "Energy cannot be created or destroyed, but it can change form, like electrical energy turning into light and heat in a bulb.",
+    "Friction is a force that resists sliding, and it helps you walk without slipping by giving your shoes grip.",
+    "Atoms are mostly empty space, with a tiny nucleus at the center and electrons moving around it."
+  ],
+  "sources_hint": "For more reading, see middle-school physics sections in NASA, Britannica, or Khan Academy resources on light, gravity, sound, magnetism, energy, friction, and atoms.",
+  "generated_at": "2026-02-09T18:21:45.612Z"
+}

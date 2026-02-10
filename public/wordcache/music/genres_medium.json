@@ -1,0 +1,27 @@
+{
+  "topic": "genres",
+  "difficulty": "medium",
+  "count": 20,
+  "words": [
+    "COMEDY",
+    "ACTION",
+    "ADVENTURE",
+    "THRILLER",
+    "ROMANCE",
+    "HORROR",
+    "MYSTERY",
+    "FANTASY",
+    "WESTERN",
+    "MELODRAMA",
+    "SATIRE",
+    "FAIRYTALE",
+    "CYBERPUNK",
+    "STEAMPUNK",
+    "DYSTOPIA",
+    "MYTHOLOGY",
+    "BIOGRAPHY",
+    "POETRY",
+    "GOTHIC",
+    "REALISM"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "topic": "grammar",
+  "difficulty": "easy",
+  "count": 20,
+  "words": [
+    "NOUN",
+    "VERB",
+    "ADVERB",
+    "SYNTAX",
+    "CLAUSE",
+    "PHRASE",
+    "TENSE",
+    "VOICE",
+    "NUMBER",
+    "GENDER",
+    "CASES",
+    "PERSON",
+    "PARSE",
+    "COMMA",
+    "PERIOD",
+    "ASPECT",
+    "MOOD",
+    "OBJECT",
+    "PREFIX",
+    "SUFFIX"
+  ]
+}

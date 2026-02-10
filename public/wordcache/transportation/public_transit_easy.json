@@ -1,0 +1,27 @@
+{
+  "topic": "public_transit",
+  "difficulty": "easy",
+  "count": 20,
+  "words": [
+    "BUS",
+    "TRAIN",
+    "TRAM",
+    "METRO",
+    "SUBWAY",
+    "RAIL",
+    "ROUTE",
+    "FARE",
+    "STOP",
+    "TICKET",
+    "MAP",
+    "BOARD",
+    "ENTER",
+    "RIDER",
+    "CAR",
+    "TUBE",
+    "GATE",
+    "STAND",
+    "PASS",
+    "LINE"
+  ]
+}

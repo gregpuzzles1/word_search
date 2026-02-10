@@ -1,0 +1,16 @@
+{
+  "category": "everyday_life",
+  "topic": "Transportation",
+  "count": 7,
+  "facts": [
+    "Traffic lights are timed and sometimes use sensors in the road to change faster when cars are waiting.",
+    "A bicycle can be one of the most energy-efficient ways to travel because it uses human power directly.",
+    "Airplane cabins are pressurized so passengers can breathe comfortably even when flying at high altitudes.",
+    "Trains can carry many people at once, which often makes them more fuel-efficient per passenger than cars.",
+    "Roundabouts can reduce serious crashes because cars move in the same direction and usually at lower speeds.",
+    "Electric cars can use regenerative braking to turn some braking energy back into electricity for the battery.",
+    "Shipping containers are built to standard sizes so they can move easily between ships, trains, and trucks."
+  ],
+  "sources_hint": "general knowledge; verify if needed",
+  "generated_at": "2026-02-09T17:53:11.178Z"
+}

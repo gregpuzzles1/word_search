@@ -1,0 +1,27 @@
+{
+  "topic": "grammar",
+  "difficulty": "hard",
+  "count": 20,
+  "words": [
+    "NOUNPHRASE",
+    "VERBPHRASE",
+    "PREPOSITION",
+    "INTERJECTION",
+    "SUBJUNCTIVE",
+    "INDICATIVE",
+    "MORPHOLOGY",
+    "PARTICIPLE",
+    "INFLECTION",
+    "PREDICATE",
+    "CONJUGATE",
+    "ADVERBIAL",
+    "CONSTITUENT",
+    "TRANSITIVE",
+    "INTRANSITIVE",
+    "ARTICULATION",
+    "CAUSATIVE",
+    "AGREEMENT",
+    "MODALITY",
+    "CASEMARKING"
+  ]
+}

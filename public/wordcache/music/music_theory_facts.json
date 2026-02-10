@@ -1,0 +1,16 @@
+{
+  "category": "music",
+  "topic": "Music Theory",
+  "count": 7,
+  "facts": [
+    "An octave is the distance between two notes where the higher note vibrates at exactly twice the frequency of the lower note.",
+    "A major scale follows the step pattern whole, whole, half, whole, whole, whole, half.",
+    "A minor scale often sounds sadder than a major scale because its third note is lower by one half step.",
+    "A chord is made when three or more notes are played together, and a basic triad uses the 1st, 3rd, and 5th notes of a scale.",
+    "Rhythm is organized using a time signature, like 4/4, which means four beats fit in each measure and the quarter note gets one beat.",
+    "Sharps raise a note by one half step and flats lower a note by one half step.",
+    "A key signature tells you which notes are sharp or flat throughout a song, helping musicians avoid writing the same symbols over and over."
+  ],
+  "sources_hint": "general knowledge; verify if needed",
+  "generated_at": "2026-02-09T17:39:46.922Z"
+}

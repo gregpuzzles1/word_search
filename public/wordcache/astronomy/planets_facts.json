@@ -1,0 +1,16 @@
+{
+  "category": "astronomy",
+  "topic": "Planets",
+  "count": 7,
+  "facts": [
+    "A planet is a large object in space that orbits a star and is round because its gravity pulls it into a ball shape.",
+    "The four inner planets—Mercury, Venus, Earth, and Mars—are rocky, while the four outer planets—Jupiter, Saturn, Uranus, and Neptune—are mostly made of gases or icy materials.",
+    "Mercury has the biggest temperature swings in our solar system because it has almost no atmosphere to hold in heat.",
+    "Venus is the hottest planet, even hotter than Mercury, because its thick carbon dioxide atmosphere traps heat in a strong greenhouse effect.",
+    "Jupiter is the largest planet and has a giant storm called the Great Red Spot that has lasted for centuries.",
+    "Saturn’s rings are made of countless pieces of ice and rock, ranging from tiny grains to chunks as big as mountains.",
+    "Uranus spins on its side, likely because of a huge collision long ago, which gives it very unusual seasons."
+  ],
+  "sources_hint": "Good references include NASA Solar System Exploration and ESA education pages on planets.",
+  "generated_at": "2026-02-09T18:16:41.224Z"
+}

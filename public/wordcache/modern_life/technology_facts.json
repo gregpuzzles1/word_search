@@ -1,0 +1,16 @@
+{
+  "category": "modern_life",
+  "topic": "Technology",
+  "count": 7,
+  "facts": [
+    "A smartphone has more computing power than the computers NASA used to help land astronauts on the Moon in 1969.",
+    "GPS works by timing signals from multiple satellites, and your device uses those tiny time differences to calculate your location.",
+    "The first text message ever sent in 1992 simply said \"Merry Christmas.\"",
+    "Wi-Fi is a type of radio signal, similar to how a walkie-talkie sends information through the air.",
+    "Many websites use encryption (like HTTPS) to scramble data so others cannot easily read it while it travels across the internet.",
+    "A QR code can store information in two directions (up-down and left-right), which helps it hold more data than a normal barcode.",
+    "Some computers use solid-state drives (SSDs) with no moving parts, making them faster and more durable than older spinning hard drives."
+  ],
+  "sources_hint": "general knowledge; verify if needed",
+  "generated_at": "2026-02-09T17:47:04.886Z"
+}

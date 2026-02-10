@@ -1,0 +1,27 @@
+{
+  "topic": "baseball",
+  "difficulty": "medium",
+  "count": 20,
+  "words": [
+    "BASEBALL",
+    "BATTER",
+    "PITCHER",
+    "CATCHER",
+    "SHORTSTOP",
+    "OUTFIELD",
+    "INNING",
+    "HOMERUN",
+    "SLUGGER",
+    "HITTER",
+    "DOUBLE",
+    "TRIPLE",
+    "BASEPATH",
+    "INFIELD",
+    "UMPIRE",
+    "FIELDER",
+    "CURVEBALL",
+    "FASTBALL",
+    "ROOKIE",
+    "LEFTFIELD"
+  ]
+}

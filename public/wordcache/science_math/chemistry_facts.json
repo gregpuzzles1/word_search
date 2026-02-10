@@ -1,0 +1,16 @@
+{
+  "category": "science_math",
+  "topic": "Chemistry",
+  "count": 7,
+  "facts": [
+    "Everything around you is made of tiny particles called atoms, and different kinds of atoms are called elements.",
+    "Atoms can join together to form molecules, and water is a molecule made of two hydrogen atoms and one oxygen atom.",
+    "In a chemical reaction, atoms are rearranged to make new substances, but the total number of each type of atom stays the same.",
+    "The periodic table is a map of the elements, and elements in the same column often behave in similar ways.",
+    "Acids and bases are chemicals that can change how substances act, and the pH scale from 0 to 14 measures how acidic or basic something is.",
+    "Some reactions give off energy as heat or light, while others need energy added to make them happen.",
+    "Catalysts can speed up chemical reactions without being used up, and enzymes in your body are catalysts that help you digest food."
+  ],
+  "sources_hint": "For more background, see middle-school chemistry resources such as Britannica School, Khan Academy Chemistry, and introductory sections of textbooks like CK-12 or OpenStax Chemistry.",
+  "generated_at": "2026-02-09T18:21:25.971Z"
+}

@@ -1,0 +1,229 @@
+name: Generate Wordcache Category Labels (Local)
+
+on:
+  workflow_dispatch:
+  # push:
+  #   branches: [ main ]
+
+permissions:
+  contents: write
+
+jobs:
+  generate-categories:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Generate categories.json locally
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          BASE_DIR="public/wordcache"
+          OUT_FILE="${BASE_DIR}/categories.json"
+
+          if [ ! -d "$BASE_DIR" ]; then
+            echo "❌ Missing folder: $BASE_DIR"
+            exit 1
+          fi
+
+          # Write a tiny Node script on the fly
+          cat > /tmp/generate_categories.mjs <<'EOF'
+          import fs from "node:fs";
+          import path from "node:path";
+
+          const BASE_DIR = process.env.BASE_DIR || "public/wordcache";
+          const OUT_FILE = process.env.OUT_FILE || path.join(BASE_DIR, "categories.json");
+
+          // Optional strict mode:
+          // If ENFORCE_ALLOWLIST=1, fail if any discovered folder isn't in ALLOWED_SLUGS.
+          const ENFORCE_ALLOWLIST = (process.env.ENFORCE_ALLOWLIST || "0") === "1";
+
+          // If you want strict control, add your known category slugs here.
+          // This is ONLY enforced when ENFORCE_ALLOWLIST=1.
+          const ALLOWED_SLUGS = new Set([
+            "arts_culture",
+            "bible",
+            "everyday_life",
+            "general_knowledge",
+            "geography",
+            "history_civics",
+            "modern_life",
+            "science_math",
+            "sports_games",
+            "thinking_language",
+          ]);
+
+          // Folders that should never become categories
+          const IGNORE_EXACT = new Set([
+            "__tests__",
+            "test",
+            "tests",
+            "tmp",
+            "scripts",
+            "node_modules",
+          ]);
+
+          // Same deterministic label logic as your Lambda (minus OpenAI polish)
+          const OVERRIDES = {
+            arts_culture: "Arts & Culture",
+            general_knowledge: "General Knowledge",
+            science_math: "Science & Math",
+            sports_games: "Sports & Games",
+            history_civics: "History & Civics",
+            everyday_life: "Everyday Life",
+            thinking_language: "Thinking & Language",
+            us_history: "US History",
+            world_history: "World History",
+            ancient_civilizations: "Ancient Civilizations",
+          };
+
+          const ACRONYMS = new Set([
+            "us", "uk", "eu", "ai", "ml",
+            "nfl", "nba", "mlb", "nhl", "ncaa", "usa",
+          ]);
+
+          function titleWord(w) {
+            const lower = String(w).toLowerCase();
+            if (ACRONYMS.has(lower)) return lower.toUpperCase();
+            return lower.charAt(0).toUpperCase() + lower.slice(1);
+          }
+
+          function slugToLabel(slug) {
+            if (!slug || typeof slug !== "string") return "";
+            if (OVERRIDES[slug]) return OVERRIDES[slug];
+
+            const parts = slug.split(/[_-]+/g).filter(Boolean);
+
+            const styled = parts.map((p) => {
+              const lower = p.toLowerCase();
+              if (lower === "and") return "&";
+              return titleWord(p);
+            });
+
+            return styled.join(" ").replace(/\s&\s/g, " & ");
+          }
+
+          function isIgnoredFolderName(name) {
+            if (!name) return true;
+
+            // ignore hidden + underscored folders
+            if (name.startsWith(".") || name.startsWith("_")) return true;
+
+            // ignore known non-category directories
+            if (IGNORE_EXACT.has(name)) return true;
+
+            return false;
+          }
+
+          function listCategorySlugs(baseDir) {
+            const entries = fs.readdirSync(baseDir, { withFileTypes: true });
+
+            return entries
+              .filter((e) => e.isDirectory())
+              .map((e) => e.name)
+              .filter((name) => !isIgnoredFolderName(name))
+              .sort((a, b) => a.localeCompare(b));
+          }
+
+          function main() {
+            if (!fs.existsSync(BASE_DIR)) {
+              console.error(`❌ Missing base folder: ${BASE_DIR}`);
+              process.exit(1);
+            }
+
+            const discovered = listCategorySlugs(BASE_DIR);
+
+            if (discovered.length === 0) {
+              console.error(`❌ No category folders found under ${BASE_DIR}`);
+              process.exit(1);
+            }
+
+            console.log(`✅ Found ${discovered.length} category folders (after ignores):`);
+            for (const s of discovered) console.log(` - ${s}`);
+
+            if (ENFORCE_ALLOWLIST) {
+              const unknown = discovered.filter((s) => !ALLOWED_SLUGS.has(s));
+              if (unknown.length) {
+                console.error("❌ Unknown category folders found (allowlist enforced):");
+                for (const u of unknown) console.error(` - ${u}`);
+                console.error("Add them to ALLOWED_SLUGS or remove/rename the folders.");
+                process.exit(1);
+              }
+
+              // Also warn (but don't fail) if allowlist has entries not present on disk
+              const missing = [...ALLOWED_SLUGS].filter((s) => !discovered.includes(s));
+              if (missing.length) {
+                console.log("ℹ️ Allowlist slugs not present on disk (ok):");
+                for (const m of missing) console.log(` - ${m}`);
+              }
+            }
+
+            const basePath = BASE_DIR.replace(/\/+$/g, "");
+
+            const categories = discovered.map((slug) => ({
+              slug,
+              label: slugToLabel(slug),
+              path: `${basePath}/${slug}`,
+            }));
+
+            const out = {
+              generated_at: new Date().toISOString(),
+              base_path: basePath,
+              count: categories.length,
+              categories,
+              sources_hint: ENFORCE_ALLOWLIST
+                ? "local deterministic normalization rules + allowlist enforcement"
+                : "local deterministic normalization rules",
+            };
+
+            fs.mkdirSync(path.dirname(OUT_FILE), { recursive: true });
+            fs.writeFileSync(OUT_FILE, JSON.stringify(out, null, 2) + "\n", "utf8");
+
+            console.log(`✅ Wrote ${OUT_FILE}`);
+            console.log("----- preview (first 60 lines) -----");
+            const preview = fs.readFileSync(OUT_FILE, "utf8").split("\n").slice(0, 60).join("\n");
+            console.log(preview);
+            console.log("------------------------------------");
+          }
+
+          main();
+          EOF
+
+          # Set to "1" if you want strict enforcement that ONLY the allowlisted slugs exist
+          export ENFORCE_ALLOWLIST="0"
+
+          node /tmp/generate_categories.mjs
+
+      - name: Commit and push if changed
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          FILE="public/wordcache/categories.json"
+
+          if [ ! -f "$FILE" ]; then
+            echo "❌ Expected output file missing: $FILE"
+            exit 1
+          fi
+
+          # Detect changes INCLUDING new (untracked) files
+          if [ -z "$(git status --porcelain -- "$FILE")" ]; then
+            echo "ℹ️ No changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add "$FILE"
+          git commit -m "Update category labels index"
+          git push
+

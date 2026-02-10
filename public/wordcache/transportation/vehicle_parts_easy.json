@@ -1,0 +1,27 @@
+{
+  "topic": "vehicle_parts",
+  "difficulty": "easy",
+  "count": 20,
+  "words": [
+    "WHEEL",
+    "AXLE",
+    "DOOR",
+    "SEAT",
+    "TIRE",
+    "HOOD",
+    "FENDER",
+    "BRAKE",
+    "CLUTCH",
+    "GEAR",
+    "RIM",
+    "ENGINE",
+    "DASH",
+    "GAUGE",
+    "PEDAL",
+    "BELT",
+    "TRUNK",
+    "LIGHT",
+    "MIRROR",
+    "WIPER"
+  ]
+}

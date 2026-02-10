@@ -1,0 +1,16 @@
+{
+  "category": "astronomy",
+  "topic": "Space Exploration",
+  "count": 7,
+  "facts": [
+    "The first human-made object to reach space was the German V-2 rocket in 1944, flying above the edge of the atmosphere.",
+    "In 1957, Sputnik 1 became the first artificial satellite, proving that objects could orbit Earth.",
+    "Yuri Gagarin orbited Earth in 1961, becoming the first person to travel into space and return safely.",
+    "The Apollo 11 mission in 1969 landed the first humans on the Moon, and the astronauts brought back rocks for scientists to study.",
+    "Voyager 1, launched in 1977, has traveled farther than any other spacecraft and is now in interstellar space beyond the main region of the Sun’s influence.",
+    "The International Space Station is a huge laboratory that orbits Earth about every 90 minutes, letting astronauts do experiments in microgravity.",
+    "Rovers like Curiosity and Perseverance explore Mars by driving on its surface, taking photos, analyzing rocks, and searching for signs of past water."
+  ],
+  "sources_hint": "For verification, see NASA (missions, ISS, Mars rovers), ESA educational pages, and Britannica entries on Sputnik, Gagarin, and Apollo 11.",
+  "generated_at": "2026-02-09T18:16:55.540Z"
+}

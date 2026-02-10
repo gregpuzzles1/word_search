@@ -1,0 +1,16 @@
+{
+  "category": "astronomy",
+  "topic": "Stars",
+  "count": 7,
+  "facts": [
+    "Stars are huge balls of hot gas, mostly hydrogen and helium, that shine because of nuclear fusion in their cores.",
+    "The closest star to Earth is the Sun, and its light takes about 8 minutes to reach us.",
+    "When you look at stars in the night sky, you are seeing them as they were in the past because their light takes time to travel.",
+    "A star’s color can tell you its temperature: blue-white stars are hottest, and red stars are cooler.",
+    "Most stars are part of systems with two or more stars orbiting each other, called binary or multiple-star systems.",
+    "Stars are born in giant clouds of gas and dust called nebulae, where gravity pulls material together to form a new star.",
+    "Massive stars can end their lives in powerful explosions called supernovae, which spread elements needed to make planets and living things."
+  ],
+  "sources_hint": "Good references include NASA Space Place, NASA Goddard, and Encyclopaedia Britannica pages on stars, fusion, and supernovae.",
+  "generated_at": "2026-02-09T18:17:02.245Z"
+}

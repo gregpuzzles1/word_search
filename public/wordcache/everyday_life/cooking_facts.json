@@ -1,0 +1,16 @@
+{
+  "category": "everyday_life",
+  "topic": "Cooking",
+  "count": 7,
+  "facts": [
+    "Water boils at a lower temperature on high mountains because the air pressure is lower.",
+    "Baking powder makes dough rise by creating bubbles of carbon dioxide gas when it gets wet and warm.",
+    "Salt can raise the boiling point of water, but the change is so small in cooking that it mostly affects flavor instead.",
+    "Cast iron pans hold heat very well, which helps foods brown evenly after the pan is hot.",
+    "Letting meat rest after cooking helps keep it juicier because the juices spread back through the meat.",
+    "Sugar helps baked goods turn brown through caramelization and the Maillard reaction, which also makes new flavors.",
+    "Stirring a pot cools it slightly because it moves hot liquid away from the bottom and helps heat spread out."
+  ],
+  "sources_hint": "general knowledge; verify if needed",
+  "generated_at": "2026-02-09T17:52:43.198Z"
+}

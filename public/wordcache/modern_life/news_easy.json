@@ -1,0 +1,27 @@
+{
+  "topic": "news",
+  "difficulty": "easy",
+  "count": 20,
+  "words": [
+    "NEWS",
+    "WORLD",
+    "LOCAL",
+    "GLOBAL",
+    "NATION",
+    "MEDIA",
+    "REPORT",
+    "STORY",
+    "EVENT",
+    "ALERT",
+    "COVER",
+    "DAILY",
+    "TIMES",
+    "ISSUE",
+    "BRIEF",
+    "PAPER",
+    "SOURCE",
+    "UPDATE",
+    "DATA",
+    "EDITOR"
+  ]
+}

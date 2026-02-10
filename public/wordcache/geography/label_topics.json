@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-02-09T20:35:50.652Z",
+  "category": "geography",
+  "count": 6,
+  "topics": [
+    {
+      "slug": "capitals",
+      "label": "Capitals"
+    },
+    {
+      "slug": "countries",
+      "label": "Countries"
+    },
+    {
+      "slug": "landmarks",
+      "label": "Landmarks"
+    },
+    {
+      "slug": "maps",
+      "label": "Maps"
+    },
+    {
+      "slug": "us_geography",
+      "label": "US Geography"
+    },
+    {
+      "slug": "world_geography",
+      "label": "World Geography"
+    }
+  ],
+  "sources_hint": "deterministic slug->label normalization + overrides map"
+}

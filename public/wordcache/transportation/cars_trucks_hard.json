@@ -1,0 +1,27 @@
+{
+  "topic": "cars_trucks",
+  "difficulty": "hard",
+  "count": 20,
+  "words": [
+    "AUTOMOBILE",
+    "TRANSMISSION",
+    "DIFFERENTIAL",
+    "SUSPENSION",
+    "TIMINGBELT",
+    "CAMSHAFT",
+    "CRANKSHAFT",
+    "TURBOCHARGER",
+    "SPARKPLUGS",
+    "ALTERNATOR",
+    "BRAKEPADS",
+    "TIMINGGEAR",
+    "WINDSHIELD",
+    "RADIATOR",
+    "COOLINGUNIT",
+    "SEATBELT",
+    "AIRFILTER",
+    "OXYGENSENSOR",
+    "CATALYTIC",
+    "EXHAUSTPIPE"
+  ]
+}

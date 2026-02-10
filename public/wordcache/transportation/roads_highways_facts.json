@@ -1,0 +1,16 @@
+{
+  "category": "transportation",
+  "topic": "Roads Highways",
+  "count": 7,
+  "facts": [
+    "The word “highway” comes from old English and originally meant a main public road open for everyone to use.",
+    "The first limited-access highway, built for fast cars with no cross traffic, opened in Italy in 1924 and was called an “autostrada.”",
+    "In the United States, the Interstate Highway System began in 1956 and was designed to help people travel quickly and to move supplies during emergencies.",
+    "Engineers use layers of rock, sand, and asphalt or concrete so roads can spread out the weight of vehicles and resist cracking.",
+    "Road signs and lane markings use special reflective materials so headlights can bounce light back to drivers at night.",
+    "Many highways have gentle curves and sloped turns, called banking, to help cars stay stable at higher speeds.",
+    "Road crews build expansion joints and leave small gaps in some bridges and concrete roads so they can expand in heat and shrink in cold without breaking."
+  ],
+  "sources_hint": "For more reading, search for: Interstate Highway System history (U.S. Federal Highway Administration), autostrade history (Italian road transport museums or encyclopedias), and basics of pavement structure and retroreflective road markings (civil engineering textbooks or transportation agency guides).",
+  "generated_at": "2026-02-09T20:38:29.234Z"
+}

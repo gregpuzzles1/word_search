@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-02-09T20:35:50.652Z",
+  "category": "science_math",
+  "count": 6,
+  "topics": [
+    {
+      "slug": "biology",
+      "label": "Biology"
+    },
+    {
+      "slug": "chemistry",
+      "label": "Chemistry"
+    },
+    {
+      "slug": "engineering",
+      "label": "Engineering"
+    },
+    {
+      "slug": "mathematics",
+      "label": "Mathematics"
+    },
+    {
+      "slug": "physics",
+      "label": "Physics"
+    },
+    {
+      "slug": "science",
+      "label": "Science"
+    }
+  ],
+  "sources_hint": "deterministic slug->label normalization + overrides map"
+}

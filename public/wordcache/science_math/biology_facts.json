@@ -1,0 +1,16 @@
+{
+  "category": "science_math",
+  "topic": "Biology",
+  "count": 7,
+  "facts": [
+    "Every living thing is made of cells, and some organisms are just one cell while humans have trillions.",
+    "DNA is like a set of instructions inside cells that helps determine traits such as eye color and how the body builds proteins.",
+    "Plants make their own food through photosynthesis, using sunlight to turn water and carbon dioxide into sugar and oxygen.",
+    "Your immune system uses special white blood cells to recognize germs and help protect you from getting sick.",
+    "Bacteria are everywhere, and many are helpful because they aid digestion and recycle nutrients in nature.",
+    "Ecosystems stay balanced through food chains, where energy moves from producers like plants to consumers like animals.",
+    "Some animals, like salamanders and starfish, can regrow lost body parts, which helps scientists study healing and development."
+  ],
+  "sources_hint": "Check middle-school biology textbooks and reputable science sites like Britannica School, NASA (for photosynthesis basics), and NIH (for immune system overviews).",
+  "generated_at": "2026-02-09T18:21:19.088Z"
+}

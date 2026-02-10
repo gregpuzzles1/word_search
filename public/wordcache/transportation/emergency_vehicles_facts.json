@@ -1,0 +1,16 @@
+{
+  "category": "transportation",
+  "topic": "Emergency Vehicles",
+  "count": 7,
+  "facts": [
+    "Ambulances are designed like moving mini-hospitals, carrying medical tools and supplies so paramedics can start treatment on the way to a hospital.",
+    "Fire engines have powerful pumps and long hoses that can move large amounts of water quickly, even from hydrants that are far from the fire.",
+    "Police cars often include radios and computers so officers can get updates and share information with other responders in real time.",
+    "Many emergency vehicles use special flashing lights and sirens because bright colors and changing sounds help people notice them faster in traffic.",
+    "In some places, motorcycles and bicycles are used for emergency response because they can travel through crowded streets more easily than larger vehicles.",
+    "Helicopters and airplanes can serve as emergency vehicles by flying patients, organs for transplant, or rescue teams to places that are hard to reach by road.",
+    "Emergency vehicles are usually inspected and maintained more often than regular vehicles because they must work reliably during urgent situations."
+  ],
+  "sources_hint": "For more details, check official transportation safety resources, emergency service agency websites, and vehicle design references used by EMS, fire, and police departments.",
+  "generated_at": "2026-02-09T20:38:16.289Z"
+}

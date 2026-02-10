@@ -1,0 +1,27 @@
+{
+  "topic": "grammar",
+  "difficulty": "medium",
+  "count": 20,
+  "words": [
+    "PRONOUN",
+    "ADVERB",
+    "ADJECTIVE",
+    "GERUND",
+    "SYNTAX",
+    "CLAUSE",
+    "SENTENCE",
+    "ARTICLE",
+    "SINGULAR",
+    "PLURAL",
+    "SUBJECT",
+    "PREDICATE",
+    "TENSES",
+    "MORPHEME",
+    "COMPOUND",
+    "CLAUSES",
+    "COMMAS",
+    "PERIODS",
+    "AUXILIARY",
+    "MODIFIER"
+  ]
+}

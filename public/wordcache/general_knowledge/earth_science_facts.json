@@ -1,0 +1,16 @@
+{
+  "category": "general_knowledge",
+  "topic": "Earth Science",
+  "count": 7,
+  "facts": [
+    "Earth’s outer crust is broken into moving tectonic plates that can cause earthquakes and build mountains.",
+    "The highest layer of Earth’s atmosphere is so thin that satellites can travel through it with little air resistance.",
+    "Most volcanoes on Earth are found along plate boundaries, especially around the Pacific Ocean in the “Ring of Fire.”",
+    "Sedimentary rock often forms in layers, and those layers can preserve fossils of ancient plants and animals.",
+    "Water expands when it freezes, which is why ice floats and can crack rocks through repeated freezing and thawing.",
+    "Earth’s magnetic field helps protect us by deflecting many charged particles from the Sun, creating auroras near the poles.",
+    "The water on Earth is constantly recycled through the water cycle, including evaporation, condensation, precipitation, and runoff."
+  ],
+  "sources_hint": "general knowledge; verify if needed",
+  "generated_at": "2026-02-09T17:51:35.022Z"
+}

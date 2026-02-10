@@ -1,0 +1,27 @@
+{
+  "topic": "public_transit",
+  "difficulty": "hard",
+  "count": 20,
+  "words": [
+    "SUBWAYTRAIN",
+    "METROSTATION",
+    "TURNSTILE",
+    "TICKETFARE",
+    "PASSENGER",
+    "ROUTEMAP",
+    "TRANSITLINE",
+    "COMMUTERTRAIN",
+    "BUSROUTE",
+    "PLATFORMEDGE",
+    "FARESYSTEM",
+    "PARKANDRIDE",
+    "SCHEDULECARD",
+    "RIDETICKET",
+    "WHEELCHAIR",
+    "TIMETABLE",
+    "BUSSTATION",
+    "RAILWAYLINE",
+    "SUBURBTRAIN",
+    "DROPOFFPOINT"
+  ]
+}

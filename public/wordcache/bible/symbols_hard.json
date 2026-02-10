@@ -1,0 +1,27 @@
+{
+  "topic": "symbols",
+  "difficulty": "hard",
+  "count": 20,
+  "words": [
+    "AMPERSAND",
+    "ASTERISK",
+    "ATTHERATE",
+    "DOLLARSIGN",
+    "EQUALSIGN",
+    "GREATERTHAN",
+    "LESSTHAN",
+    "EXCLAMATION",
+    "QUESTIONMARK",
+    "APOSTROPHE",
+    "SEMICOLON",
+    "ELLIPSIS",
+    "INFINITY",
+    "SQUAREROOT",
+    "INTEGRAL",
+    "PERMILLE",
+    "PERCENTSIGN",
+    "PARENTHESES",
+    "BRACKETS",
+    "MINUSSIGN"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "topic": "maps",
+  "difficulty": "medium",
+  "count": 20,
+  "words": [
+    "LATITUDE",
+    "LONGITUDE",
+    "GRIDLINES",
+    "SCALEBAR",
+    "LEGEND",
+    "ROUTES",
+    "COMPASS",
+    "MERCATOR",
+    "COASTLINE",
+    "CONTINENT",
+    "DIRECTION",
+    "SYMBOLS",
+    "OVERLAY",
+    "LATLON",
+    "ISOLINE",
+    "CONTOUR",
+    "ELEVATION",
+    "MAPPING",
+    "CITYMAPS",
+    "TERRAIN"
+  ]
+}

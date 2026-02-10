@@ -1,0 +1,16 @@
+{
+  "category": "music",
+  "topic": "Instruments",
+  "count": 7,
+  "facts": [
+    "A piano is both a string instrument and a percussion instrument because hammers strike strings to make sound.",
+    "The smallest common violin is the 1/16 size, made so young children can learn with an instrument that fits their arms.",
+    "A saxophone is made of brass but is classified as a woodwind instrument because it uses a reed to vibrate the air.",
+    "A drum can change pitch if you tighten or loosen the drumhead, which changes how fast it vibrates.",
+    "The pipe organ is one of the largest instruments in the world and can have thousands of pipes of different sizes.",
+    "A standard concert flute makes sound when you blow across an opening, causing the air column inside to vibrate.",
+    "An electric guitar needs an amplifier to be very loud because its pickups turn string vibrations into an electrical signal."
+  ],
+  "sources_hint": "general knowledge; verify if needed",
+  "generated_at": "2026-02-09T17:39:29.473Z"
+}

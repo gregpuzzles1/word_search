@@ -1,0 +1,56 @@
+{
+  "generated_at": "2026-02-09T20:35:50.652Z",
+  "category": "bible",
+  "count": 12,
+  "topics": [
+    {
+      "slug": "biblical_objects",
+      "label": "Biblical Objects"
+    },
+    {
+      "slug": "commandments",
+      "label": "Commandments"
+    },
+    {
+      "slug": "miracles",
+      "label": "Miracles"
+    },
+    {
+      "slug": "new_testament",
+      "label": "New Testament"
+    },
+    {
+      "slug": "old_testament",
+      "label": "Old Testament"
+    },
+    {
+      "slug": "parables",
+      "label": "Parables"
+    },
+    {
+      "slug": "people",
+      "label": "People"
+    },
+    {
+      "slug": "places",
+      "label": "Places"
+    },
+    {
+      "slug": "prophets",
+      "label": "Prophets"
+    },
+    {
+      "slug": "psalms_proverbs",
+      "label": "Psalms Proverbs"
+    },
+    {
+      "slug": "symbols",
+      "label": "Symbols"
+    },
+    {
+      "slug": "teachings",
+      "label": "Teachings"
+    }
+  ],
+  "sources_hint": "deterministic slug->label normalization + overrides map"
+}

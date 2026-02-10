@@ -1,0 +1,27 @@
+{
+  "topic": "emergency_vehicles",
+  "difficulty": "medium",
+  "count": 20,
+  "words": [
+    "AMBULANCE",
+    "FIRETRUCK",
+    "POLICECAR",
+    "SQUADCAR",
+    "PATROLCAR",
+    "POLICEVAN",
+    "PATROLVAN",
+    "RESCUEVAN",
+    "RESCUECAR",
+    "TOWTRUCK",
+    "WRECKER",
+    "CRUISER",
+    "CRASHCAR",
+    "FIREWAGON",
+    "CRASHVAN",
+    "CHOPPER",
+    "SNOWPLOW",
+    "MEDICVAN",
+    "SIRENCAR",
+    "RADIOCAR"
+  ]
+}

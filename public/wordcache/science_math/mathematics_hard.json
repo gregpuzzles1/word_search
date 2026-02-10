@@ -1,0 +1,27 @@
+{
+  "topic": "mathematics",
+  "difficulty": "hard",
+  "count": 20,
+  "words": [
+    "ALGEBRAIC",
+    "DIFFERENCE",
+    "INTEGRAL",
+    "DERIVATIVE",
+    "CALCULUS",
+    "FUNCTIONAL",
+    "GEOMETRY",
+    "LINEARITY",
+    "EXPONENT",
+    "MATRICES",
+    "PARABOLA",
+    "QUADRATIC",
+    "TOPOLOGY",
+    "PROBABILITY",
+    "STATISTICS",
+    "INTEGERS",
+    "VARIABLES",
+    "EQUATION",
+    "ALGORITHM",
+    "FIBONACCI"
+  ]
+}

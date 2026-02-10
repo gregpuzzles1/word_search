@@ -1,0 +1,17 @@
+{
+  "category": "transportation",
+  "topics": [
+    "cars_trucks",
+    "airplanes",
+    "boats_ships",
+    "trains_railways",
+    "public_transit",
+    "construction_vehicles",
+    "emergency_vehicles",
+    "bicycles",
+    "roads_highways",
+    "travel_terms",
+    "spacecraft",
+    "vehicle_parts"
+  ]
+}

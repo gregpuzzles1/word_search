@@ -1,0 +1,16 @@
+{
+  "category": "transportation",
+  "topic": "Travel Terms",
+  "count": 7,
+  "facts": [
+    "An itinerary is a planned schedule of your trip that lists where you will go and when.",
+    "A layover is a stop between flights where you may change planes or wait before continuing your journey.",
+    "A boarding pass is the ticket-like document you show to enter an airplane, train, or bus for your trip.",
+    "Customs is the place where officials check people and goods entering a country to make sure rules are followed.",
+    "A passport is an official government ID that you usually need to travel to other countries.",
+    "Baggage claim is the area at an airport where you pick up your checked luggage after your flight lands.",
+    "A round-trip ticket lets you travel to a destination and then return to your starting point using the same booking."
+  ],
+  "sources_hint": "Verify definitions with a student dictionary or travel glossary from major airlines, airports, or government travel sites.",
+  "generated_at": "2026-02-09T20:38:45.615Z"
+}

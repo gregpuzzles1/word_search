@@ -1,0 +1,16 @@
+{
+  "category": "music",
+  "topic": "Recording Studio",
+  "count": 7,
+  "facts": [
+    "A recording studio uses special soundproofing and soft materials to reduce echoes and keep outside noise from getting into recordings.",
+    "Studios often have two main rooms, a live room where musicians play and a control room where engineers listen and adjust the sound.",
+    "Microphones change sound waves in the air into electrical signals that can be recorded and edited on computers.",
+    "Mixing is the process of balancing the volume and tone of different instruments and voices so they sound good together.",
+    "Many studios use a click track, which is a steady beat in headphones that helps musicians stay in time while recording.",
+    "A vocal booth is a small room built to isolate a singer’s voice so it can be recorded clearly without other sounds.",
+    "Mastering is a final step that makes a finished song sound consistent in volume and quality on different speakers and headphones."
+  ],
+  "sources_hint": "general knowledge; verify if needed",
+  "generated_at": "2026-02-09T17:39:51.854Z"
+}

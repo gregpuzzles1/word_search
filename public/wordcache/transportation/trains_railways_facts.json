@@ -1,0 +1,16 @@
+{
+  "category": "transportation",
+  "topic": "Trains Railways",
+  "count": 7,
+  "facts": [
+    "The first public railway to carry passengers using steam locomotives opened in England in 1825.",
+    "Trains can move huge loads efficiently because steel wheels rolling on steel rails create very little friction.",
+    "Railway tracks are spaced at different widths around the world, and the most common is “standard gauge,” which is 1,435 millimeters apart.",
+    "Electric trains often get power from overhead wires or a third rail, which helps them accelerate quickly and reduces air pollution at the train’s location.",
+    "High-speed trains in some countries can travel over 300 kilometers per hour, faster than many cars on highways.",
+    "Signals and track switches help keep trains safe by controlling which tracks trains use and warning engineers when to slow down or stop.",
+    "Freight trains can be more than a kilometer long, and their cars are connected with strong couplers that can handle powerful pulling forces."
+  ],
+  "sources_hint": "Good references include transportation history museums, national rail operators’ education pages, and encyclopedia articles on rail transport and track gauge.",
+  "generated_at": "2026-02-09T20:38:41.206Z"
+}

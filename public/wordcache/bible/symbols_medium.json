@@ -1,0 +1,27 @@
+{
+  "topic": "symbols",
+  "difficulty": "medium",
+  "count": 20,
+  "words": [
+    "ASTERISK",
+    "AMPERSAND",
+    "PERCENT",
+    "DOLLAR",
+    "BRACKET",
+    "BRACKETS",
+    "SEMICOLON",
+    "HASHTAG",
+    "ATSIGN",
+    "EQUALS",
+    "PLUSSIGN",
+    "EQUALSIGN",
+    "QUOTEMARK",
+    "BACKSLASH",
+    "LESSTHAN",
+    "INTEGRAL",
+    "QUESTION",
+    "QUOTES",
+    "MINUSSIGN",
+    "COMMAS"
+  ]
+}

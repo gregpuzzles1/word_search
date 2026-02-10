@@ -1,0 +1,16 @@
+{
+  "category": "general_knowledge",
+  "topic": "Space",
+  "count": 7,
+  "facts": [
+    "The Sun contains about 99.8% of all the mass in our solar system.",
+    "A day on Venus is longer than a year on Venus because it rotates very slowly.",
+    "Jupiter is so big that more than 1,300 Earths could fit inside it by volume.",
+    "Light from the Moon takes a little over one second to reach Earth.",
+    "Neutron stars are so dense that a teaspoon of their material would weigh billions of tons on Earth.",
+    "The Milky Way galaxy is so large that it takes light about 100,000 years to travel across it.",
+    "Astronauts in space can grow a little taller because their spines stretch in microgravity."
+  ],
+  "sources_hint": "general knowledge; verify if needed",
+  "generated_at": "2026-02-09T17:51:47.532Z"
+}

@@ -1,0 +1,27 @@
+{
+  "topic": "cars_trucks",
+  "difficulty": "medium",
+  "count": 20,
+  "words": [
+    "ENGINE",
+    "STEERING",
+    "BRAKES",
+    "MUFFLER",
+    "SPARKPLUG",
+    "BRAKEPADS",
+    "TAILGATE",
+    "EXHAUST",
+    "IGNITION",
+    "FENDER",
+    "CYLINDER",
+    "WINDOWS",
+    "SEATBELT",
+    "MINIVAN",
+    "RADIATOR",
+    "FUELLINE",
+    "BUMPERS",
+    "DOORLOCK",
+    "PISTONS",
+    "CAMSHAFT"
+  ]
+}

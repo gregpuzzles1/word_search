@@ -1,0 +1,16 @@
+{
+  "category": "geography",
+  "topic": "Maps",
+  "count": 7,
+  "facts": [
+    "A map is a flat drawing that represents places on Earth and uses symbols to show features like roads, rivers, and cities.",
+    "A map scale tells how distances on the map compare to real distances, such as 1 inch on the map equaling 10 miles in real life.",
+    "The four main directions on most maps are north, south, east, and west, often shown with a compass rose.",
+    "Latitude lines run east to west and measure how far north or south a place is from the Equator.",
+    "Longitude lines run north to south and measure how far east or west a place is from the Prime Meridian.",
+    "A legend (or key) explains what the map’s symbols and colors mean so you can understand what you are seeing.",
+    "Because Earth is round, every flat map projection distorts something, such as size, shape, distance, or direction."
+  ],
+  "sources_hint": "general knowledge; verify if needed",
+  "generated_at": "2026-02-09T17:49:40.883Z"
+}

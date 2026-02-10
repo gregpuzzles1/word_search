@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-02-09T20:35:50.652Z",
+  "category": "thinking_language",
+  "count": 6,
+  "topics": [
+    {
+      "slug": "grammar",
+      "label": "Grammar"
+    },
+    {
+      "slug": "idioms",
+      "label": "Idioms"
+    },
+    {
+      "slug": "logic",
+      "label": "Logic"
+    },
+    {
+      "slug": "puzzles",
+      "label": "Puzzles"
+    },
+    {
+      "slug": "riddles",
+      "label": "Riddles"
+    },
+    {
+      "slug": "vocabulary",
+      "label": "Vocabulary"
+    }
+  ],
+  "sources_hint": "deterministic slug->label normalization + overrides map"
+}

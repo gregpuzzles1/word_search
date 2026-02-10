@@ -1,0 +1,28 @@
+{
+  "generated_at": "2026-02-09T20:35:50.652Z",
+  "category": "modern_life",
+  "count": 5,
+  "topics": [
+    {
+      "slug": "current_events",
+      "label": "Current Events"
+    },
+    {
+      "slug": "internet",
+      "label": "Internet"
+    },
+    {
+      "slug": "news",
+      "label": "News"
+    },
+    {
+      "slug": "social_media",
+      "label": "Social Media"
+    },
+    {
+      "slug": "technology",
+      "label": "Technology"
+    }
+  ],
+  "sources_hint": "deterministic slug->label normalization + overrides map"
+}

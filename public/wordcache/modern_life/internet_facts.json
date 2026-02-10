@@ -1,0 +1,16 @@
+{
+  "category": "modern_life",
+  "topic": "Internet",
+  "count": 7,
+  "facts": [
+    "The Internet is a global network that connects millions of smaller networks so computers can share information.",
+    "Most websites use addresses called URLs, and the Domain Name System (DNS) helps turn names like \"example.com\" into number-based IP addresses.",
+    "Data on the Internet is often broken into small pieces called packets that can travel different routes and get reassembled at the destination.",
+    "Wi-Fi is a way to connect to the Internet without cables, but the signal still usually reaches the Internet through a wired network somewhere nearby.",
+    "The World Wide Web is only one part of the Internet, because email, online games, and video calls can work without using web pages.",
+    "HTTPS adds encryption to help keep information private when you visit a website, which is important for logins and payments.",
+    "Because information travels through many computers and cables, Internet speed can change based on distance, congestion, and the quality of the connection."
+  ],
+  "sources_hint": "general knowledge; verify if needed",
+  "generated_at": "2026-02-09T17:46:43.852Z"
+}
