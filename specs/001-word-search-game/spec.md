@@ -107,33 +107,40 @@ As a player, when I find all words I want a brief celebration and a clear choice
 ### Functional Requirements
 
 - **FR-001**: The site MUST provide a Light/Dark mode toggle and default to Light mode on first load.
+- **FR-001a**: If the user changes the theme, the site MUST persist the choice in `localStorage` and apply it on subsequent loads; otherwise default to Light.
 - **FR-002**: On initial load, the site MUST display a rounded “chip cloud” panel containing exactly 7 randomly selected category chips, using unique category labels when 7+ are available.
-- **FR-003**: Category chips MUST be populated from the labels in `public/wordcache/categories.json` using the key name `label`.
+- **FR-003**: Category chips MUST be populated from `public/wordcache/categories.json` using `categories[].label` for display and `categories[].slug` for selection.
 - **FR-004**: The site MUST provide a “Shuffle Categories” control that re-populates the category chip cloud with 7 random category labels (unique when 7+ are available).
 - **FR-005**: Selecting a category MUST generate a puzzle using words from exactly one topic within that category.
 - **FR-006**: The topic displayed label above the playing word chip cloud MUST come from the selected category’s `public/wordcache/<categorySlug>/label_topics.json` using the topic `slug` to locate the matching entry and the entry’s `label` for display.
 - **FR-007**: The site MUST provide a “Shuffle Topic” control that selects another topic within the current category and re-generates the word chip cloud, grid, and facts.
-- **FR-008**: The playing word chip cloud MUST show the selected topic words in small chips arranged to fit within 2–3 rows above the grid (and below the category chip panel).
+- **FR-008**: The playing word chip cloud MUST show the selected topic words in small chips arranged to fit within 2–3 rows above the grid (and below the category chip panel). If the chips exceed 3 rows, the chip cloud area MUST become vertically scrollable.
 - **FR-009**: Puzzle word selection MUST use difficulty files for the chosen topic:
   - Mobile/tablet: use Easy + Medium only
   - Desktop: use Easy + Medium + Hard
-- **FR-010**: For mobile/tablet puzzles, the system MUST randomly select 6 unique Easy words and 4 unique Medium words.
-- **FR-011**: For desktop puzzles, the system MUST randomly select 6 unique Easy words, 4 unique Medium words, and 2 unique Hard words.
+- **FR-010**: For mobile/tablet puzzles, the system MUST attempt to randomly select 6 unique Easy words and 4 unique Medium words.
+- **FR-011**: For desktop puzzles, the system MUST attempt to randomly select 6 unique Easy words, 4 unique Medium words, and 2 unique Hard words.
 - **FR-012**: The system MUST ensure there are no duplicate words within a single puzzle word list, even if source files contain duplicates.
+- **FR-012a**: If the selected topic does not contain enough unique words to satisfy the target mix, the system MUST select the maximum number of unique words available while prioritizing Easy then Medium then Hard (desktop only), and MUST still enforce FR-012 (no duplicates).
 - **FR-013**: The grid MUST be sized by display class: 10×10 (mobile), 12×12 (tablet), 15×15 (desktop).
 - **FR-013a**: Display classes MUST be determined by viewport width: Mobile <768px; Tablet 768–1023px; Desktop >=1024px.
 - **FR-014**: The grid MUST place words using all 8 directions.
 - **FR-015**: In the non-word (filler) grid cells, letters from the set {E, A, R, S, T} MUST make up at least 30% of filler letters.
 - **FR-016**: The grid MUST use a monospaced font.
 - **FR-017**: The player MUST be able to select letter paths using touch, mouse, and keyboard.
+- **FR-017a**: A valid selection MUST be a straight-line path aligned to one of the 8 directions (matching FR-014); non-linear paths MUST be rejected.
 - **FR-018**: While selecting letters, the UI MUST display a colored “pill” highlight; the system MUST support 5–6 distinct highlight colors for found words.
 - **FR-019**: If a selected letter path matches a remaining hidden word, the system MUST mark the word as found by (a) crossing it off in the topic chip cloud and (b) leaving the highlight on the grid.
+- **FR-019a**: Word matching MUST be case-insensitive and MUST accept the word in either forward or reverse direction along the selected path.
 - **FR-020**: If a selected letter path does not match any remaining hidden word, the system MUST reject it by briefly shaking the highlight and then removing it.
+- **FR-020a**: If `prefers-reduced-motion` is enabled, the invalid-selection “shake” MUST be replaced with a non-motion cue (e.g., brief outline/color change).
 - **FR-021**: When all words are found, the system MUST show a small confetti burst at the top of the page lasting approximately 0.5 seconds.
+- **FR-021a**: If `prefers-reduced-motion` is enabled, the confetti burst MUST be disabled or replaced with a static celebration cue.
 - **FR-022**: After completion, the system MUST display a modal offering: (a) try another topic in the current category, or (b) choose another category.
+- **FR-022a**: When the modal opens, keyboard focus MUST move into the modal (initial focus on the first action). The modal MUST require choosing one of the two actions (no implicit dismissal).
 - **FR-023**: If the player chooses another topic, the system MUST start a new puzzle from a randomly selected topic within the current category.
 - **FR-024**: If the player chooses another category, the system MUST return focus to the category chip cloud.
-- **FR-025**: The page MUST show a “3 amazing facts” section below the grid with exactly 3 randomly selected, non-duplicated facts for the current topic.
+- **FR-025**: The page MUST show a “3 amazing facts” section below the grid that displays up to 3 randomly selected, non-duplicated facts for the current topic.
 - **FR-026**: Facts MUST be sourced from the topic facts file located in the category directory (pattern: `<topic>_facts.json`) and selected from the `facts` array within that file.
 - **FR-027**: The footer MUST include: a dynamic copyright year range starting at 2026, “MIT License”, a link to the GitHub repo, and a link to open a new issue.
 - **FR-028**: The page MUST include at least 80px of whitespace/padding below the footer.
