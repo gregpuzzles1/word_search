@@ -5,6 +5,13 @@
 **Status**: Draft  
 **Input**: Modern word search game website with category/topic chip clouds, responsive puzzles, light/dark mode toggle, facts, and completion flow.
 
+## Clarifications
+
+### Session 2026-02-10
+
+- Q: Where is `label_topics.json` located? → A: It is per category at `public/wordcache/<categorySlug>/label_topics.json`.
+- Q: What key contains the facts list in `<topic>_facts.json`? → A: The facts are in the `facts` array.
+
 ## User Scenarios & Testing *(mandatory)*
 
 <!--
@@ -103,7 +110,7 @@ As a player, when I find all words I want a brief celebration and a clear choice
 - **FR-003**: Category chips MUST be populated from the labels in `public/wordcache/categories.json` using the key name `label`.
 - **FR-004**: The site MUST provide a “Shuffle Categories” control that re-populates the category chip cloud with 7 random category labels (unique when 7+ are available).
 - **FR-005**: Selecting a category MUST generate a puzzle using words from exactly one topic within that category.
-- **FR-006**: The topic displayed label above the playing word chip cloud MUST come from `public/wordcache/label_topics.json` using the topic `slug` to locate the matching entry and the entry’s `label` for display.
+- **FR-006**: The topic displayed label above the playing word chip cloud MUST come from the selected category’s `public/wordcache/<categorySlug>/label_topics.json` using the topic `slug` to locate the matching entry and the entry’s `label` for display.
 - **FR-007**: The site MUST provide a “Shuffle Topic” control that selects another topic within the current category and re-generates the word chip cloud, grid, and facts.
 - **FR-008**: The playing word chip cloud MUST show the selected topic words in small chips arranged to fit within 2–3 rows above the grid (and below the category chip panel).
 - **FR-009**: Puzzle word selection MUST use difficulty files for the chosen topic:
@@ -125,7 +132,7 @@ As a player, when I find all words I want a brief celebration and a clear choice
 - **FR-023**: If the player chooses another topic, the system MUST start a new puzzle from a randomly selected topic within the current category.
 - **FR-024**: If the player chooses another category, the system MUST return focus to the category chip cloud.
 - **FR-025**: The page MUST show a “3 amazing facts” section below the grid with exactly 3 randomly selected, non-duplicated facts for the current topic.
-- **FR-026**: Facts MUST be sourced from the topic facts file located in the category directory (pattern: `<topic>_facts.json`) and selected from the list within that file.
+- **FR-026**: Facts MUST be sourced from the topic facts file located in the category directory (pattern: `<topic>_facts.json`) and selected from the `facts` array within that file.
 - **FR-027**: The footer MUST include: a dynamic copyright year range starting at 2026, “MIT License”, a link to the GitHub repo, and a link to open a new issue.
 - **FR-028**: The page MUST include at least 80px of whitespace/padding below the footer.
 
@@ -137,7 +144,7 @@ As a player, when I find all words I want a brief celebration and a clear choice
 
 ### Assumptions & Dependencies
 
-- The repository contains `public/wordcache/categories.json` and `public/wordcache/label_topics.json` and they are consistent with the category/topic folders and files under `public/wordcache/`.
+- The repository contains `public/wordcache/categories.json` and per-category `public/wordcache/<categorySlug>/label_topics.json` and they are consistent with the category/topic folders and files under `public/wordcache/`.
 - Each topic has difficulty word lists available as Easy/Medium/Hard JSON files with a `words` list; on mobile/tablet the game will ignore Hard even if present.
 - Each topic may have an optional facts file with 7 facts; the site will display up to 3 when available.
 
