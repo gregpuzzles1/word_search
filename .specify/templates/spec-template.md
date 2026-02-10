@@ -80,6 +80,7 @@
 <!--
   ACTION REQUIRED: The content in this section represents placeholders.
   Fill them out with the right functional requirements.
+  Include any hosting or deployment constraints required by the constitution.
 -->
 
 ### Functional Requirements

@@ -31,7 +31,11 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- App remains fully static with no server runtime or database.
+- GitHub Pages deploys via GitHub Actions, triggered only from `main`.
+- Dependency additions are justified; assets remain optimized for baseline
+  accessibility and performance.
+- Build outputs are generated in Actions and not committed to the repo.
 
 ## Project Structure
 

@@ -1,50 +1,70 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report
+- Version change: 0.0.0-placeholder -> 1.0.0
+- Modified principles: Initialized five principles for static web app + GitHub Pages
+- Added sections: Technology Constraints; Development Workflow
+- Removed sections: None
+- Templates requiring updates:
+	- .specify/templates/plan-template.md: ✅ updated
+	- .specify/templates/spec-template.md: ✅ updated
+	- .specify/templates/tasks-template.md: ✅ updated
+	- .specify/templates/commands/*.md: ✅ no files found
+- Follow-up TODOs:
+	- TODO(RATIFICATION_DATE): original adoption date not found
+-->
+# Word Search Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Static-Only App
+The app MUST be fully static and run in the browser with no server-side
+runtime, databases, or server builds in this repository. External services
+are allowed only when they do not require server code in this repo.
+Rationale: GitHub Pages hosts static content only.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Main-Only Actions Deploy
+Deployments to GitHub Pages MUST be performed by GitHub Actions and MUST run
+only on the `main` branch. Manual uploads or deployments from other branches
+are not allowed.
+Rationale: Ensures reproducible and traceable releases.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Minimal Dependency Surface
+Dependencies MUST be added only when native browser capabilities are
+insufficient. Each new dependency MUST include a brief justification in the
+change description.
+Rationale: Keeps bundle size and maintenance cost low.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Baseline Accessibility and Performance
+The UI MUST use semantic HTML, support keyboard access for interactive
+controls, and avoid large unoptimized assets. The primary page MUST load
+without blocking on non-critical resources.
+Rationale: Basic quality and usability for a public static site.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Build Output Is Ephemeral
+Build outputs for GitHub Pages MUST be generated in GitHub Actions and MUST
+NOT be committed to the repository unless the hosting setup explicitly
+requires it.
+Rationale: Prevents source control drift and keeps the repo clean.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Technology Constraints
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+- The site MUST be a static web app using HTML, CSS, and JavaScript.
+- The deployment target is GitHub Pages via a GitHub Actions workflow.
+- Any build step MUST produce static assets suitable for Pages hosting.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+## Development Workflow
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+- All changes MUST be merged into `main` before deployment.
+- Feature work MUST include a Constitution Check in the implementation plan.
+- Exceptions to any principle MUST be documented with rationale in the plan.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+- This constitution supersedes other project guidance.
+- Amendments require a documented change, review, and update to version and
+	dates.
+- Versioning follows semantic versioning: MAJOR for breaking governance
+	changes, MINOR for new principles or sections, PATCH for clarifications.
+- Compliance is reviewed during planning and before merge to `main`.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: TODO(RATIFICATION_DATE): original adoption date not found | **Last Amended**: 2026-02-10
