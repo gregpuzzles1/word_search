@@ -8,9 +8,12 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer-links">
-        <span>{yearRange}</span>
+        <span>© {yearRange} Greg Christian</span>
+        <span className="footer-sep">·</span>
         <span>MIT License</span>
-        <a href="https://github.com/gregpuzzles1/word_search">Repository</a>
+        <span className="footer-sep">·</span>
+        <a href="https://github.com/gregpuzzles1/word_search">GitHub Repo</a>
+        <span className="footer-sep">·</span>
         <a href="https://github.com/gregpuzzles1/word_search/issues/new">
           Open Issue
         </a>
