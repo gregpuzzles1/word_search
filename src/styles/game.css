@@ -1,11 +1,13 @@
 .grid {
   display: grid;
-  gap: 14px;
+  gap: var(--grid-gap, 14px);
   grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
   touch-action: none;
+  position: relative;
+  isolation: isolate;
 }
 
 .grid-row {
@@ -22,6 +24,8 @@
   border-radius: 0;
   aspect-ratio: 1 / 1;
   border: none;
+  position: relative;
+  z-index: 2;
 }
 
 .grid-cell.is-preview {
@@ -32,6 +36,29 @@
 .grid-cell.is-found {
   background: var(--cell-accent, var(--brand));
   color: var(--brand-ink);
+}
+
+.grid.has-pill .grid-cell.is-preview {
+  background: transparent;
+}
+
+.grid.has-pill .grid-cell.is-found {
+  background: transparent;
+}
+
+.grid-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.grid-pill {
+  position: absolute;
+  background: var(--pill-color, var(--brand));
+  border-radius: 999px;
+  opacity: 0.95;
+  transform-origin: center;
 }
 
 .grid.is-shaking {
@@ -83,48 +110,35 @@
 }
 
 .confetti {
-  position: fixed;
-  top: 120px;
-  left: 0;
-  right: 0;
-  height: 120px;
-  overflow: hidden;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 0;
+  height: 0;
+  transform: translate(-50%, -40%);
   pointer-events: none;
-  z-index: 30;
+  z-index: 5;
 }
 
 .confetti-piece {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 12px;
-  height: 20px;
+  width: 10px;
+  height: 16px;
   border-radius: 4px;
-  background: var(--highlight-0);
-  animation: confetti-fall 2s ease-out forwards;
+  background: var(--confetti-color, var(--highlight-0));
+  animation: confetti-burst 1.4s ease-out forwards;
 }
 
-.confetti-piece:nth-child(2) { left: 8%; background: var(--highlight-1); }
-.confetti-piece:nth-child(3) { left: 16%; background: var(--highlight-2); }
-.confetti-piece:nth-child(4) { left: 24%; background: var(--highlight-3); }
-.confetti-piece:nth-child(5) { left: 32%; background: var(--highlight-4); }
-.confetti-piece:nth-child(6) { left: 40%; background: var(--highlight-5); }
-.confetti-piece:nth-child(7) { left: 48%; background: var(--highlight-0); }
-.confetti-piece:nth-child(8) { left: 56%; background: var(--highlight-1); }
-.confetti-piece:nth-child(9) { left: 64%; background: var(--highlight-2); }
-.confetti-piece:nth-child(10) { left: 72%; background: var(--highlight-3); }
-.confetti-piece:nth-child(11) { left: 80%; background: var(--highlight-4); }
-.confetti-piece:nth-child(12) { left: 88%; background: var(--highlight-5); }
-.confetti-piece:nth-child(13) { left: 96%; background: var(--highlight-0); }
-.confetti-piece:nth-child(14) { left: 4%; background: var(--highlight-2); }
-
-@keyframes confetti-fall {
+@keyframes confetti-burst {
   0% {
-    transform: translateY(0) rotate(0deg);
+    transform: translate(0, 0) scale(0.9) rotate(0deg);
+    opacity: 1;
+  }
+  70% {
     opacity: 1;
   }
   100% {
-    transform: translateY(120px) rotate(50deg);
+    transform: translate(var(--dx), var(--dy)) rotate(var(--rot));
     opacity: 0;
   }
 }
@@ -148,6 +162,14 @@
   box-shadow: 0 30px 80px -40px var(--shadow);
   display: grid;
   gap: 12px;
+  position: relative;
+  z-index: 4;
+}
+
+.modal-shell {
+  position: relative;
+  display: grid;
+  place-items: center;
 }
 
 .modal-title {
@@ -168,6 +190,19 @@
 @media (min-width: 540px) {
   .modal-actions {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .grid {
+    --grid-gap: 10px;
+    max-width: 75%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    max-width: 50%;
   }
 }
 

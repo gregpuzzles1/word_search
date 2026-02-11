@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import AriaStatus from "../components/AriaStatus";
 import CategoryChipCloud from "../components/CategoryChipCloud";
-import ConfettiBurst from "../components/ConfettiBurst";
 import CompletionModal from "../components/CompletionModal";
 import FactsSection from "../components/FactsSection";
 import Footer from "../components/Footer";
@@ -76,9 +75,11 @@ export default function App() {
     if (!puzzle || puzzle.puzzleId === lastCompletedIdRef.current) return;
 
     lastCompletedIdRef.current = puzzle.puzzleId;
-    setShowConfetti(true);
-    const confettiTimer = window.setTimeout(() => setShowConfetti(false), 2000);
-    const modalTimer = window.setTimeout(() => setShowModal(true), 2200);
+    const modalTimer = window.setTimeout(() => {
+      setShowModal(true);
+      setShowConfetti(true);
+    }, 500);
+    const confettiTimer = window.setTimeout(() => setShowConfetti(false), 2100);
     return () => {
       window.clearTimeout(confettiTimer);
       window.clearTimeout(modalTimer);
@@ -116,7 +117,6 @@ export default function App() {
       </header>
 
       <main className="app-main">
-        {status === "completed" ? <ConfettiBurst active={showConfetti} /> : null}
         <CategoryChipCloud
           categories={categories}
           selectedSlug={selectedCategory?.slug ?? null}
@@ -171,6 +171,7 @@ export default function App() {
       <AriaStatus message={ariaMessage} />
       <CompletionModal
         open={showModal}
+        confettiActive={showConfetti}
         onAnotherTopic={handleAnotherTopic}
         onAnotherCategory={handleAnotherCategory}
       />
