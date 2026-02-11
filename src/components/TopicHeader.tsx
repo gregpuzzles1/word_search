@@ -10,7 +10,7 @@ export default function TopicHeader({
   disabled
 }: TopicHeaderProps) {
   return (
-    <section className="topic-panel">
+    <section className="topic-panel" id="topic-panel" tabIndex={-1}>
       <div className="chip-panel-header">
         <h2 className="section-title">Topic: {label ?? "Select a category"}</h2>
         <button

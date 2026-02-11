@@ -90,6 +90,9 @@ export default function App() {
     setShowConfetti(false);
     setShowModal(false);
     startAnotherTopic();
+    window.setTimeout(() => {
+      document.getElementById("topic-panel")?.focus();
+    }, 0);
   };
 
   const handleAnotherCategory = () => {
