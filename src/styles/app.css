@@ -151,6 +151,8 @@ a {
   place-items: center;
   min-height: 240px;
   width: 100%;
+  touch-action: none;
+  overscroll-behavior: contain;
   overflow: hidden;
 }
 
