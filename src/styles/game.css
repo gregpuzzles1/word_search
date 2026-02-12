@@ -19,8 +19,10 @@
   place-items: center;
   font-family: "JetBrains Mono", monospace;
   font-size: clamp(1.25rem, 2.6vw, 1.6rem);
+  font-weight: 700;
   background: transparent;
   color: var(--ink);
+  touch-action: none;
   border-radius: 0;
   aspect-ratio: 1 / 1;
   border: none;
@@ -35,7 +37,7 @@
 
 .grid-cell.is-found {
   background: var(--cell-accent, var(--brand));
-  color: var(--brand-ink);
+  color: var(--ink);
 }
 
 .grid.has-pill .grid-cell.is-preview {
