@@ -9,6 +9,11 @@ import { gameReducer, initialGameState } from "./state";
 import { getSelectionPreview } from "./path";
 import { findMatchingPlacement } from "./validateSelection";
 import { isComplete } from "./isComplete";
+import {
+  clearGameSnapshot,
+  loadGameSnapshot,
+  saveGameSnapshot
+} from "./persistence";
 
 const pickVisibleCategories = (categories: Category[]) => {
   return sampleUnique(categories, Math.min(7, categories.length));
@@ -64,6 +69,36 @@ export const useWordSearchGame = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const snapshot = loadGameSnapshot();
+    if (!snapshot) return;
+
+    setSelectedCategory(snapshot.selectedCategory ?? snapshot.puzzle.category);
+    dispatch({ type: "SET_PUZZLE", payload: snapshot.puzzle });
+
+    if (snapshot.status === "completed") {
+      dispatch({ type: "SET_STATUS", payload: "completed" });
+    }
+  }, []);
+
+  useEffect(() => {
+    const { puzzle, status } = state;
+    const isPersistableStatus = status === "playing" || status === "completed";
+
+    if (!puzzle || !isPersistableStatus) {
+      if (!selectedCategory) {
+        clearGameSnapshot();
+      }
+      return;
+    }
+
+    saveGameSnapshot({
+      status,
+      puzzle,
+      selectedCategory
+    });
+  }, [selectedCategory, state.puzzle, state.status]);
+
   const shuffleCategories = useCallback(() => {
     if (!state.categories.length) return;
     setVisibleCategories(pickVisibleCategories(state.categories));
@@ -110,6 +145,7 @@ export const useWordSearchGame = () => {
   }, [loadPuzzle, selectedCategory]);
 
   const startAnotherCategory = useCallback(() => {
+    clearGameSnapshot();
     setSelectedCategory(null);
     dispatch({ type: "RESET" });
   }, []);
