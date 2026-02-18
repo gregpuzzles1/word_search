@@ -2,6 +2,8 @@
 
 An interactive word search puzzle game featuring multiple categories and difficulty levels. Play free word search puzzles online with topics ranging from Bible and science to geography, sports, and more!
 
+![Word Search Demo](assets/demo.gif)
+
 🎮 **[Play Now](https://gregpuzzles1.github.io/word_search/)**
 
 ## 🎯 How to Play
