@@ -10,7 +10,9 @@ export default function Footer() {
       <div className="footer-links">
         <span>© {yearRange} Greg Christian</span>
         <span className="footer-sep">·</span>
-        <span>MIT License</span>
+        <a href="https://github.com/gregpuzzles1/word_search/blob/main/LICENSE">
+          MIT License
+        </a>
         <span className="footer-sep">·</span>
         <a href="https://github.com/gregpuzzles1/word_search">GitHub Repo</a>
         <span className="footer-sep">·</span>
