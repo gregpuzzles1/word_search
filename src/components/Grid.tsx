@@ -1,6 +1,6 @@
 import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import type { CSSProperties, KeyboardEvent } from "react";
-import type { FoundWord, SelectionPreview } from "../game/state";
+import type { CellCoord, FoundWord, SelectionPreview } from "../game/state";
 
 type GridMetrics = {
   cellSize: number;
@@ -78,6 +78,7 @@ type GridProps = {
   grid: string[][];
   selection: SelectionPreview | null;
   foundWords: FoundWord[];
+  hintCell: CellCoord | null;
   invalidSelection: boolean;
   onStartSelection: (cell: { row: number; col: number }) => void;
   onUpdateSelection: (cell: { row: number; col: number }) => void;
@@ -89,6 +90,7 @@ export default function Grid({
   grid,
   selection,
   foundWords,
+  hintCell,
   invalidSelection,
   onStartSelection,
   onUpdateSelection,
@@ -292,6 +294,8 @@ export default function Grid({
               const key = `${rowIndex}-${colIndex}`;
               const foundIndex = foundMap.get(key);
               const isPreview = previewSet.has(key);
+              const isHinted =
+                hintCell?.row === rowIndex && hintCell?.col === colIndex;
               const cellStyle =
                 foundIndex !== undefined
                   ? ({ "--cell-accent": `var(--highlight-${foundIndex})` } as CSSProperties)
@@ -302,6 +306,7 @@ export default function Grid({
                   key={`cell-${key}`}
                   className={`grid-cell${isPreview ? " is-preview" : ""}${
                     foundIndex !== undefined ? " is-found" : ""
+                  }${isHinted ? " is-hint" : ""
                   }`}
                   style={cellStyle}
                   role="gridcell"

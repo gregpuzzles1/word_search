@@ -2,13 +2,14 @@ import { useCallback, useEffect, useMemo, useReducer, useState } from "react";
 import { loadCategories } from "../data/wordcache";
 import { buildPuzzle } from "./buildPuzzle";
 import { getViewportClass } from "./viewport";
-import { sampleUnique } from "./random";
+import { pickOne, sampleUnique } from "./random";
 import type { Category } from "../data/types";
 import type { ViewportClass } from "./viewport";
 import { gameReducer, initialGameState } from "./state";
 import { getSelectionPreview } from "./path";
 import { findMatchingPlacement } from "./validateSelection";
 import { isComplete } from "./isComplete";
+import type { CellCoord } from "./state";
 import {
   clearGameSnapshot,
   loadGameSnapshot,
@@ -25,6 +26,7 @@ export const useWordSearchGame = () => {
   const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
   const [invalidSelection, setInvalidSelection] = useState(false);
   const [ariaMessage, setAriaMessage] = useState("");
+  const [hintCell, setHintCell] = useState<CellCoord | null>(null);
   const [viewportWidth, setViewportWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 1024
   );
@@ -98,6 +100,27 @@ export const useWordSearchGame = () => {
       selectedCategory
     });
   }, [selectedCategory, state.puzzle, state.status]);
+
+  useEffect(() => {
+    setHintCell(null);
+  }, [state.puzzle?.puzzleId]);
+
+  useEffect(() => {
+    if (!state.puzzle || !hintCell) return;
+
+    const foundWords = new Set(state.puzzle.foundWords.map((found) => found.word));
+    const hintableFirstCells = state.puzzle.placements
+      .filter((placement) => !foundWords.has(placement.word))
+      .map((placement) => placement.cells[0]);
+
+    const isStillHintable = hintableFirstCells.some(
+      (cell) => cell.row === hintCell.row && cell.col === hintCell.col
+    );
+
+    if (!isStillHintable) {
+      setHintCell(null);
+    }
+  }, [hintCell, state.puzzle]);
 
   const shuffleCategories = useCallback(() => {
     if (!state.categories.length) return;
@@ -176,6 +199,36 @@ export const useWordSearchGame = () => {
     dispatch({ type: "CLEAR_SELECTION" });
   }, []);
 
+  const requestHint = useCallback(() => {
+    if (!state.puzzle) return;
+
+    const foundWords = new Set(state.puzzle.foundWords.map((found) => found.word));
+    const firstLetterCells = Array.from(
+      new Map(
+        state.puzzle.placements
+          .filter((placement) => !foundWords.has(placement.word))
+          .map((placement) => placement.cells[0])
+          .map((cell) => [`${cell.row}-${cell.col}`, cell] as const)
+      ).values()
+    );
+
+    if (!firstLetterCells.length) {
+      setHintCell(null);
+      return;
+    }
+
+    const alternativeCells =
+      hintCell && firstLetterCells.length > 1
+        ? firstLetterCells.filter(
+            (cell) => cell.row !== hintCell.row || cell.col !== hintCell.col
+          )
+        : firstLetterCells;
+
+    const nextHint = pickOne(alternativeCells) ?? firstLetterCells[0];
+    setHintCell(nextHint);
+    setAriaMessage("Hint revealed");
+  }, [hintCell, state.puzzle]);
+
   const commitSelection = useCallback(() => {
     if (!state.puzzle || !state.selection) return;
     const { pathCells } = state.selection;
@@ -212,6 +265,7 @@ export const useWordSearchGame = () => {
     selectedCategory,
     puzzle: state.puzzle,
     selection: state.selection,
+    hintCell,
     invalidSelection,
     ariaMessage,
     setAriaMessage,
@@ -224,6 +278,7 @@ export const useWordSearchGame = () => {
     updateSelection,
     commitSelection,
     clearSelection,
+    requestHint,
     viewport
   };
 };

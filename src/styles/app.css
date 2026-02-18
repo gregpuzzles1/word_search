@@ -163,6 +163,11 @@ a {
   border-radius: 16px;
 }
 
+.hint-actions {
+  display: flex;
+  justify-content: center;
+}
+
 button:disabled {
   opacity: 0.5;
   cursor: not-allowed;

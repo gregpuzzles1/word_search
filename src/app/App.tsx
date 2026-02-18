@@ -40,7 +40,9 @@ export default function App() {
     startSelection,
     updateSelection,
     commitSelection,
-    clearSelection
+    clearSelection,
+    hintCell,
+    requestHint
   } = useWordSearchGame();
   const [showConfetti, setShowConfetti] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -155,6 +157,7 @@ export default function App() {
             grid={puzzle.grid}
             selection={selection}
             foundWords={puzzle.foundWords}
+            hintCell={hintCell}
             invalidSelection={invalidSelection}
             onStartSelection={startSelection}
             onUpdateSelection={updateSelection}
@@ -166,6 +169,17 @@ export default function App() {
             <div className="grid-placeholder">Grid will render here.</div>
           </div>
         )}
+
+        <div className="hint-actions">
+          <button
+            type="button"
+            className="chip-action"
+            onClick={requestHint}
+            disabled={!puzzle || status === "loading" || status === "error"}
+          >
+            Hint
+          </button>
+        </div>
 
         <FactsSection facts={puzzle?.facts ?? []} />
       </main>

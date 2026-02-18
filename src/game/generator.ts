@@ -131,8 +131,9 @@ export const generateGrid = (
       }
 
       if (!candidates.length) return false;
-      candidates.sort((a, b) => b.overlap - a.overlap);
-      const shortlist = shuffle(candidates.slice(0, maxCandidates));
+      const rankedCandidates = shuffle(candidates);
+      rankedCandidates.sort((a, b) => b.overlap - a.overlap);
+      const shortlist = rankedCandidates.slice(0, maxCandidates);
 
       for (const candidate of shortlist) {
         const changed = placeWordOnGrid(grid, word, candidate.cells);
