@@ -110,16 +110,19 @@ npm run preview
 
 ## 📚 Categories Available
 
+- **Arts & Culture** - Art, books, movies, theater, and cultural topics
+- **Astronomy** - Space, planets, stars, and celestial objects
 - **Bible** - Biblical names, places, and stories
-- **Science & Math** - Biology, Chemistry, Physics, Mathematics, Engineering
+- **Everyday Life** - Common objects, activities, and concepts
+- **General Knowledge** - Wide-ranging topics and trivia
 - **Geography** - Countries, cities, landmarks, and natural features
 - **History & Civics** - Historical events, figures, and government
-- **Arts & Culture** - Art, books, movies, theater, and cultural topics
-- **Music** - Instruments, composers, genres, and musical terms
-- **Everyday Life** - Common objects, activities, and concepts
 - **Modern Life** - Technology, social media, and contemporary topics
-- **General Knowledge** - Wide-ranging topics and trivia
-- **Astronomy** - Space, planets, stars, and celestial objects
+- **Music** - Instruments, composers, genres, and musical terms
+- **Science & Math** - Biology, Chemistry, Physics, Mathematics, Engineering
+- **Sports & Games** - Sports, games, and recreational activities
+- **Thinking & Language** - Logic, puzzles, words, and communication
+- **Transportation** - Vehicles, travel, and transportation systems
 
 ## 🎨 Features
 
