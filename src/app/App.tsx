@@ -173,7 +173,7 @@ export default function App() {
         <div className="hint-actions">
           <button
             type="button"
-            className="chip-action"
+            className="chip-action hint-button"
             onClick={requestHint}
             disabled={!puzzle || status === "loading" || status === "error"}
           >

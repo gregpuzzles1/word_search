@@ -168,6 +168,12 @@ a {
   justify-content: center;
 }
 
+.hint-button {
+  background: #fff;
+  border-color: #000;
+  color: #000;
+}
+
 button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
